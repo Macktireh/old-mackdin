@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Baumans&family=Inconsolata:wght@300&family=Megrim&display=swap");
+*, ::after, ::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+*::selection {
+  background-color: #1abc9c;
+  color: #f1f1f1;
+}
+
+a {
+  text-decoration: none;
+  color: #f1f1f1;
+}
+
+a:visited {
+  color: #f1f1f1;
+}
+
+.flex-center, .main-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background: #2c3e50;
+  color: #f1f1f1;
+  font-family: ui-sans-serif, system-ui;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.body-container {
+  width: 100%;
+  max-width: 1150px;
+}
+
+.main-home {
+  margin-top: 18px;
+  height: 100vh;
+  background-color: #34495e;
+  box-shadow: 0 2px 3px 0 #0000001a;
+  border-radius: 8px;
+}
+
+/*# sourceMappingURL=style.css.map */

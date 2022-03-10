@@ -3,7 +3,7 @@
 <div class="nav-container">
   <div>
     <a class="logo" href="{% url 'home' %}">
-      <img src=" {% static 'components/img/logo2.jpg' %} " alt="logo Macktireh">
+      <img src=" {% static 'components/img/linkedin-cust.svg' %} " alt="logo">
     </a>
   </div>
 
@@ -13,7 +13,7 @@
         <div class="nav-text">
           <img class="nav-img" src="{% static 'components/img/home.svg' %}" alt="">
           <span class="animation {% if start_animation == 'home' %}start-animation{% endif %}"></span>
-          <span class="nav-text-span">Home</span>
+          <span class="nav-text-span">Acceuil</span>
         </div>
       </a>
       {% if not user.is_authenticated %}
@@ -36,31 +36,31 @@
         <div class="nav-text">
           <img class="nav-img" src="{% static 'components/img/blog.svg' %}" alt="">
           <span class="animation {% if start_animation == 'blog' %}start-animation{% endif %}"></span>
-          <span class="nav-text-span">Blog</span>
+          <span class="nav-text-span">Réseau</span>
         </div>
       </a>
-      <!-- <a href="{% url 'sign_in' %}" class="nav-item">
+      <a href="{% url 'sign_in' %}" class="nav-item">
         <div class="nav-text">
           <img class="nav-img" src="{% static 'components/img/heart.svg' %}" alt="">
           <span class="animation {% if start_animation == 'sign_in' %}start-animation{% endif %}"></span>
-          <span class="nav-text-span">Projet</span>
+          <span class="nav-text-span">Messagerie</span>
         </div>
       </a>
       <a href="{% url 'admin:index' %}" class="nav-item" target="_blank">
         <div class="nav-text">
           <img class="nav-img" src="{% static 'components/img/contact.svg' %}" alt="">
           <span class="animation {% if start_animation == 'admin' %}start-animation{% endif %}}"></span>
-          <span class="nav-text-span">Contact</span>
+          <span class="nav-text-span">Notifications</span>
         </div>
-      </a> -->
+      </a>
       {% if user.is_superuser %}
-      <a href="{% url 'admin:index' %}" class="nav-item" target="_blank">
+      <!-- <a href="{% url 'admin:index' %}" class="nav-item" target="_blank">
         <div class="nav-text">
           <img class="nav-img" src="{% static 'components/img/contact.svg' %}" alt="">
           <span class="animation {% if start_animation == 'admin' %}start-animation{% endif %}}"></span>
           <span class="nav-text-span">Administration</span>
         </div>
-      </a>
+      </a> -->
       {% endif %}
       <a href="{% url 'logout' %}" class="nav-item">
         <div class="nav-text">

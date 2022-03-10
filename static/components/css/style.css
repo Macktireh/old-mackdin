@@ -62,13 +62,13 @@ body {
 }
 
 a.logo {
-  margin-left: 5px;
+  margin-left: 20px;
   height: 50px;
   transition: 0.4s;
   vertical-align: middle;
 }
 a.logo img {
-  width: 180px;
+  width: 35px;
 }
 
 nav {
@@ -83,7 +83,7 @@ nav ul {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 10px;
   height: 100%;
   width: 100%;
 }
@@ -109,7 +109,7 @@ nav ul a {
   position: relative;
   text-align: center;
   height: 100%;
-  gap: 10px;
+  gap: 5px;
 }
 
 .animation {

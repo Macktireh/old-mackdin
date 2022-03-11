@@ -57,8 +57,11 @@ body {
   align-items: center;
   transition: 0.4s;
   background-color: #34495e;
-  box-shadow: 0 2px 3px 0 #0000001a;
-  border-radius: 8px;
+  box-shadow: 0 5px 5px #2c3e50;
+  position: fixed;
+  z-index: 1;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 a.logo {

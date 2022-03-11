@@ -39,10 +39,10 @@
           <span class="nav-text-span">Réseau</span>
         </div>
       </a>
-      <a href="{% url 'sign_in' %}" class="nav-item">
+      <a href="{% url 'post_list' %}" class="nav-item">
         <div class="nav-text">
           <img class="nav-img" src="{% static 'components/img/heart.svg' %}" alt="">
-          <span class="animation {% if start_animation == 'sign_in' %}start-animation{% endif %}"></span>
+          <span class="animation  {% if start_animation == 'feed' %}start-animation{% endif %}"></span>
           <span class="nav-text-span">Messagerie</span>
         </div>
       </a>

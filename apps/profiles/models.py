@@ -20,7 +20,7 @@ def pseudo_rename(instance, filename):
     return os.path.join(upload_to, filename)
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     pseudo = models.CharField(max_length=48, blank=True)
     bio = models.TextField(max_length=500, blank=True)
     img_profile = models.ImageField(_("photo de profile"), upload_to=rename_img, blank=True, null=True)

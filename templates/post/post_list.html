@@ -15,12 +15,65 @@
 
 {% block content %}
 <main class="main-list_post">
-    <div class="container-left"></div>
-    <div class="container-main">
-        <div class="new-add-post"></div>
-        <div class="container-all-post"></div>
+  <div class="container-left"></div>
+  <div class="container-main">
+    <div class="new-add-post">etgrdtyhgf</div>
+
+    {% for post in posts %}
+    <div class="container-all-post">
+
+      <div class="post-header">
+        <div class="post-header-img">
+          <img src="        
+            {% if post.author.profile.img_profile %}
+            {{ post.author.profile.img_profile.url }}
+            {% else %}
+            {% static 'components/img/user.svg' %}
+            {% endif %}" alt="">
+        </div>
+        <div class="post-header-info">
+          <strong>{{post.author.first_name}} {{post.author.last_name}}</strong>
+          <p>{{post.author.profile.bio}}</p>
+          <p>{{post.date_created}}</p>
+        </div>
+      </div>
+
+      <div class="post-text-content">
+        <p>{{post.message|safe}}</p>
+      </div>
+
+      {% if post.img %}
+      <div class="post-img">
+        <img src="{{post.img.url}}" alt="">
+      </div>
+      {% endif %}
+
+      <div class="post-footer">
+        <div class="count-likes-comments">
+          <p>3 likes</p>
+          <p>1 comment</p>
+        </div>
+        <hr>
+        <div class="box-action-icon">
+          <a href="#" class="action-icon box-like">
+            <img src="{% static 'post/img/like.svg' %}" alt="">
+            <span>J'aime</span>
+          </a>
+          <a href="#" class="action-icon box-comment">
+            <img src="{% static 'post/img/comment.svg' %}" alt="">
+            <span>Commenter</span>
+          </a>
+          <a href="#" class="action-icon box-share">
+            <img src="{% static 'post/img/heart.svg' %}" alt="">
+            <span>Partager</span>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="container-right"></div>
+    {% endfor %}
+
+  </div>
+  <div class="container-right"></div>
 </main>
 {% endblock content %}
 

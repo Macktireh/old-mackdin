@@ -17,7 +17,36 @@
 <main class="main-list_post">
   <div class="container-left"></div>
   <div class="container-main">
-    <div class="new-add-post">etgrdtyhgf</div>
+    <div class="new-add-post">
+      <div class="new-add-post-left-container">
+        <img src="        
+        {% if user.profile.img_profile %}
+        {{ user.profile.img_profile.url }}
+        {% else %}
+        {% static 'components/img/user.svg' %}
+        {% endif %}" alt="">
+      </div>
+      <div class="new-add-post-right-container">
+        <form class="form-new-add-post" action="">
+          <div class="input-text">
+            <textarea name="" id="" cols="65" rows="2" placeholder="Ajouter un post"></textarea>
+          </div>
+          <div>
+            <div class="input-file">
+              <input type="file" name="" id="file" class="form-input-file">
+              <label for="file" class="form-lable">
+                <img src="{% static 'post/img/gal.svg' %}" alt="">
+                <span>Ajouter une photo</span>
+              </label>
+            </div>
+            <button type="submit">
+              <span>Ajouter</span>
+              <img src="{% static 'post/img/send.svg' %}" alt="">
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     {% for post in posts %}
     <div class="container-all-post">
@@ -50,21 +79,38 @@
 
       <div class="post-footer">
         <div class="count-likes-comments">
-          <p>3 likes</p>
-          <p>1 comment</p>
+          <p id="likes-count{{post.id}}">
+            <span id="likes-num{{post.id}}">{{post.liked.count}}</span>
+            <span id="text-plural{{post.id}}">{% if post.liked.count > 1 %}
+              Likes
+              {% else %}
+              Like
+              {% endif %}</span>
+          </p>
+          <p id="comments-count{{post.id}}">1 comment</p>
         </div>
         <hr>
         <div class="box-action-icon">
-          <a href="#" class="action-icon box-like">
-            <img src="{% static 'post/img/like.svg' %}" alt="">
-            <span>J'aime</span>
-          </a>
+          <form action="{% url 'like_post' %}" method="POST" class="like-form" id="{{post.id}}">
+            {% csrf_token %}
+            <input type="hidden" name="post_id" value="{{post.id}}">
+            <button type="submit" class="like-btn{{post.id}}">
+              {% if user not in post.liked.all %}
+              <img id="like-img{{post.id}}" src="{% static 'post/img/unlike.svg' %}" alt="">
+              <span class="like-text{{post.id}}">J'aime</span>
+              {% else %}
+              <img id="like-img{{post.id}}" src="{% static 'post/img/like.svg' %}" alt="">
+              <span class="like-text{{post.id}}">Je n'aime pas</span>
+              {% endif %}
+            </button>
+          </form>
+
           <a href="#" class="action-icon box-comment">
             <img src="{% static 'post/img/comment.svg' %}" alt="">
             <span>Commenter</span>
           </a>
           <a href="#" class="action-icon box-share">
-            <img src="{% static 'post/img/heart.svg' %}" alt="">
+            <img src="{% static 'post/img/share.svg' %}" alt="">
             <span>Partager</span>
           </a>
         </div>
@@ -79,6 +125,93 @@
 
 {% block footer %} {% include 'components/footer.html' %} {% endblock footer %}
 
+
+
 {% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous">
+  </script>
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
+
+<script>
+  $(document).ready(function () {
+    $('.like-form').submit(function (e) {
+
+      // stoper le rechargement de la page lorsque on clique btn like
+      e.preventDefault();
+
+      // selectionner l'id du formulaire
+      const post_id = $(this).attr('id');
+
+      // selectionner le text de btn like (j'aime ou je n'aime pas)
+      const likeText = $(`.like-text${post_id}`).text();
+
+      // selectionner l'url de l'action du formulaire
+      const url = $(this).attr('action');
+
+      // declarer une variable res pour compter le nombre de like
+      let res;
+
+      // selectionner le text de nombre de like et convertir en string
+      const likes_count = $(`#likes-num${post_id}`);
+      const likes_num = parseInt(likes_count.text());
+
+      // selectionner le text de nombre de like et convertir en string
+      const likes_text_plural = $(`#text-plural${post_id}`);
+      // console.log(img_like);
+      console.log($(`#text-plural${post_id}`).text());
+
+      const fonc_text_plural = (n) => {
+        if (n > 1) {
+          likes_text_plural.text('Likes')
+        } else {
+          likes_text_plural.text('Like')
+        }
+      }
+
+      // ajax avec method POST sans rechargement de la page
+      $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+          'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+          'post_id': post_id,
+        },
+        success: function (response) {
+          `condition
+           si le text de btn like est 'Je n'aime pas':
+            - change le text en 'J'aime'
+            - change le icone like.svg en unlike.svg
+            - affecter la variable res à likes_count + 1
+            - mettre à jour le nombre de like avec la variable res
+            sinon :
+            - change le text en 'Je n'aime pas'
+            - change le icone like.svg en like.svg
+            - affecter la variable res à likes_count - 1
+            - mettre à jour le nombre de like avec la variable res`
+
+          if (likeText === "Je n'aime pas") {
+            $(`.like-text${post_id}`).text("J'aime");
+            $(`#like-img${post_id}`).prop('src',
+              '{% static "post/img/unlike.svg" %}');
+            res = likes_num - 1
+            fonc_text_plural(res)
+          } else {
+            $(`.like-text${post_id}`).text("Je n'aime pas");
+            $(`#like-img${post_id}`).prop('src',
+              '{% static "post/img/like.svg" %}');
+            res = likes_num + 1
+            fonc_text_plural(res)
+          }
+
+          likes_count.text(res);
+        },
+        error: function (response) {
+          console.log('error', response);
+        }
+      })
+    })
+  })
+</script>
+
 {% endblock js %}

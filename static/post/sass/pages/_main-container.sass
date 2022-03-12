@@ -54,12 +54,13 @@
 
   .box-action-icon
     display: grid
-    grid-template-columns: 30% 40% 30%
+    grid-template-columns: 33% 34% 33%
+    // grid-template-columns: 25% 25% 25% 25%
 
     .action-icon
       padding: 1rem 0
       @extend .flex-center
-      gap: 0.3rem
+      gap: 0.4rem
 
       img
         width: 30px
@@ -67,3 +68,23 @@
       &:hover
         background-color: $color6
         border-radius: 8px
+
+form button
+  padding: 1rem 0
+  width: 100%
+  background-color: $color4
+  border: none
+  outline: none
+  @extend .flex-center
+  gap: 0.4rem
+  cursor: pointer
+  img
+    width: 30px
+  span
+    color: $color2
+    font-size: 16px
+  &:hover
+    background-color: $color6
+    border-radius: 8px
+  &:active
+    transform: scale(0.98)

@@ -10,7 +10,7 @@ let val;
 // console.log(previous_container);
 
 input_text.addEventListener("input", (e) => {
-  let val = e.target.value;
+  val = e.target.value;
   //   console.log(val);
   if (val.length >= 1 || input_img.value) {
     previous_container.classList.remove("display-none");

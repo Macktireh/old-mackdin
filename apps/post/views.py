@@ -3,15 +3,36 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
 from apps.post.models import Like, Post
+from apps.post.forms import PostForm
 
 
 @login_required(login_url='sign_in')
-def Post_List_View(request, *args, **kwargs):
+def post_create_list_view(request, *args, **kwargs):
     posts = Post.objects.all()
+    user = request.user
+    add_post = False
+    
+    if request.method == 'POST':
+        AddPostForm = PostForm(request.POST or None, request.FILES or None)
+        if AddPostForm.is_valid():
+            instance = AddPostForm.save(commit=False)
+            instance.author = user
+            instance.save()
+            print('#####################')
+            print('Okkkkkkkkk')
+            print('#####################')
+            add_post = True
+            
+            return redirect('post_list')
+    else:
+        AddPostForm = PostForm()
+        
     template = 'post/post_list.html'
     context = {
         'start_animation': 'feed',
-        'posts': posts
+        'posts': posts,
+        'AddPostForm': AddPostForm,
+        'add_post': add_post
     }
     return render(request, template, context)
 
@@ -43,3 +64,4 @@ def like_post(request):
         }
         return JsonResponse(data, safe=False)
     return redirect('post_list')
+

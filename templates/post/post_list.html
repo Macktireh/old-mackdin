@@ -27,24 +27,51 @@
         {% endif %}" alt="">
       </div>
       <div class="new-add-post-right-container">
-        <form class="form-new-add-post" action="">
+        <form class="form-new-add-post" action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
           <div class="input-text">
-            <textarea name="" id="" cols="65" rows="2" placeholder="Ajouter un post"></textarea>
+            {{ AddPostForm.message }}
+            <!-- <textarea name="" id="" cols="65" rows="2" placeholder="Ajouter un post"></textarea> -->
           </div>
           <div>
             <div class="input-file">
-              <input type="file" name="" id="file" class="form-input-file">
+              <!-- <input type="file" name="" id="file" class="form-input-file"> -->
+              {{ AddPostForm.img }}
               <label for="file" class="form-lable">
                 <img src="{% static 'post/img/gal.svg' %}" alt="">
                 <span>Ajouter une photo</span>
               </label>
             </div>
             <button type="submit">
-              <span>Ajouter</span>
+              <span>Publier</span>
               <img src="{% static 'post/img/send.svg' %}" alt="">
             </button>
           </div>
         </form>
+      </div>
+
+      <div class="previous-post-container">
+        <div class="previous-post-box">df
+          <div class="post-header">
+            <div class="post-header-img">
+              <img id="previous-img-profile" src=" alt="">
+          </div>
+          <div class=" post-header-info">
+              <strong></strong>
+              <p id='bio'></p>
+              <p id='date_created'></p>
+            </div>
+          </div>
+
+          <div class="post-text-content">
+            <p id='previous-message'></p>
+          </div>
+
+          <div class="post-img">
+            <img id='previous-image' src="" alt="">
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -132,6 +159,7 @@
   crossorigin="anonymous">
   </script>
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
+<script type="text/javascript" src=" {% static 'post/js/post_list.js' %} "></script>
 
 <script>
   $(document).ready(function () {
@@ -159,7 +187,7 @@
       // selectionner le text de nombre de like et convertir en string
       const likes_text_plural = $(`#text-plural${post_id}`);
       // console.log(img_like);
-      console.log($(`#text-plural${post_id}`).text());
+      // console.log($(`#text-plural${post_id}`).text());
 
       const fonc_text_plural = (n) => {
         if (n > 1) {
@@ -207,7 +235,7 @@
           likes_count.text(res);
         },
         error: function (response) {
-          console.log('error', response);
+          // console.log('error', response);
         }
       })
     })

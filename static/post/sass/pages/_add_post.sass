@@ -1,4 +1,5 @@
 .new-add-post-left-container
+  grid-area: left
   height: 70px
   width: 70px
   @include flex-el(center, null)
@@ -11,6 +12,7 @@
     border-radius: 50%
 
 .new-add-post-right-container
+  grid-area: right
   width: 100%
   @extend .flex-center
   // display: grid
@@ -85,3 +87,19 @@ form
       span
         color: $color2
         font-size: 16px
+
+.previous-post-container
+  display: none
+  grid-area: bottom
+  width: 100%
+  background-color: $color1
+  margin-top: 0.5rem
+  padding: 0.5rem
+  border-radius: 8px
+  .previous-post-box
+    background-color: $color4
+    border-radius: 8px
+    width: 100%
+
+.test1
+  display: block

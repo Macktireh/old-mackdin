@@ -31,8 +31,10 @@
     background-color: $color4
     margin-bottom: 0.7rem
     padding: 0.8rem
-    display: grid
-    grid-template-areas: "left right" "bottom bottom"
+    // display: grid
+    // grid-template-areas: "left right" "bottom bottom"
+    @extend .flex-center
+    flex-direction: column
 
   .container-all-post
     width: 100%

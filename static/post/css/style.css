@@ -20,7 +20,7 @@ a:visited {
   color: #f1f1f1;
 }
 
-.flex-center, form button, .post-footer .box-action-icon .action-icon, .post-header .post-header-img, form div button, form div, form, .new-add-post-right-container {
+.flex-center, form button, .post-footer .box-action-icon .action-icon, .post-header .post-header-img, .previous-post-container .previous-post-box .previous-post-header-img, form div button, form div, form, .new-add-post-right-container, .container-main .new-add-post {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,8 +65,7 @@ a:visited {
   background-color: #34495e;
   margin-bottom: 0.7rem;
   padding: 0.8rem;
-  display: grid;
-  grid-template-areas: "left right" "bottom bottom";
+  flex-direction: column;
 }
 .container-main .container-all-post {
   width: 100%;
@@ -89,8 +88,13 @@ a:visited {
   background-color: #34495e;
 }
 
+.new-add-post1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 75px 1fr;
+}
+
 .new-add-post-left-container {
-  grid-area: left;
   height: 70px;
   width: 70px;
   display: flex;
@@ -106,7 +110,6 @@ a:visited {
 }
 
 .new-add-post-right-container {
-  grid-area: right;
   width: 100%;
 }
 
@@ -164,7 +167,7 @@ form div .input-file .form-lable {
   transition: 0.3s;
 }
 form div .input-file .form-lable img {
-  width: 50px;
+  width: 38px;
 }
 form div button {
   padding: 0.4rem 0;
@@ -185,23 +188,96 @@ form div button span {
   font-size: 16px;
 }
 
-.previous-post-container {
+.new-add-post2 {
+  width: 100%;
+  margin-top: 0.5rem;
   display: none;
-  grid-area: bottom;
+}
+
+.previous-post-container {
   width: 100%;
   background-color: #2c3e50;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.4rem;
   border-radius: 8px;
+  font-size: 13px;
 }
 .previous-post-container .previous-post-box {
   background-color: #34495e;
   border-radius: 8px;
   width: 100%;
 }
+.previous-post-container .previous-post-box #Previsualisation {
+  font-size: 15px;
+  padding: 8px 10px;
+  text-decoration: underline;
+  color: #1abc9c;
+}
+.previous-post-container .previous-post-box .previous-post-header {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.previous-post-container .previous-post-box .previous-post-header-img {
+  height: 50px;
+  width: 50px;
+}
+.previous-post-container .previous-post-box .previous-post-header-img img {
+  width: 100%;
+  min-height: 40px;
+  min-width: 40px;
+  max-height: 50px;
+  max-width: 0px;
+  border-radius: 50%;
+}
+.previous-post-container .previous-post-box .previous-post-header-info p {
+  color: #979eaa;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.previous-post-container .previous-post-text-content {
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.8rem;
+}
+.previous-post-container .previous-post-text-content p {
+  line-height: 130%;
+}
 
-.test1 {
+.previous-post-img {
+  display: none;
+  width: 100%;
+}
+.previous-post-img img {
+  width: 100%;
+}
+
+.cancel-add-post-container {
+  margin-top: 0.3rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.cancel-add-post-container span {
+  color: #f1f1f1;
+  background-color: #f31d58;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.display-block {
   display: block;
+}
+
+.display-none {
+  display: none;
 }
 
 .post-header {

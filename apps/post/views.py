@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from apps.post.models import Like, Post
 from apps.post.forms import PostForm
@@ -61,3 +62,18 @@ def like_post(request):
         return JsonResponse(data, safe=False)
     return redirect('post_list')
 
+
+
+def add_post(request):
+    user = request.user
+    AddPostForm = PostForm(request.POST or None, request.FILES or None)
+    # data = {}
+    if request.is_ajax():
+        if AddPostForm.is_valid():
+            instance = AddPostForm.save(commit=False)
+            instance.author = user
+            instance.save()
+            # data['status']
+            return JsonResponse({'status': 'success'})
+        else:
+            return JsonResponse({'status': 'error'})

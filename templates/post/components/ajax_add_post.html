@@ -1,0 +1,40 @@
+{% load static %}
+
+<script>
+    const form_add_post = document.getElementById("form-add-new-post");
+    const msg = document.getElementById("textarea_id");
+    const img = document.getElementById("file");
+    const csrf = document.getElementsByName("csrfmiddlewaretoken");
+    const url = "";
+
+
+    img.addEventListener("change", () => {
+        const img_data = img.files[0]
+        const url = URL.createObjectURL(img_data)
+    })
+
+    form_add_post.addEventListener("submit", (e) => {
+        e.preventDefault()
+
+        const fd = new FormData();
+        fd.append('csrfmiddlewaretoken', csrf[0].value)
+        fd.append('message', msg.value)
+        fd.append('img', img.files[0])
+
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'add_post' %}",
+            enctype: 'multipart/form-data',
+            data: fd,
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+        })
+    })
+</script>

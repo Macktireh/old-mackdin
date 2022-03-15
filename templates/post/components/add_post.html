@@ -12,7 +12,7 @@
       {% endif %}" alt="">
     </div>
     <div class="new-add-post-right-container">
-      <form class="form-new-add-post" action="" method="POST" enctype="multipart/form-data">
+      <form class="form-new-add-post" action="" method="POST" enctype="multipart/form-data" id="form-add-new-post">
         {% csrf_token %}
         <div class="input-text">
           {{ AddPostForm.message }}
@@ -27,7 +27,7 @@
               <span>Ajouter une photo</span>
             </label>
           </div>
-          <button type="submit">
+          <button id="btn-add-new-post" type="submit">
             <span>Publier</span>
             <img src="{% static 'post/img/send.svg' %}" alt="">
           </button>

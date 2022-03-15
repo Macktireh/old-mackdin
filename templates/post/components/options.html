@@ -13,7 +13,7 @@
       <span>Pas intéressé</span>
     </div>
 
-    {% if user.pk == post.author.pk %}
+    {% ifequal request.user post.author %}
     <div class="options-item">
       <img src="{% static 'post/img/edit.svg' %}">
       <span>Modifier</span>
@@ -22,6 +22,6 @@
       <img src="{% static 'post/img/delete.svg' %}">
       <span>Supprimer</span>
     </div>
-    {% endif %}
+    {% endifequal %}
   </ul>
 </div>

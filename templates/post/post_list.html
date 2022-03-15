@@ -17,84 +17,13 @@
 <main class="main-list_post">
   <div class="container-left"></div>
   <div class="container-main">
-    <div class="new-add-post">
-      <div class="new-add-post1">
 
-        <div class="new-add-post-left-container">
-          <img src="        
-        {% if user.profile.img_profile %}
-        {{ user.profile.img_profile.url }}
-        {% else %}
-        {% static 'components/img/user.svg' %}
-        {% endif %}" alt="">
-        </div>
-        <div class="new-add-post-right-container">
-          <form class="form-new-add-post" action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="input-text">
-              {{ AddPostForm.message }}
-              <!-- <textarea name="" id="" cols="65" rows="2" placeholder="Ajouter un post"></textarea> -->
-            </div>
-            <div>
-              <div class="input-file">
-                <!-- <input type="file" name="" id="file" class="form-input-file"> -->
-                {{ AddPostForm.img }}
-                <label for="file" class="form-lable">
-                  <img src="{% static 'post/img/gal.svg' %}" alt="">
-                  <span>Ajouter une photo</span>
-                </label>
-              </div>
-              <button type="submit">
-                <span>Publier</span>
-                <img src="{% static 'post/img/send.svg' %}" alt="">
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="new-add-post2">
-        <div class="previous-post-container">
-          <div class="previous-post-box">
-            <p id="Previsualisation">Prévisualisation de votre post :</p>
-            <div class="previous-post-header">
-              <div class="previous-post-header-img">
-                <img src="        
-              {% if user.profile.img_profile %}
-              {{ user.profile.img_profile.url }}
-              {% else %}
-              {% static 'components/img/user.svg' %}
-              {% endif %}" alt="">
-              </div>
-              <div class="previous-post-header-info">
-                <strong></strong>
-                <p id='bio'>
-                  {% if user.profile.bio %}
-                  {{ user.profile.bio }}
-                  {% endif %}
-                </p>
-                <p id='date_created'>{% now "jS F Y H:i" %}</p>
-              </div>
-            </div>
-
-            <div class="previous-post-text-content">
-              <p id='previous-message'></p>
-            </div>
-
-            <div class="previous-post-img">
-              <img id='previous-post-image' src="">
-            </div>
-
-          </div>
-        </div>
-        <div class="cancel-add-post-container">
-          <span id="btn-cancel-add-post">Annuler</span>
-        </div>
-      </div>
-    </div>
+    {% include 'post/components/add_post.html' %}
 
     {% for post in posts %}
     <div class="container-all-post">
+
+      {% include 'post/components/options.html' %}
 
       <div class="post-header">
         <div class="post-header-img">
@@ -178,6 +107,7 @@
   </script>
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
 <script type="text/javascript" src=" {% static 'post/js/post_list.js' %} "></script>
+<script type="text/javascript" src=" {% static 'post/js/options.js' %} "></script>
 
 <script>
   $(document).ready(function () {

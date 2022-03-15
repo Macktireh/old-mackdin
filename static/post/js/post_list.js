@@ -1,4 +1,4 @@
-const previous_container = document.querySelector(".new-add-post2");
+const previous_container = document.querySelector(".previous-new-add-post");
 const previous_p_img_container = document.querySelector(".previous-post-img");
 const input_img = document.querySelector(".form-input-file");
 const input_text = document.getElementById("textarea_id");

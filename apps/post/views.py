@@ -18,9 +18,6 @@ def post_create_list_view(request, *args, **kwargs):
             instance = AddPostForm.save(commit=False)
             instance.author = user
             instance.save()
-            print('#####################')
-            print('Okkkkkkkkk')
-            print('#####################')
             add_post = True
             
             return redirect('post_list')
@@ -59,7 +56,6 @@ def like_post(request):
         
         data = {
             'value': str(like.value),
-            # 'value': list(like.value),
             'likes': post_obj.liked.all().count()
         }
         return JsonResponse(data, safe=False)

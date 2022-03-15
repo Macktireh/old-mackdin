@@ -20,7 +20,7 @@ a:visited {
   color: #f1f1f1;
 }
 
-.flex-center, form button, .post-footer .box-action-icon .action-icon, .post-header .post-header-img, .previous-post-container .previous-post-box .previous-post-header-img, form div button, form div, form, .new-add-post-right-container, .container-main .new-add-post {
+.flex-center, form button, .post-footer .box-action-icon .action-icon, .post-header .post-header-img, .options-actions-container, .options-btn, .previous-post-container .previous-post-box .previous-post-header-img, form div button, form div, form, .new-add-post-right-container, .container-main .new-add-post {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,6 +75,7 @@ a:visited {
   display: flex;
   flex-direction: column;
   background-color: #34495e;
+  position: relative;
 }
 
 .container-right {
@@ -188,7 +189,7 @@ form div button span {
   font-size: 16px;
 }
 
-.new-add-post2 {
+.previous-new-add-post {
   width: 100%;
   margin-top: 0.5rem;
   display: none;
@@ -278,6 +279,54 @@ form div button span {
 
 .display-none {
   display: none;
+}
+
+.options-btn {
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  width: 40px;
+  height: 15px;
+  gap: 4px;
+  cursor: pointer;
+}
+.options-btn #btn-point {
+  width: 4px;
+  height: 4px;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+}
+
+.options-actions-container {
+  position: absolute;
+  top: 35px;
+  right: 8px;
+  width: 190px;
+  height: 135px;
+  background-color: #2c3e50;
+  border-radius: 8px;
+}
+.options-actions-container ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.options-actions-container ul .options-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.options-actions-container ul .options-item img, .options-actions-container ul .options-item span {
+  opacity: 0.8;
+}
+.options-actions-container ul .options-item img {
+  width: 30px;
+}
+.options-actions-container ul .options-item:hover img, .options-actions-container ul .options-item:hover span {
+  opacity: 1;
 }
 
 .post-header {

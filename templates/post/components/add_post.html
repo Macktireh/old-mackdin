@@ -15,13 +15,20 @@
       <form class="form-new-add-post" action="" method="POST" enctype="multipart/form-data" id="form-add-new-post">
         {% csrf_token %}
         <div class="input-text">
+          {% if post_form %}
+          <textarea name="message" id="textarea_id" cols="65" rows="2"
+            placeholder="Ajouter un post">{{post_edit.message}}</textarea>
+          {% else %}
           {{ AddPostForm.message }}
-          <!-- <textarea name="" id="" cols="65" rows="2" placeholder="Ajouter un post"></textarea> -->
+          {% endif %}
         </div>
         <div>
           <div class="input-file">
-            <!-- <input type="file" name="" id="file" class="form-input-file"> -->
+            {% if post_form %}
+            <input type="file" name="img" id="file" class="form-input-file">
+            {% else %}
             {{ AddPostForm.img }}
+            {% endif %}
             <label for="file" class="form-lable">
               <img src="{% static 'post/img/gal.svg' %}" alt="">
               <span>Ajouter une photo</span>
@@ -61,11 +68,15 @@
         </div>
 
         <div class="previous-post-text-content">
-          <p id='previous-message'></p>
+          <p id='previous-message'>{% if post_form %}{{post_edit.message}}{% endif %}</p>
         </div>
 
         <div class="previous-post-img">
+          {% if post_form %}
+          <img id='previous-post-image' src="{% if post_edit.img %} {{post_edit.img.url}} {% endif %}">
+          {% else %}
           <img id='previous-post-image' src="">
+          {% endif %}
         </div>
 
       </div>

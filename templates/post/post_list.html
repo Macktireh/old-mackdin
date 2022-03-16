@@ -1,28 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title %} Fil d'actualité | Mackdin {% endblock title %}
 
-
 {% block style %}
-<link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon">
+<link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon" />
 <link rel="stylesheet" href=" {% static 'components/css/style.css' %}" />
 <link rel="stylesheet" href=" {% static 'post/css/style.css' %}" />
 {% endblock style %}
 
 {% block navbar %} {% include 'components/navbar2.html' %} {% endblock navbar %}
 
+
 {% block content %}
 <main class="main-list_post">
   <div class="container-left"></div>
   <div class="container-main">
-
     {% include 'post/components/add_post.html' %}
 
     {% for post in posts %}
     <div class="container-all-post">
-
       {% include 'post/components/options.html' %}
 
       <div class="post-header">
@@ -32,7 +29,7 @@
             {{ post.author.profile.img_profile.url }}
             {% else %}
             {% static 'components/img/user.svg' %}
-            {% endif %}" alt="">
+            {% endif %}" alt="" />
         </div>
         <div class="post-header-info">
           <strong>{{post.author.first_name}} {{post.author.last_name}}</strong>
@@ -47,7 +44,7 @@
 
       {% if post.img %}
       <div class="post-img">
-        <img src="{{post.img.url}}" alt="">
+        <img src="{{post.img.url}}" alt="" />
       </div>
       {% endif %}
 
@@ -55,7 +52,8 @@
         <div class="count-likes-comments">
           <p id="likes-count{{post.id}}">
             <span id="likes-num{{post.id}}">{{post.liked.count}}</span>
-            <span id="text-plural{{post.id}}">{% if post.liked.count > 1 %}
+            <span id="text-plural{{post.id}}">
+              {% if post.liked.count > 1 %}
               Likes
               {% else %}
               Like
@@ -63,53 +61,76 @@
           </p>
           <p id="comments-count{{post.id}}">1 comment</p>
         </div>
-        <hr>
+        <hr />
         <div class="box-action-icon">
           <form action="{% url 'like_post' %}" method="POST" class="like-form" id="{{post.id}}">
             {% csrf_token %}
-            <input type="hidden" name="post_id" value="{{post.id}}">
+            <input type="hidden" name="post_id" value="{{post.id}}" />
             <button type="submit" class="like-btn{{post.id}}">
               {% if user not in post.liked.all %}
-              <img id="like-img{{post.id}}" src="{% static 'post/img/unlike.svg' %}" alt="">
+              <img id="like-img{{post.id}}" src="{% static 'post/img/unlike.svg' %}" alt="" />
               <span class="like-text{{post.id}}">J'aime</span>
               {% else %}
-              <img id="like-img{{post.id}}" src="{% static 'post/img/like.svg' %}" alt="">
+              <img id="like-img{{post.id}}" src="{% static 'post/img/like.svg' %}" alt="" />
               <span class="like-text{{post.id}}">Je n'aime pas</span>
               {% endif %}
             </button>
           </form>
 
           <a href="#" class="action-icon box-comment">
-            <img src="{% static 'post/img/comment.svg' %}" alt="">
+            <img src="{% static 'post/img/comment.svg' %}" alt="" />
             <span>Commenter</span>
           </a>
           <a href="#" class="action-icon box-share">
-            <img src="{% static 'post/img/share.svg' %}" alt="">
+            <img src="{% static 'post/img/share.svg' %}" alt="" />
             <span>Partager</span>
           </a>
         </div>
       </div>
     </div>
     {% endfor %}
-
   </div>
   <div class="container-right"></div>
 </main>
 {% endblock content %}
 
-{% block footer %} {% include 'components/footer.html' %} {% endblock footer %}
 
+{% block footer %} {% include 'components/footer.html' %} {% endblock footer %}
 
 
 {% block js %}
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous">
-  </script>
+  crossorigin="anonymous"></script>
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
 <script type="text/javascript" src=" {% static 'post/js/post_list.js' %} "></script>
 <script type="text/javascript" src=" {% static 'post/js/options.js' %} "></script>
 
 {% include 'post/components/ajax_like_post.html' %}
-{% include 'post/components/ajax_add_post.html' %}
+
+
+
+{% if post_form %}
+<script>
+  // const input_text_edit = document.getElementById("textarea_id");
+  // const input_img_edit = document.querySelector(".form-input-file");
+  const previous_container_edit = document.querySelector(".previous-new-add-post");
+  const previous_p_img_container_edit = document.querySelector(".previous-post-img");
+  // const p_text_edit = document.getElementById("previous-message");
+  // const p_img_edit = document.getElementById("previous-post-image");
+
+  // input_text_edit.value = "{{post_edit.message}}"
+  // p_text_edit.textContent = "{{post_edit.message}}"
+  // console.log(input_text_edit.value);
+
+  // p_img_edit.src = "{% if post_edit.img %} {{post_edit.img.url}} {% endif %}"
+  // console.log(p_img_edit.src);
+
+  previous_container_edit.classList.remove("display-none");
+  previous_container_edit.classList.add("display-block");
+
+  previous_p_img_container_edit.classList.remove("display-none");
+  previous_p_img_container_edit.classList.add("display-block");
+</script>
+{% endif %}
 
 {% endblock js %}

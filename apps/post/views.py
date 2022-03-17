@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
-from apps.post.models import Like, Post
+from apps.post.models import LikePost, Post
 from apps.post.forms import PostForm
 
 
@@ -112,7 +112,7 @@ def like_post(request):
             post_obj.liked.remove(user)
         else:
             post_obj.liked.add(user)
-        like, created = Like.objects.get_or_create(user=user, post_id=post_id)
+        like, created = LikePost.objects.get_or_create(user=user, post_id=post_id)
         if not created:
             if like.value=='Like':
                 like.value='Unlike'

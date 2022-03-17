@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import fields
-from apps.post.models import Like, Post
+from apps.post.models import Post
 from django.utils.translation import gettext_lazy as _
 
 

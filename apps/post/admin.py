@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.post.models import Post, Like
+from apps.post.models import Post, LikePost
 from django.utils.translation import gettext_lazy as _
 
 class PostAdmin(admin.ModelAdmin):
@@ -15,8 +15,7 @@ class PostAdmin(admin.ModelAdmin):
     
 admin.site.register(Post, PostAdmin)
 
-
-class LikeAdmin(admin.ModelAdmin):
+class LikePostAdmin(admin.ModelAdmin):
     list_display = ('user_name', 'post_id', 'value',)
     
     def user_name(self, obj):
@@ -25,4 +24,4 @@ class LikeAdmin(admin.ModelAdmin):
     def post_id(self, obj):
         return f"{obj.post.id}"
     
-admin.site.register(Like, LikeAdmin)
+admin.site.register(LikePost, LikePostAdmin)

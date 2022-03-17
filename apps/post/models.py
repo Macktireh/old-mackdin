@@ -38,7 +38,7 @@ class Post(models.Model):
         verbose_name_plural = _('Posts')
         ordering = ('-date_created',)
 
-class Like(models.Model):
+class LikePost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     LIKE_CHOICES = (

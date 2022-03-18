@@ -5,6 +5,8 @@ from django.http import JsonResponse
 
 from apps.post.models import LikePost, Post
 from apps.post.forms import PostForm
+from apps.comments.models import Comment, ReponseComment, LikeComment
+from apps.comments.forms import CommentForm, ReponseCommentForm
 
 
 
@@ -25,12 +27,20 @@ def post_create_list_view(request, *args, **kwargs):
     else:
         AddPostForm = PostForm()
         
+    qs_comment = Comment.objects.all()
+    form_comment = CommentForm(request.POST)
+    form_reponse = ReponseCommentForm(request.POST)
+    
     template = 'post/post_list.html'
     context = {
         'start_animation': 'feed',
         'posts': posts,
         'AddPostForm': AddPostForm,
-        'post_form': post_form
+        'post_form': post_form,
+        
+        'qs_comment': qs_comment,
+        'form_comment': form_comment,
+        'form_reponse': form_reponse
     }
     return render(request, template, context)
 
@@ -38,7 +48,7 @@ def post_create_list_view(request, *args, **kwargs):
 def update_post(request, post_id):
     post_edit = get_object_or_404(Post, id=post_id)
     posts = Post.objects.all()
-    post_form = True  
+    post_form = True
     
     if request.method == 'POST':
         if len(request.FILES) != 0:
@@ -48,6 +58,7 @@ def update_post(request, post_id):
         post_edit.message = request.POST.get('message')
         post_edit.save()
         return redirect('post_list')
+
         
     template = 'post/post_list.html'
     context = {

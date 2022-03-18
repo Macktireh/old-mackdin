@@ -8,26 +8,17 @@
 {% block style %}
 <link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon">
 <link rel="stylesheet" href=" {% static 'components/css/style.css' %}" />
-<link rel="stylesheet" href=" {% static 'home/css/style.css' %} " />
+<link rel="stylesheet" href=" {% static 'comments/css/style.css' %} " />
 {% endblock style %}
 
 {% block navbar %} {% include 'components/navbar2.html' %} {% endblock navbar %}
 
 {% block content %}
-<main class="main-home">
-  <div>
-    {% if user.is_authenticated %}
-    <h2>Salut {{ user.first_name }} 👋 </h2>
-    <br>
-    <h2>On est content de te revoir aujourd'hui !</h2>
-    {% else %}
-    <h2>Vous n'êtes pas connecter</h2>
-    {% endif %}
-  </div>
+<main class="main-comment">
+  {% include 'comments/include/comment.html' %}
 </main>
 {% endblock content %}
 
-{% block footer %} {% include 'components/footer.html' %} {% endblock footer %}
 
 {% block js %}
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>

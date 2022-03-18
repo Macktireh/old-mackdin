@@ -1,0 +1,47 @@
+{% load static %}
+
+<aside>
+  <form class="form-comment">
+    <div class="form-content-comment">
+      <img src="        
+        {% if user.profile.img_profile %}
+        {{ user.profile.img_profile.url }}
+        {% else %}
+        {% static 'components/img/user.svg' %}
+        {% endif %}" />
+      {{form_comment.message}}
+    </div>
+    <button class="btn-send-comment">Envoyer</button>
+  </form>
+
+  {% for comment in post.post_comment.all %}
+  <div class="container-comment-list">
+    <img src="        
+      {% if comment.author.profile.img_profile %}
+      {{ comment.author.profile.img_profile.url }}
+      {% else %}
+      {% static 'components/img/user.svg' %}
+      {% endif %}" />
+    <div class="comment-content-box">
+      <div class="comment-info-content">
+        <div class="comment-info-content-I">
+          <strong>{{comment.author.first_name}} {{comment.author.last_name}}
+            {% ifequal comment.author comment.post.author %}
+            <span id="author_post_and_comment">Auteur</span>
+            {% endifequal %}
+          </strong>
+          <small>{{ comment.date_added|timesince }}</small>
+        </div>
+        <p id="comment-author-profile-title">{{ comment.author.profile.bio }}</p>
+      </div>
+      <div class="comment-text-content">
+        <p>{{ comment.message }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="container-comment-like">
+    <!-- <img src="{% static 'comments/img/like.svg' %}" alt=""> -->
+  </div>
+</aside>

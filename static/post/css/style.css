@@ -131,13 +131,16 @@ form .input-text textarea {
   border-radius: 8px;
   font-family: ui-sans-serif, system-ui;
   font-size: 16px;
-  background-color: #f1f1f1;
+  background-color: #34495e;
+  border: 1px solid #979eaa;
+  color: #f1f1f1;
 }
-form .input-text textarea ::placeholder {
+form .input-text textarea::-webkit-input-placeholder {
   font-size: 16px;
+  color: #979eaa;
 }
 form .input-text textarea:focus {
-  border: 1px solid #1abc9c;
+  border: 1px solid #f1f1f1;
 }
 form div {
   width: 100%;

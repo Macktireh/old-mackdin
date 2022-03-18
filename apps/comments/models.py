@@ -9,7 +9,7 @@ User = get_user_model()
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comment')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_comment')
-    message = models.TextField(blank=True, null=True)
+    message = models.CharField(blank=True, null=True, max_length=500)
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     liked = models.ManyToManyField(User, related_name='users_comment_like', blank=True, default=None)
@@ -20,7 +20,7 @@ class Comment(models.Model):
 class ReponseComment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_reponse_comment')
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='reponse_comment')
-    message = models.TextField(blank=True, null=True)
+    message = models.CharField(blank=True, null=True, max_length=500)
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     

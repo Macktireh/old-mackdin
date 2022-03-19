@@ -6,8 +6,8 @@
 {% block style %}
 <link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon" />
 <link rel="stylesheet" href=" {% static 'components/css/style.css' %}" />
-<link rel="stylesheet" href=" {% static 'post/css/style.css' %}" />
 <link rel="stylesheet" href=" {% static 'comments/css/style.css' %} " />
+<link rel="stylesheet" href=" {% static 'post/css/style.css' %}" />
 {% endblock style %}
 
 {% block navbar %} {% include 'components/navbar2.html' %} {% endblock navbar %}
@@ -51,16 +51,30 @@
 
       <div class="post-footer">
         <div class="count-likes-comments">
-          <p id="likes-count{{post.id}}">
+          <div id="likes-count{{post.id}}">
+
             <span id="likes-num{{post.id}}">{{post.liked.count}}</span>
             <span id="text-plural{{post.id}}">
               {% if post.liked.count > 1 %}
               Likes
               {% else %}
               Like
-              {% endif %}</span>
-          </p>
-          <p id="comments-count{{post.id}}">1 comment</p>
+              {% endif %}
+            </span>
+
+          </div>
+          <div class="comments-count-post" id="comments-count{{post.id}}">
+
+            <span id="comments-num{{post.id}}">{{post.post_comment.count}}</span>
+            <span id="text-plural-comments{{post.id}}">
+              {% if post.post_comment.count > 1 %}
+              commentaires
+              {% else %}
+              commentaire
+              {% endif %}
+            </span>
+
+          </div>
         </div>
         <hr />
         <div class="box-action-icon">
@@ -104,11 +118,21 @@
 {% block js %}
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
+
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
 <script type="text/javascript" src=" {% static 'post/js/post_list.js' %} "></script>
 <script type="text/javascript" src=" {% static 'post/js/options.js' %} "></script>
+<script type="text/javascript" src=" {% static 'comments/js/comment_list.js' %} "></script>
+
 
 {% include 'post/components/ajax_like_post.html' %}
+
+
+{% comment %}
+
+{% include 'comments/include/ajax_comment.html' %}
+{% endcomment %}
+
 
 
 
@@ -133,6 +157,10 @@
 
   previous_p_img_container_edit.classList.remove("display-none");
   previous_p_img_container_edit.classList.add("display-block");
+
+
+
+
 </script>
 {% endif %}
 

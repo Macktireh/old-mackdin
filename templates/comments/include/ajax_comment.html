@@ -1,0 +1,87 @@
+{% load static %}
+
+<script>
+
+    // $(document).ready(function () {
+    //     $(".form-comment").submit(function (e) {
+    //         e.preventDefault();
+
+    //         const post_id = $(this).attr("title");
+    //         const url = $(this).attr("action");
+
+    //         const aside_comment = $(`#aside-comment-${post_id}`);
+    //         const input_text_comment = $(`#input_message_comment-${post_id}`);
+    //         const input_hidden_post_comment = $(
+    //             `#input_hidden_post_comment-${post_id}`
+    //         );
+
+    //         // console.log($(`.form-comment > input[name=csrfmiddlewaretoken]`).val());
+    //         console.log("{{csrf_token}}");
+    //         console.log(input_hidden_post_comment.val());
+    //         console.log(input_text_comment.val());
+    //         console.log(url);
+
+    //         $.ajax({
+    //             type: "POST",
+    //             url: url,
+    //             // url: "{% url 'add-comment' %}",
+    //             data: {
+    //                 // 'csrfmiddlewaretoken': $(`.form-comment > input[name=csrfmiddlewaretoken]`).val(),
+    //                 "csrfmiddlewaretoken": "{{csrf_token}}",
+    //                 'post_id': input_hidden_post_comment.val(),
+    //                 'message': input_text_comment.val(),
+    //             },
+    //             success: function (response) {
+    //                 const data = JSON.parse(JSON.stringify(response.data[0]));
+    //                 console.log(data);
+    //                 console.log(data.comment_author);
+    //                 input_text_comment.val("");
+
+    //                 // function verif_img(v) {
+    //                 //     if (v) {
+    //                 //         return `<img id="container-comment-list-img-profile" src="http://127.0.0.1:8000${v}" />`;
+    //                 //     } else {
+    //                 //         return `<img id="container-comment-list-img-profile" src="http://127.0.0.1:8000/static/components/img/user.svg" />`;
+    //                 //     }
+    //                 // }
+
+    //                 // function verif_author(author_comment, author_post) {
+    //                 //     if (author_comment === author_post) {
+    //                 //         return `<span id="author_post_and_comment">Auteur</span>`;
+    //                 //     }
+    //                 // }
+
+    //                 // content_comment = `<div class="container-comment-list">
+    //                 //     ${verif_img(data.user_profile_img)}
+    //                 //           <div class="comment-content-box">
+    //                 //           <div class="comment-info-content">
+    //                 //               <div class="comment-info-content-I">
+    //                 //               <strong>${data.comment_author_first_name}
+    //                 //               ${data.comment_author_last_name}
+    //                 //               ${verif_author(data.comment_author, data.post_author)}
+
+    //                 //               </strong>
+    //                 //               <small>${data.comment_date_added}</small>
+    //                 //               </div>
+    //                 //               <p id="comment-author-profile-title">${data.user_profile_bio
+    //                 //                 }</p>
+    //                 //           </div>
+    //                 //           <div class="comment-text-content">
+    //                 //               <p>${data.comment_message}</p>
+    //                 //           </div>
+    //                 //           </div>
+    //                 //       </div>
+    //                 //   `;
+
+    //                 //             aside_comment.append(content_comment);
+    //             },
+    //             error: function (error) {
+    //                 console.log(error);
+    //             },
+    //             cache: false,
+    //             contentType: false,
+    //             processData: false,
+    //         });
+    //     });
+    // });
+</script>

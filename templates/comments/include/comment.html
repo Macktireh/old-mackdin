@@ -1,7 +1,8 @@
 {% load static %}
 
-<aside>
-  <form class="form-comment">
+<aside id="aside-comment-{{post.id}}">
+  <form title="{{post.id}}" class="form-comment" method="post" action="{% url 'add-comment' post.id %}">
+    {% csrf_token %}
     <div class="form-content-comment">
       <img src="        
         {% if user.profile.img_profile %}
@@ -9,14 +10,18 @@
         {% else %}
         {% static 'components/img/user.svg' %}
         {% endif %}" />
-      {{form_comment.message}}
+      <!-- {{form_comment.message}} -->
+      <input type="text" name="message" id="input_message_comment-{{post.id}}" class="input_message_comment_id"
+        autocomplete="off" placeholder="Ajouter un commentaire..." required>
+      <input type="hidden" name="post_id_comment" id="input_hidden_post_comment-{{post.id}}" value="{{post.id}}">
     </div>
-    <button class="btn-send-comment">Envoyer</button>
+    <button class="btn-send-comment" type="submit" name="submit_c_form" title="{{post.id}}">Envoyer</button>
   </form>
 
   {% for comment in post.post_comment.all %}
   <div class="container-comment-list">
-    <img src="        
+    {% include 'comments/include/comment_opts.html' %}
+    <img id="container-comment-list-img-profile" src="        
       {% if comment.author.profile.img_profile %}
       {{ comment.author.profile.img_profile.url }}
       {% else %}
@@ -24,7 +29,7 @@
       {% endif %}" />
     <div class="comment-content-box">
       <div class="comment-info-content">
-        <div class="comment-info-content-I">
+        <div class="comment-info-content-I" id="comment-info-content-I-{{post.id}}">
           <strong>{{comment.author.first_name}} {{comment.author.last_name}}
             {% ifequal comment.author comment.post.author %}
             <span id="author_post_and_comment">Auteur</span>

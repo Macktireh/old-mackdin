@@ -16,12 +16,15 @@ def post_create_list_view(request, *args, **kwargs):
     user = request.user
     post_form = False
     
-    if request.method == 'POST':
-        AddPostForm = PostForm(request.POST or None, request.FILES or None)
+    AddPostForm = PostForm()
+    
+    if "submit_p_form" in request.POST:
+        AddPostForm = PostForm(request.POST, request.FILES)
         if AddPostForm.is_valid():
             instance = AddPostForm.save(commit=False)
             instance.author = user
             instance.save()
+            AddPostForm = PostForm()
             
             return redirect('post_list')
     else:

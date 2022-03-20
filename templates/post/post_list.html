@@ -16,6 +16,8 @@
 {% block content %}
 <main class="main-list_post">
   <div class="container-left"></div>
+
+
   <div class="container-main">
     {% include 'post/components/add_post.html' %}
 
@@ -23,21 +25,7 @@
     <div class="container-all-post">
       {% include 'post/components/options.html' %}
 
-      <div class="post-header">
-        <div class="post-header-img">
-          <img src="        
-            {% if post.author.profile.img_profile %}
-            {{ post.author.profile.img_profile.url }}
-            {% else %}
-            {% static 'components/img/user.svg' %}
-            {% endif %}" alt="" />
-        </div>
-        <div class="post-header-info">
-          <strong>{{post.author.first_name}} {{post.author.last_name}}</strong>
-          <p>{{post.author.profile.bio}}</p>
-          <p>{{post.date_created|timesince}}</p>
-        </div>
-      </div>
+      {% include 'post/components/post-header.html' %}
 
       <div class="post-text-content">
         <p>{{post.message|safe}}</p>
@@ -50,48 +38,10 @@
       {% endif %}
 
       <div class="post-footer">
-        <div class="count-likes-comments">
-          <div id="likes-count{{post.id}}">
-
-            <span id="likes-num{{post.id}}">{{post.liked.count}}</span>
-            <span id="text-plural{{post.id}}">
-              {% if post.liked.count > 1 %}
-              Likes
-              {% else %}
-              Like
-              {% endif %}
-            </span>
-
-          </div>
-          <div class="comments-count-post" id="comments-count{{post.id}}">
-
-            <span id="comments-num{{post.id}}">{{post.post_comment.count}}</span>
-            <span id="text-plural-comments{{post.id}}">
-              {% if post.post_comment.count > 1 %}
-              commentaires
-              {% else %}
-              commentaire
-              {% endif %}
-            </span>
-
-          </div>
-        </div>
+        {% include 'post/components/count-likes-comments.html' %}
         <hr />
         <div class="box-action-icon">
-          <form action="{% url 'like_post' %}" method="POST" class="like-form" id="{{post.id}}">
-            {% csrf_token %}
-            <input type="hidden" name="post_id" value="{{post.id}}" />
-            <button type="submit" class="like-btn{{post.id}}">
-              {% if user not in post.liked.all %}
-              <img id="like-img{{post.id}}" src="{% static 'post/img/unlike.svg' %}" alt="" />
-              <span class="like-text{{post.id}}">J'aime</span>
-              {% else %}
-              <img id="like-img{{post.id}}" src="{% static 'post/img/like.svg' %}" alt="" />
-              <span class="like-text{{post.id}}">Je n'aime pas</span>
-              {% endif %}
-            </button>
-          </form>
-
+          {% include 'post/components/like-form-btn.html' %}
           <a href="#" class="action-icon box-comment">
             <img src="{% static 'post/img/comment.svg' %}" alt="" />
             <span>Commenter</span>
@@ -107,6 +57,8 @@
     </div>
     {% endfor %}
   </div>
+
+
   <div class="container-right"></div>
 </main>
 {% endblock content %}
@@ -124,43 +76,20 @@
 <script type="text/javascript" src=" {% static 'post/js/options.js' %} "></script>
 <script type="text/javascript" src=" {% static 'comments/js/comment_list.js' %} "></script>
 
-
 {% include 'post/components/ajax_like_post.html' %}
 
-
 {% comment %}
-
 {% include 'comments/include/ajax_comment.html' %}
 {% endcomment %}
 
-
-
-
 {% if post_form %}
 <script>
-  // const input_text_edit = document.getElementById("textarea_id");
-  // const input_img_edit = document.querySelector(".form-input-file");
   const previous_container_edit = document.querySelector(".previous-new-add-post");
   const previous_p_img_container_edit = document.querySelector(".previous-post-img");
-  // const p_text_edit = document.getElementById("previous-message");
-  // const p_img_edit = document.getElementById("previous-post-image");
-
-  // input_text_edit.value = "{{post_edit.message}}"
-  // p_text_edit.textContent = "{{post_edit.message}}"
-  // console.log(input_text_edit.value);
-
-  // p_img_edit.src = "{% if post_edit.img %} {{post_edit.img.url}} {% endif %}"
-  // console.log(p_img_edit.src);
-
   previous_container_edit.classList.remove("display-none");
   previous_container_edit.classList.add("display-block");
-
   previous_p_img_container_edit.classList.remove("display-none");
   previous_p_img_container_edit.classList.add("display-block");
-
-
-
-
 </script>
 {% endif %}
 

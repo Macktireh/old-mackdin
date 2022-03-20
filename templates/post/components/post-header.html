@@ -1,0 +1,17 @@
+{% load static %}
+
+<div class="post-header">
+    <div class="post-header-img">
+        <img src="        
+        {% if post.author.profile.img_profile %}
+        {{ post.author.profile.img_profile.url }}
+        {% else %}
+        {% static 'components/img/user.svg' %}
+        {% endif %}" alt="" />
+    </div>
+    <div class="post-header-info">
+        <strong>{{post.author.first_name}} {{post.author.last_name}}</strong>
+        <p>{{post.author.profile.bio}}</p>
+        <p>{{post.date_created|timesince}}</p>
+    </div>
+</div>

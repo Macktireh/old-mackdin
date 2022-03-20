@@ -1,0 +1,15 @@
+{% load static %}
+
+<form action="{% url 'like_post' %}" method="POST" class="like-form" id="{{post.id}}">
+    {% csrf_token %}
+    <input type="hidden" name="post_id" value="{{post.id}}" />
+    <button type="submit" class="like-btn{{post.id}}">
+        {% if user not in post.liked.all %}
+        <img id="like-img{{post.id}}" src="{% static 'post/img/unlike.svg' %}" alt="" />
+        <span class="like-text{{post.id}}">J'aime</span>
+        {% else %}
+        <img id="like-img{{post.id}}" src="{% static 'post/img/like.svg' %}" alt="" />
+        <span class="like-text{{post.id}}">Je n'aime pas</span>
+        {% endif %}
+    </button>
+</form>

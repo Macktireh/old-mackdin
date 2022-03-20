@@ -20,7 +20,7 @@ a:visited {
   color: #f1f1f1;
 }
 
-.flex-center, .comment-options-actions-container, .comment-options-btn, aside .form-comment .form-content-comment, aside, .main-comment {
+.flex-center, .comment-options-actions-container, .comment-options-btn, .form-comment-list-input-container-global .container-global-comment-list, .form-comment-list-input-container-global .form-comment-container-input .form-content-comment, .form-comment-list-input-container-global, .main-comment {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,13 +42,13 @@ a:visited {
   padding: 0.2rem;
 }
 
-aside {
+.form-comment-list-input-container-global {
   width: 100%;
   border-radius: 8px;
   flex-direction: column;
   gap: 0.4rem;
 }
-aside .form-comment {
+.form-comment-list-input-container-global .form-comment-container-input {
   width: 100%;
   display: flex;
   align-items: end;
@@ -56,16 +56,16 @@ aside .form-comment {
   padding: 0.5rem;
   gap: 0.1rem;
 }
-aside .form-comment .form-content-comment {
+.form-comment-list-input-container-global .form-comment-container-input .form-content-comment {
   width: 100%;
   height: 100%;
   gap: 0.2rem;
 }
-aside .form-comment .form-content-comment img {
+.form-comment-list-input-container-global .form-comment-container-input .form-content-comment img {
   width: 48px;
   border-radius: 50%;
 }
-aside .form-comment .form-content-comment .input_message_comment_id {
+.form-comment-list-input-container-global .form-comment-container-input .form-content-comment .input_message_comment_id {
   height: 2.6rem;
   width: 100%;
   padding: 0.5rem 0.8rem;
@@ -77,13 +77,13 @@ aside .form-comment .form-content-comment .input_message_comment_id {
   border-radius: 40px;
   border: 1px solid #979eaa;
 }
-aside .form-comment .form-content-comment .input_message_comment_id:focus {
+.form-comment-list-input-container-global .form-comment-container-input .form-content-comment .input_message_comment_id:focus {
   border: 1px solid #f1f1f1;
 }
-aside .form-comment .form-content-comment .input_message_comment_id::-webkit-input-placeholder {
+.form-comment-list-input-container-global .form-comment-container-input .form-content-comment .input_message_comment_id::-webkit-input-placeholder {
   color: #979eaa;
 }
-aside .form-comment .btn-send-comment {
+.form-comment-list-input-container-global .form-comment-container-input .btn-send-comment {
   padding: 0.5rem;
   background-color: #1abc9c;
   font-family: ui-sans-serif, system-ui;
@@ -93,12 +93,18 @@ aside .form-comment .btn-send-comment {
   width: 80px;
   color: #f1f1f1;
 }
-aside .container-comment-list {
+.form-comment-list-input-container-global .container-global-comment-list {
+  width: 100%;
+  border-radius: 8px;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list {
   margin-top: 1rem;
   width: 100%;
   position: relative;
 }
-aside .container-comment-list #container-comment-list-img-profile {
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list img#container-comment-list-img-profile {
   position: absolute;
   left: 0.4rem;
   top: 0.4rem;
@@ -108,7 +114,8 @@ aside .container-comment-list #container-comment-list-img-profile {
   min-width: 55px;
   border-radius: 50%;
 }
-aside .container-comment-list .comment-content-box {
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box {
+  width: 100%;
   display: flex;
   justify-content: start;
   flex-direction: column;
@@ -120,23 +127,31 @@ aside .container-comment-list .comment-content-box {
   margin-right: 0.5rem;
   margin-top: 0.3rem;
 }
-aside .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I {
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content {
+  display: flex;
+  justify-content: start;
+  align-items: top;
+  flex-direction: column;
+  gap: 0;
+}
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-aside .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I #author_post_and_comment {
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I strong #author_post_and_comment {
   padding: 0.1rem 0.5rem;
   margin-left: 0.5rem;
   background-color: #5a6775;
   border-radius: 8px;
 }
-aside .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I small {
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I small {
   padding-right: 40px;
   font-style: italic;
-  color: #979eaa;
 }
-aside .container-comment-list .comment-content-box .comment-info-content #comment-author-profile-title {
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content #comment-author-profile-title {
+  text-align: left;
+  width: 100%;
   font: size 13px;
   color: #979eaa;
   display: -webkit-box;
@@ -145,8 +160,14 @@ aside .container-comment-list .comment-content-box .comment-info-content #commen
   overflow: hidden;
   text-overflow: ellipsis;
 }
-aside .container-comment-list .comment-content-box .comment-text-content {
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-text-content {
+  display: flex;
+  justify-content: start;
+  width: 100%;
   margin-top: 1rem;
+}
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-text-content p {
+  text-align: left;
 }
 
 .comment-options-btn {

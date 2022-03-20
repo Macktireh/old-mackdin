@@ -1,3 +1,4 @@
+import json
 import os
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
@@ -27,8 +28,41 @@ def post_create_list_view(request, *args, **kwargs):
             AddPostForm = PostForm()
             
             return redirect('post_list')
-    else:
-        AddPostForm = PostForm()
+        
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        print('\n\najax request with fetch')
+        
+        don = json.load(request)
+        
+        message = don['message'] 
+        id_post = don['id_post'] 
+        
+        print()
+        print(message)
+        print(id_post)
+        print()
+        
+        
+        
+        comment_post = Comment.objects.create(author=user, post_id=id_post, message=message)
+        
+        data = {
+            'id': comment_post.id,
+            'comment_author': comment_post.author.email,
+            'comment_author_first_name': comment_post.author.first_name,
+            'comment_author_last_name': comment_post.author.last_name,
+            'comment_message': comment_post.message,
+            'comment_date_added': comment_post.date_added.strftime("%d-%m-%Y %H:%M:%S"),
+            
+            'post_author': comment_post.post.author.email,
+            
+            'user_profile_bio': comment_post.author.profile.bio,
+            'user_profile_img': comment_post.author.profile.img_profile.url,
+            
+            'current_user': request.user.email
+        }
+        
+        return JsonResponse(data, status=200)
         
     qs_comment = Comment.objects.all()
     form_comment = CommentForm(request.POST)

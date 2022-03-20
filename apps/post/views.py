@@ -36,15 +36,21 @@ def post_create_list_view(request, *args, **kwargs):
         
         message = don['message'] 
         id_post = don['id_post'] 
+        id_comment = don['id_comment'] 
         
-        print()
+        print(don)
         print(message)
         print(id_post)
+        print(id_comment)
         print()
         
-        
-        
-        comment_post = Comment.objects.create(author=user, post_id=id_post, message=message)
+        if id_comment:
+            if Comment.objects.filter(id=id_comment).exists():
+                comment_post = Comment.objects.get(id=id_comment)
+                comment_post.message = message
+                comment_post.save()
+        else:
+            comment_post = Comment.objects.create(author=user, post_id=id_post, message=message)
         
         data = {
             'id': comment_post.id,
@@ -55,11 +61,14 @@ def post_create_list_view(request, *args, **kwargs):
             'comment_date_added': comment_post.date_added.strftime("%d-%m-%Y %H:%M:%S"),
             
             'post_author': comment_post.post.author.email,
+            'post_id': comment_post.post.id,
             
             'user_profile_bio': comment_post.author.profile.bio,
             'user_profile_img': comment_post.author.profile.img_profile.url,
             
             'current_user': request.user.email
+            
+            # 'action': 'create',
         }
         
         return JsonResponse(data, status=200)

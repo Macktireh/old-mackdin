@@ -11,6 +11,9 @@ form_comments.forEach((form) => {
     const input_hidden_post_comment = document.getElementById(
       "input_hidden_post_comment-" + e.target.title
     ).value;
+    const input_hidden_post_comment2 = document.getElementById(
+      "input_hidden_post_comment2-" + e.target.title
+    ).value;
     // alert(`${input_text_comment} - ${input_hidden_post_comment}`)
     const container_list_comment = document.getElementById(
       "container-global-comment-list-" + e.target.title
@@ -44,6 +47,7 @@ form_comments.forEach((form) => {
       body: JSON.stringify({
         message: input_text_comment,
         id_post: input_hidden_post_comment,
+        id_comment: input_hidden_post_comment2,
       }),
     })
       .then((response) => {
@@ -69,9 +73,9 @@ form_comments.forEach((form) => {
           }
         };
         //
-        //
 
-        container_list_comment.innerHTML += `
+        if (!input_hidden_post_comment2) {
+          container_list_comment.innerHTML += `
             <div class="container-comment-list">
 
             <div id="${data.id}" class="comment-options-btn">
@@ -84,14 +88,20 @@ form_comments.forEach((form) => {
               data.id
             }" class="comment-options-actions-container display-none">
               <ul>
-                <a href="#" class="comment-options-item">
-                  <img src="http://127.0.0.1:8000/static/comments/img/edit.svg" id="comment-options-item-img">
+                <div href="#" class="comment-options-item comment-options-item-edit" title="${
+                  data.id
+                }">
+                  <img src="http://127.0.0.1:8000/static/comments/img/edit.svg" id="${
+                    data.id
+                  }" class="comment-options-item-img">
                   <span class="btn-edit-comment comment-options-item-span" id="${
                     data.id
                   }">Modifier</span>
-                </a>
-                <a href="#" class="comment-options-item">
-                  <img src="http://127.0.0.1:8000/static/comments/img/delete.svg" id="comment-options-item-img">
+                </div>
+                <a href="#" class="comment-options-item comment-options-item-delete">
+                  <img src="http://127.0.0.1:8000/static/comments/img/delete.svg" id="${
+                    data.id
+                  }" class="comment-options-item-img">
                   <span class="btn-del-comment comment-options-item-span" id="${
                     data.id
                   }">Supprimer</span>
@@ -103,7 +113,9 @@ form_comments.forEach((form) => {
                 data.user_profile_img
               )}              <div class="comment-content-box">
                 <div class="comment-info-content">
-                  <div class="comment-info-content-I">
+                  <div class="comment-info-content-I" id="comment-info-content-I-${
+                    data.post_id
+                  }">
                     <strong>${data.comment_author_first_name}
                       ${data.comment_author_last_name}
                       ${verif_author(data.comment_author, data.post_author)}
@@ -115,10 +127,16 @@ form_comments.forEach((form) => {
                   }</p>
                 </div>
                 <div class="comment-text-content">
-                  <p>${data.comment_message}</p>
+                  <p class="msg-text-p-${data.id}" id="${data.post_id}">${
+            data.comment_message
+          }</p>
                 </div>
               </div>
             </div>`;
+        } else {
+          document.querySelector(".msg-text-p-" + data.id).textContent =
+            data.comment_message;
+        }
       });
     document.getElementById("input_message_comment-" + e.target.title).value =
       "";
@@ -131,6 +149,25 @@ comment_options_btn.forEach((element) => {
       "comment-options-container" + element.id
     );
     comment_ops_container.classList.toggle("display-none");
+  });
+});
+
+// ***
+
+const comment_options_item_edits = document.querySelectorAll(
+  ".comment-options-item-edit"
+);
+
+comment_options_item_edits.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    const msg = document.querySelector(".msg-text-p-" + e.target.id);
+    console.log(e.target.id);
+    console.log(msg.id);
+
+    document.getElementById("input_message_comment-" + msg.id).value =
+      msg.textContent;
+    document.getElementById("input_hidden_post_comment2-" + msg.id).value =
+      e.target.id;
   });
 });
 

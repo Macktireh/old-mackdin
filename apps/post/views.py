@@ -116,18 +116,18 @@ def update_post(request, post_id):
     return render(request, template, context)
 
 
-def add_post(request):
-    user = request.user
-    AddPostForm = PostForm(request.POST or None, request.FILES or None)
-    if request.is_ajax():
-        if AddPostForm.is_valid():
-            instance = AddPostForm.save(commit=False)
-            instance.author = user
-            instance.save()
-            post = Post.objects.values()
-            return JsonResponse({'status': 'success', 'post_data': list(post)})
-        else:
-            return JsonResponse({'status': 'error'})
+# def add_post(request):
+#     user = request.user
+#     AddPostForm = PostForm(request.POST or None, request.FILES or None)
+#     if request.is_ajax():
+#         if AddPostForm.is_valid():
+#             instance = AddPostForm.save(commit=False)
+#             instance.author = user
+#             instance.save()
+#             post = Post.objects.values()
+#             return JsonResponse({'status': 'success', 'post_data': list(post)})
+#         else:
+#             return JsonResponse({'status': 'error'})
    
         
 def delete_post(request, post_id):
@@ -187,3 +187,10 @@ def like_post(request):
         }
         return JsonResponse(data, safe=False)
     return redirect('post_list')
+
+
+def delete_comment(request):
+    id_comment = request.POST.get("id_comment")
+    obj = Comment.objects.get(id=id_comment)
+    obj.delete()
+    return JsonResponse({'action': "commentaire supprimer"})

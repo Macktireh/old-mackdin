@@ -1,3 +1,26 @@
+// ##############################################""
+// bouton d'option de modification et suppression
+
+const comment_options_item_edits = document.querySelectorAll(
+  ".comment-options-item-edit"
+);
+
+comment_options_item_edits.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    const msg = document.querySelector(".msg-text-p-" + e.target.id);
+    console.log(e.target.id);
+    console.log(msg.id);
+
+    document.getElementById("input_message_comment-" + msg.id).value =
+      msg.textContent;
+    document.getElementById("input_hidden_post_comment2-" + msg.id).value =
+      e.target.id;
+  });
+});
+
+// ##############################################""
+// ajout et modification des commentaires
+
 const form_comments = document.querySelectorAll(
   ".form-comment-list-input-container-global"
 );
@@ -76,7 +99,7 @@ form_comments.forEach((form) => {
 
         if (!input_hidden_post_comment2) {
           container_list_comment.innerHTML += `
-            <div class="container-comment-list">
+            <div class="container-comment-list"  id="container-comment-list{{comment.id}}">
 
             <div id="${data.id}" class="comment-options-btn">
               <span id="btn-point"></span>
@@ -88,7 +111,7 @@ form_comments.forEach((form) => {
               data.id
             }" class="comment-options-actions-container display-none">
               <ul>
-                <div href="#" class="comment-options-item comment-options-item-edit" title="${
+                <div class="comment-options-item comment-options-item-edit" title="${
                   data.id
                 }">
                   <img src="http://127.0.0.1:8000/static/comments/img/edit.svg" id="${
@@ -98,14 +121,14 @@ form_comments.forEach((form) => {
                     data.id
                   }">Modifier</span>
                 </div>
-                <a href="#" class="comment-options-item comment-options-item-delete">
+                <div class="comment-options-item comment-options-item-delete">
                   <img src="http://127.0.0.1:8000/static/comments/img/delete.svg" id="${
                     data.id
                   }" class="comment-options-item-img">
                   <span class="btn-del-comment comment-options-item-span" id="${
                     data.id
                   }">Supprimer</span>
-                </a>
+                </div>
               </ul>
             </div>
 
@@ -152,22 +175,60 @@ comment_options_btn.forEach((element) => {
   });
 });
 
-// ***
+// ##############################################""
+// suppression des commentaires
 
-const comment_options_item_edits = document.querySelectorAll(
-  ".comment-options-item-edit"
+const comment_options_item_deletes = document.querySelectorAll(
+  ".comment-options-item-delete"
 );
 
-comment_options_item_edits.forEach((element) => {
+comment_options_item_deletes.forEach((element) => {
   element.addEventListener("click", (e) => {
-    const msg = document.querySelector(".msg-text-p-" + e.target.id);
-    console.log(e.target.id);
-    console.log(msg.id);
+    // console.log(e.target.id);
+    // console.log(element);
+    const com = document.getElementById("container-comment-list" + e.target.id);
 
-    document.getElementById("input_message_comment-" + msg.id).value =
-      msg.textContent;
-    document.getElementById("input_hidden_post_comment2-" + msg.id).value =
-      e.target.id;
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    const csrftoken = getCookie("csrftoken");
+
+    const formData = new FormData();
+    formData.append("id_comment", e.target.id);
+
+    const request = new Request("delete-comment/", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRFToken": csrftoken,
+      },
+      body: formData,
+    });
+
+    fetch(request)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+      });
+
+    com.classList.add("display-none");
+
+    // document.getElementById("input_message_comment-" + msg.id).value =
+    //   msg.textContent;
+    // document.getElementById("input_hidden_post_comment2-" + msg.id).value =
+    //   e.target.id;
   });
 });
 

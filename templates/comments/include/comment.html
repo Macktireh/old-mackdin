@@ -21,7 +21,7 @@
 
   <div class="container-global-comment-list" id="container-global-comment-list-{{post.id}}">
     {% for comment in post.post_comment.all %}
-    <div class="container-comment-list">
+    <div class="container-comment-list" id="container-comment-list{{comment.id}}">
       {% include 'comments/include/comment_opts.html' %}
       <img id="container-comment-list-img-profile" src="        
       {% if comment.author.profile.img_profile %}

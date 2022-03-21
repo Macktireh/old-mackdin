@@ -11,14 +11,14 @@
 
   <ul>
 
-    <div href="#" class="comment-options-item comment-options-item-edit" id="{{comment.id}}">
+    <div class="comment-options-item comment-options-item-edit" id="{{comment.id}}">
       <img src="{% static 'comments/img/edit.svg' %}" id="{{comment.id}}" class="comment-options-item-img">
       <span class="btn-edit-comment comment-options-item-span" id="{{comment.id}}">Modifier</span>
     </div>
-    <a href="#" class="comment-options-item comment-options-item-delete">
+    <div class="comment-options-item comment-options-item-delete">
       <img src="{% static 'comments/img/delete.svg' %}" id="{{comment.id}}" class="comment-options-item-img">
       <span class="btn-del-comment comment-options-item-span" id="{{comment.id}}">Supprimer</span>
-    </a>
+    </div>
 
   </ul>
 </div>

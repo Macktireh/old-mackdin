@@ -87,3 +87,5 @@ def comment_all_data(request):
         data.append(item)
   
     return JsonResponse({'data': data})
+
+

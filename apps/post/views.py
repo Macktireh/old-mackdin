@@ -64,7 +64,7 @@ def post_create_list_view(request, *args, **kwargs):
             'post_id': comment_post.post.id,
             
             'user_profile_bio': comment_post.author.profile.bio,
-            'user_profile_img': comment_post.author.profile.img_profile.url,
+            'user_profile_img': comment_post.author.profile.img_profile.url if comment_post.author.profile.img_profile else "",
             
             'current_user': request.user.email
             

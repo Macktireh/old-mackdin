@@ -21,6 +21,16 @@ comment_options_item_edits.forEach((element) => {
 // ##############################################""
 // ajout et modification des commentaires
 
+let num_comment;
+
+const fonc_text_plural2 = (n, balise) => {
+  if (n > 1) {
+    balise.textContent("Likes");
+  } else {
+    balise.textContent("Like");
+  }
+};
+
 const form_comments = document.querySelectorAll(
   ".form-comment-list-input-container-global"
 );
@@ -28,6 +38,8 @@ const comment_options_btn = document.querySelectorAll(".comment-options-btn");
 
 form_comments.forEach((form) => {
   form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
     const input_text_comment = document.getElementById(
       "input_message_comment-" + e.target.title
     ).value;
@@ -41,7 +53,9 @@ form_comments.forEach((form) => {
     const container_list_comment = document.getElementById(
       "container-global-comment-list-" + e.target.title
     );
-    e.preventDefault();
+    const count_num_comment = parseInt(
+      document.getElementById("comments-num" + e.target.title).textContent
+    );
 
     function getCookie(name) {
       let cookieValue = null;
@@ -99,7 +113,9 @@ form_comments.forEach((form) => {
 
         if (!input_hidden_post_comment2) {
           container_list_comment.innerHTML += `
-            <div class="container-comment-list"  id="container-comment-list{{comment.id}}">
+            <div class="container-comment-list"  id="container-comment-list${
+              data.id
+            }">
 
             <div id="${data.id}" class="comment-options-btn">
               <span id="btn-point"></span>
@@ -121,13 +137,15 @@ form_comments.forEach((form) => {
                     data.id
                   }">Modifier</span>
                 </div>
-                <div class="comment-options-item comment-options-item-delete">
+                <div class="comment-options-item comment-options-item-delete" id="${
+                  data.id
+                }"  title="${data.post_id}">
                   <img src="http://127.0.0.1:8000/static/comments/img/delete.svg" id="${
                     data.id
                   }" class="comment-options-item-img">
                   <span class="btn-del-comment comment-options-item-span" id="${
                     data.id
-                  }">Supprimer</span>
+                  }"   title="${data.post_id}">Supprimer</span>
                 </div>
               </ul>
             </div>
@@ -156,11 +174,25 @@ form_comments.forEach((form) => {
                 </div>
               </div>
             </div>`;
+
+          num_comment = count_num_comment + 1;
+          document.getElementById("comments-num" + e.target.title).textContent =
+            num_comment;
+          if (num_comment > 1) {
+            document.getElementById(
+              "text-plural-comments" + e.target.title
+            ).textContent = "Commentaires";
+          } else {
+            document.getElementById(
+              "text-plural-comments" + e.target.title
+            ).textContent = "Commentaire";
+          }
         } else {
           document.querySelector(".msg-text-p-" + data.id).textContent =
             data.comment_message;
         }
       });
+
     document.getElementById("input_message_comment-" + e.target.title).value =
       "";
   });
@@ -184,9 +216,17 @@ const comment_options_item_deletes = document.querySelectorAll(
 
 comment_options_item_deletes.forEach((element) => {
   element.addEventListener("click", (e) => {
-    // console.log(e.target.id);
-    // console.log(element);
+    console.log(element);
+    console.log(e.target.id);
+    console.log(e);
     const com = document.getElementById("container-comment-list" + e.target.id);
+    const count_num_comment = parseInt(
+      document.getElementById("comments-num" + e.target.title).textContent
+    );
+
+    console.log(
+      document.getElementById("text-plural-comments" + e.target.title)
+    );
 
     function getCookie(name) {
       let cookieValue = null;
@@ -224,6 +264,19 @@ comment_options_item_deletes.forEach((element) => {
       });
 
     com.classList.add("display-none");
+    num_comment = count_num_comment - 1;
+    document.getElementById("comments-num" + e.target.title).textContent =
+      num_comment;
+
+    if (num_comment > 1) {
+      document.getElementById(
+        "text-plural-comments" + e.target.title
+      ).textContent = "Commentaires";
+    } else {
+      document.getElementById(
+        "text-plural-comments" + e.target.title
+      ).textContent = "Commentaire";
+    }
 
     // document.getElementById("input_message_comment-" + msg.id).value =
     //   msg.textContent;

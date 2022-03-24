@@ -10,11 +10,14 @@
     @extend .flex-center
 
   .post-header-img img
-    width: 100%
-    min-height: 60px
-    min-width: 60px
-    max-height: 60px
-    max-width: 60px
+    width: 60px
+    height: 60px
+    object-position: center
+    object-fit: cover
+    // min-height: 60px
+    // min-width: 60px
+    // max-height: 60px
+    // max-width: 60px
     border-radius: 50%
 
   .post-header-info p
@@ -61,13 +64,27 @@
       padding: 1rem 0
       @extend .flex-center
       gap: 0.4rem
+      width: 100%
+      background-color: $color4
+      border: none
+      outline: none
+      cursor: pointer
+      color: $color2
+      font-size: 16px
+      font-family: $font1
 
       img
-        width: 30px
+        width: 20px
 
       &:hover
         background-color: $color6
         border-radius: 8px
+
+      &:active
+        transform: scale(0.98)
+
+.text-like_unlike-span
+  color: $color3
 
 form button
   padding: 1rem 0
@@ -79,10 +96,11 @@ form button
   gap: 0.4rem
   cursor: pointer
   img
-    width: 30px
+    width: 20px
   span
     color: $color2
     font-size: 16px
+    font-family: $font1
   &:hover
     background-color: $color6
     border-radius: 8px

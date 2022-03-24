@@ -34,8 +34,10 @@
           {% endif %}" alt="Profile">
         <!-- </div> -->
         <div class="info-content">
-          <h2>{{user.first_name}} {{user.last_name}}</h2>
+          <h2>{{user.first_name}} {{user.last_name}} <small>@{{user.profile.pseudo}}</small></h2>
           <p>{{user.profile.bio}}</p>
+          <p>{{user.profile.country}} {{user.profile.town}}</p>
+          <!-- <p>{{user.profile.bio}}</p> -->
         </div>
       </div>
     </section>

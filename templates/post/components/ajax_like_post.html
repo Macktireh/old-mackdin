@@ -59,15 +59,17 @@
             - mettre à jour le nombre de like avec la variable res`
 
                     if (response.value === "Unlike") {
-//                         $(`.like-text${post_id}`).text("J'aime");
-                        $(`.like-text${post_id}`).css("color","#f1f1f1")
+                        //                         $(`.like-text${post_id}`).text("J'aime");
+                        // $(`.like-text${post_id}`).css("color","#f1f1f1")
+                        $(`.like-text${post_id}`).removeClass("text-like_unlike-span");
                         $(`#like-img${post_id}`).prop('src',
                             '{% static "post/img/unlike.svg" %}');
                         res = likes_num - 1
                         fonc_text_plural(res)
                     } else {
-//                         $(`.like-text${post_id}`).text("Je n'aime pas");
-                        $(`.like-text${post_id}`).css("color","#1abc9c")
+                        //                         $(`.like-text${post_id}`).text("Je n'aime pas");
+                        // $(`.like-text${post_id}`).css("color","#1abc9c")
+                        $(`.like-text${post_id}`).addClass("text-like_unlike-span");
                         $(`#like-img${post_id}`).prop('src',
                             '{% static "post/img/like.svg" %}');
                         res = likes_num + 1

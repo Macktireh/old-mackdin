@@ -42,14 +42,14 @@
         <hr />
         <div class="box-action-icon">
           {% include 'post/components/like-form-btn.html' %}
-          <a href="#" class="action-icon box-comment">
-            <img src="{% static 'post/img/comment.svg' %}" alt="" />
-            <span>Commenter</span>
-          </a>
-          <a href="#" class="action-icon box-share">
+          <button href="#" class="action-icon box-comment btn-container-comment-toggle" id="{{post.id}}">
+            <img src="{% static 'post/img/comment.svg' %}" alt="" id="{{post.id}}" />
+            <span id="{{post.id}}">Commenter</span>
+          </button>
+          <button href="#" class="action-icon box-share">
             <img src="{% static 'post/img/share.svg' %}" alt="" />
             <span>Partager</span>
-          </a>
+          </button>
         </div>
       </div>
 

@@ -17,6 +17,9 @@
   @extend  .flex-center
   flex-direction: column
   gap: 0.4rem
+  transition: opacity 0.4s ease-in-out
+  opacity: 1
+  visibility: visible
 
   .form-comment-container-input
     width: 100%
@@ -36,7 +39,10 @@
       gap: 0.2rem
       img
         width: 43px
+        height: 43px
         border-radius: 50%
+        object-position: center
+        object-fit: cover
 
       .input_message_comment_id
         height: 2.6rem
@@ -81,9 +87,10 @@
         left: 0.4rem
         top: 0.4rem
         grid-area: img
-        width: 55px
-        max-width: 55px
-        min-width: 55px
+        width: 50px
+        height: 50px
+        object-position: center
+        object-fit: cover
         border-radius: 50%
 
       .comment-content-box
@@ -91,7 +98,7 @@
         @include flex-el(start, null)
         flex-direction: column
         gap: 0.4rem
-        margin-left: 68px
+        margin-left: 62px
         background-color: $color1
         padding: 8px
         border-radius: 10px

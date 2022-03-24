@@ -7,7 +7,7 @@ from apps.profiles.forms import ProfileForm
 
 
 def profile(request, pseudo):
-    profile = get_object_or_404(User, first_name=pseudo)
+    profile = get_object_or_404(Profile, pseudo=pseudo)
     profile_form = ProfileForm()
     
     template = "profiles/profiles.html"

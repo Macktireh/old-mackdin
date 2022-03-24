@@ -1,6 +1,7 @@
 {% load static %}
 
-<form title="{{post.id}}" class="form-comment-list-input-container-global" method="post">
+<form title="{{post.id}}" class="form-comment-list-input-container-global D-none_V-hidden_O-0"
+  id="form-comment-list-input-container-global{{post.id}}" method="post">
   <div class="form-comment-container-input">
     {% csrf_token %}
     <div class="form-content-comment">

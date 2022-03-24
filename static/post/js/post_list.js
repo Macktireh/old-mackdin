@@ -6,6 +6,9 @@ const p_text = document.getElementById("previous-message");
 const p_img = document.getElementById("previous-post-image");
 const cancel_add_post = document.getElementById("btn-cancel-add-post");
 const options_btn = document.querySelectorAll(".options-btn");
+const btn_container_comment_toggle = document.querySelectorAll(
+  ".btn-container-comment-toggle"
+);
 
 let val;
 // console.log(previous_container);
@@ -66,5 +69,16 @@ options_btn.forEach((element) => {
   element.addEventListener("click", (e) => {
     ops_container = document.getElementById("options-container" + element.id);
     ops_container.classList.toggle("display-none");
+  });
+});
+
+btn_container_comment_toggle.forEach((element) => {
+  // console.log(element);
+  element.addEventListener("click", (e) => {
+    // console.log(e.target.id);
+
+    document
+      .getElementById("form-comment-list-input-container-global" + e.target.id)
+      .classList.toggle("D-none_V-hidden_O-0");
   });
 });

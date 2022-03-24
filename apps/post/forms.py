@@ -14,3 +14,9 @@ class PostForm(forms.ModelForm):
         """Meta definition for Postform."""
         model = Post
         fields = ('message', 'img',)
+
+    def clean(self, *args, **kwargs):
+        msg = self.cleaned_data.get('message')
+        img = self.cleaned_data.get('img')
+        if (msg is None or msg == '') and (img is None):
+            raise forms.ValidationError(_("Veuillez entrer un message ou charger une image"))

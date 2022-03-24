@@ -9,7 +9,7 @@
         <span class="like-text{{post.id}}">J'aime</span>
         {% else %}
         <img id="like-img{{post.id}}" src="{% static 'post/img/like.svg' %}" alt="" />
-        <span class="like-text{{post.id}}">Je n'aime pas</span>
+        <span class="like-text{{post.id}} text-like_unlike-span">J'aime</span>
         {% endif %}
     </button>
 </form>

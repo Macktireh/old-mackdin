@@ -98,8 +98,9 @@ def update_post(request, post_id):
     
     if request.method == 'POST':
         if len(request.FILES) != 0:
-            if len(post_edit.img) > 0:
-                os.remove(post_edit.img.path)
+            if post_edit.img:
+                if len(post_edit.img) > 0:
+                    os.remove(post_edit.img.path)
             post_edit.img = request.FILES['img']      
         post_edit.message = request.POST.get('message')
         post_edit.save()

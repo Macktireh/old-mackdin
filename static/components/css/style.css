@@ -145,8 +145,11 @@ nav ul a:hover {
 }
 
 .nav-profil img {
-  width: 100%;
+  width: 50px;
+  height: 50px;
   border-radius: 9999px;
+  object-position: center;
+  object-fit: cover;
 }
 
 .hamburger-nav-profil {

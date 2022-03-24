@@ -102,11 +102,10 @@ a:visited {
   justify-content: center;
 }
 .new-add-post-left-container img {
-  width: 100%;
-  min-height: 60px;
-  min-width: 60px;
-  max-height: 60px;
-  max-width: 60px;
+  width: 70px;
+  height: 70px;
+  object-position: center;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -276,14 +275,6 @@ form div button span {
   padding: 0.5rem;
 }
 
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
-}
-
 .options-btn {
   position: absolute;
   top: 10px;
@@ -345,11 +336,10 @@ form div button span {
   width: 70px;
 }
 .post-header .post-header-img img {
-  width: 100%;
-  min-height: 60px;
-  min-width: 60px;
-  max-height: 60px;
-  max-width: 60px;
+  width: 60px;
+  height: 60px;
+  object-position: center;
+  object-fit: cover;
   border-radius: 50%;
 }
 .post-header .post-header-info p {
@@ -400,13 +390,28 @@ form div button span {
 .post-footer .box-action-icon .action-icon {
   padding: 1rem 0;
   gap: 0.4rem;
+  width: 100%;
+  background-color: #34495e;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #f1f1f1;
+  font-size: 16px;
+  font-family: ui-sans-serif, system-ui;
 }
 .post-footer .box-action-icon .action-icon img {
-  width: 30px;
+  width: 20px;
 }
 .post-footer .box-action-icon .action-icon:hover {
   background-color: #0000001a;
   border-radius: 8px;
+}
+.post-footer .box-action-icon .action-icon:active {
+  transform: scale(0.98);
+}
+
+.text-like_unlike-span {
+  color: #1abc9c;
 }
 
 form button {
@@ -419,11 +424,12 @@ form button {
   cursor: pointer;
 }
 form button img {
-  width: 30px;
+  width: 20px;
 }
 form button span {
   color: #f1f1f1;
   font-size: 16px;
+  font-family: ui-sans-serif, system-ui;
 }
 form button:hover {
   background-color: #0000001a;
@@ -431,6 +437,28 @@ form button:hover {
 }
 form button:active {
   transform: scale(0.98);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.D-none_V-hidden_O-0 {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

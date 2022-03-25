@@ -3,14 +3,14 @@ from apps.profiles.models import Profile
 from django.utils.translation import gettext_lazy as _
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'pseudo', 'bio', 'birth_date', 'gender', 'adress', 'town', 'country',)
+    list_display = ('full_name', 'pseudo', 'bio', 'birth_date', 'gender', 'phone', 'adress', 'town', 'country',)
     # list_filter = ('gender',)
     fieldsets = (
         (None, {'fields': ('user',)}),
         
-        (_('Personal info'), {'fields': ('pseudo', 'bio', 'img_profile', 'img_bg', 'birth_date', 'gender',)}),
+        (_('Personal info'), {'fields': ('pseudo', 'bio', 'img_profile', 'img_bg', 'birth_date', 'gender', 'phone',)}),
         
-        (_('Location'), {'fields': ('adress', 'town', 'zipcode', 'country',),}),
+        (_('Location'), {'fields': ('adress', 'town', 'region', 'zipcode', 'country',),}),
         # (_('User description'), {'fields': ('description', 'bio')}),
         
         (_('Description'), {'fields': ('description',)}),

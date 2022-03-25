@@ -26,36 +26,52 @@
           {% static 'profiles/img/bg.png' %}
           {% endif %}" alt="Couverture">
         </div>
-        <!-- <div class="info-img-profile"> -->
         <img class="img_profile" src="{% if user.profile.img_profile %}
           {{ user.profile.img_profile.url }}
           {% else %}
           {% static 'components/img/user.svg' %}
           {% endif %}" alt="Profile">
-        <!-- </div> -->
         <div class="info-content">
-          <h2>{{user.first_name}} {{user.last_name}} <small>@{{user.profile.pseudo}}</small></h2>
+          <img class="icon-edit-profile-infon-personnel" src="{% static 'profiles/img/edit.svg' %}">
+          <h2>{{user.first_name}} {{user.last_name}}</h2>
           <p>{{user.profile.bio}}</p>
-          <p>{{user.profile.country}} {{user.profile.town}}</p>
-          <!-- <p>{{user.profile.bio}}</p> -->
+          <div class="box-location">
+            <img src="{% static 'profiles/img/location.svg' %}">
+            <p>{{user.profile.country|title}} <span id=" point-separator-style"></span> {{user.profile.region|title}}
+              <span id=" point-separator-style"></span> {{user.profile.town|title}}
+            </p>
+          </div>
+          <div class="box-tel">
+            <img src="{% static 'profiles/img/phone.svg' %}">
+            <p>{{user.profile.phone}} </p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="profile-description">
-      <h2>Section description</h2>
-      <form action="">
+      <img class="icon-edit-profile-infon-personnel" src="{% static 'profiles/img/edit.svg' %}">
+      <h2>Infos</h2>
+      <!-- <form action="">
         {{profile_form.as_p}}
-      </form>
+      </form> -->
+      <div class="container-description">
+        <p>{% lorem 50 w %}</p>
+        <br>
+        <p>{% lorem 70 w %}</p>
+        <br>
+        <p>{% lorem 30 w %}</p>
+      </div>
     </section>
 
-    <section class="profile-experience">
+    <!-- <section class="profile-experience">
+
       <h2>Section experience</h2>
     </section>
 
     <section class="profile-formation">
       <h2>Section formation</h2>
-    </section>
+    </section> -->
   </div>
   <div class="container-right">
     <aside class="asd-adresse"> test</aside>

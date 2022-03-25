@@ -31,6 +31,7 @@ class Profile(models.Model):
     phone = PhoneNumberField(_("téléphone"), blank=True)
     adress = models.CharField(_("adresse"), max_length=128, blank=True)
     town = models.CharField(_("ville"), max_length=68, blank=True)
+    region = models.CharField(_("région"), max_length=68, blank=True)
     zipcode = models.CharField(_("code postal"), max_length=22, blank=True)
     country = models.CharField(_("pays"), max_length=45, blank=True)
     description = models.TextField(_("description"), blank=True)

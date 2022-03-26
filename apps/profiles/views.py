@@ -8,6 +8,8 @@ from apps.profiles.forms import ProfileForm
 
 def profile(request, pseudo):
     profile = get_object_or_404(Profile, pseudo=pseudo)
+    profile.number_views = profile.number_views + 1
+    profile.save()
     profile_form = ProfileForm()
     
     template = "profiles/profiles.html"

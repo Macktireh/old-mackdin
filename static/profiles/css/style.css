@@ -45,28 +45,19 @@ a:visited {
   flex-direction: column;
   gap: 1rem;
 }
-.container-right .asd-adresse {
-  height: 15rem;
-  width: 100%;
-  padding: 0.5rem;
-  background-color: #34495e;
-  box-shadow: 0 2px 3px 0 #0000001a;
-  border-radius: 8px;
-}
-.container-right .asd-rs {
-  height: 25rem;
-  width: 100%;
-  padding: 0.5rem;
-  background-color: #34495e;
-  box-shadow: 0 2px 3px 0 #0000001a;
-  border-radius: 8px;
-}
 
 .container-left {
   width: 75%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.icon-edit-profile-infon-personnel {
+  width: 30px;
+  position: absolute;
+  right: 15px;
+  top: 12px;
 }
 
 .profile-info {
@@ -163,28 +154,56 @@ a:visited {
   line-height: 25px;
 }
 
-.profile-experience {
+.asd-info-stat {
+  height: 15rem;
   width: 100%;
+  padding: 0.5rem;
   background-color: #34495e;
   box-shadow: 0 2px 3px 0 #0000001a;
   border-radius: 8px;
-  text-align: center;
-  height: 30rem;
+  padding: 1rem;
 }
-
-.profile-formation {
-  width: 100%;
-  background-color: #34495e;
-  box-shadow: 0 2px 3px 0 #0000001a;
-  border-radius: 8px;
-  text-align: center;
+.asd-info-stat .statistic-profile {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-
-.icon-edit-profile-infon-personnel {
+.asd-info-stat .statistic-profile .statistic {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+}
+.asd-info-stat .statistic-profile .statistic .statistic-text {
+  width: 60%;
+}
+.asd-info-stat .others-link {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.asd-info-stat .others-link .link-pro {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5rem;
+}
+.asd-info-stat .others-link .link-pro .link-pro-icon {
   width: 30px;
-  position: absolute;
-  right: 15px;
-  top: 12px;
+}
+.asd-info-stat .others-link .link-pro .link-pro-link {
+  text-decoration: underline;
+}
+
+.asd-rs {
+  height: 25rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #34495e;
+  box-shadow: 0 2px 3px 0 #0000001a;
+  border-radius: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */

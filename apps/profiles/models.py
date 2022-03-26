@@ -39,6 +39,7 @@ class Profile(models.Model):
     link_gitthub = models.URLField(_("lien de votre profile gitthub"), blank=True)
     link_twitter = models.URLField(_("lien de votre twitter"), blank=True)
     link_mysite = models.URLField(_("lien de votre de site web"), blank=True)
+    number_views = models.IntegerField(_('Nombre de vue profil'), default=0, blank=True, null=True)
     date_updated = models.DateTimeField(_("date de modification"), auto_now=True)
     
     def __str__(self):

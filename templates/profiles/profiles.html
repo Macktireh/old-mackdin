@@ -63,18 +63,41 @@
         <p>{% lorem 30 w %}</p>
       </div>
     </section>
-
-    <!-- <section class="profile-experience">
-
-      <h2>Section experience</h2>
-    </section>
-
-    <section class="profile-formation">
-      <h2>Section formation</h2>
-    </section> -->
   </div>
+
   <div class="container-right">
-    <aside class="asd-adresse"> test</aside>
+    <aside class="asd-info-stat">
+      <div class="statistic-profile">
+        <div class="num-vue statistic">
+          <span class="statistic-text">Vues de votre profil</span>
+          <span class="statistic-num">
+            {% if user.profile.number_views %}
+            {{user.profile.number_views}}
+            {% else %}
+            0
+            {% endif %}
+          </span>
+        </div>
+        <div class="num-post statistic">
+          <span class="statistic-text">Nombre de post</span>
+          <span class="statistic-num">{{user.post.count}}</span>
+        </div>
+      </div>
+      <div class="others-link">
+        <div class="link-pro">
+          <img src="{% static 'components/img/linkedin.svg' %}" class="link-pro-icon">
+          <a href="{{user.profile.link_linkedin}}" class="link-pro-link" target="_blank">linkedin</a>
+        </div>
+        <div class="link-pro">
+          <img src="{% static 'components/img/github.svg' %}" class="link-pro-icon">
+          <a href="{{user.profile.link_gitthub}}" class="link-pro-link" target="_blank">github</a>
+        </div>
+        <div class="link-pro">
+          <img src="{% static 'profiles/img/web.svg' %}" class="link-pro-icon">
+          <a href="{{user.profile.link_mysite}}" class="link-pro-link" target="_blank">mysite</a>
+        </div>
+      </div>
+    </aside>
     <aside class="asd-rs"></aside>
   </div>
 </main>

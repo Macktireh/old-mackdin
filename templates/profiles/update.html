@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Update profile {{profile.user.first_name}} {{profile.user.last_name}} {% endblock title %}
+
+
+{% block style %}
+<link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon">
+<link rel="stylesheet" href=" {% static 'components/css/style.css' %}" />
+<link rel="stylesheet" href=" {% static 'profiles/css/style.css' %} " />
+{% endblock style %}
+
+<!-- Navbar -->
+{% block navbar %} {% include 'components/navbar2.html' %} {% endblock navbar %}
+
+{% block content %}
+<main class="main-profile-update">
+
+  <div class="update-porfile-container">
+    <h1>Modifier votre profil</h1>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{user_profile_form.as_p}}
+      {{profile_form.as_p}}
+      <input type="submit" value="Enregistrer">
+    </form>
+  </div>
+
+</main>
+{% endblock content %}
+
+<!-- Footer -->
+{% block footer %} {% include 'components/footer.html' %} {% endblock footer %}
+
+{% block js %}
+<script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
+{% endblock js %}

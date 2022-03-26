@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Fil d'actualité | Mackdin {% endblock title %}
+{% block title %} Fil d'actualité {% endblock title %}
 
 {% block style %}
 <link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon" />
@@ -28,7 +28,7 @@
       {% include 'post/components/post-header.html' %}
 
       <div class="post-text-content">
-        <p>{{post.message|safe}}</p>
+        <p>{{post.message|linebreaksbr}}</p>
       </div>
 
       {% if post.img %}

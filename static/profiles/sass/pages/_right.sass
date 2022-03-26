@@ -1,11 +1,23 @@
 .asd-info-stat
-  height: 15rem
+  // height: 18rem
   width: 100%
   padding: 0.5rem
   background-color: $color4
   box-shadow: 0 2px 3px 0 $color6
   border-radius: 8px
   padding: 1rem
+  @include flex-el(start, null)
+  flex-direction: column
+  gap: 1.2rem
+
+  .btn-container-update-profile
+    // @extend .flex-center
+    a
+      text-decoration: underline
+      transition: .3s ease-out
+      &:hover
+        color: $color3
+
   .statistic-profile
     @include flex-el(start, null)
     flex-direction: column
@@ -15,9 +27,12 @@
       gap: 1rem
       .statistic-text
         width: 60%
+      .statistic-num
+        color: $color3
+        font-weight: bold
 
   .others-link
-    margin-top: 1.2rem
+    // margin-top: 1rem
     @include flex-el(start, null)
     flex-direction: column
     gap: 0.5rem
@@ -28,6 +43,9 @@
         width: 30px
       .link-pro-link
         text-decoration: underline
+        transition: .3s ease-out
+        &:hover
+          color: $color3
 
 .asd-rs
   height: 25rem

@@ -2,11 +2,11 @@
 {% load static %}
 
 
-{% block title %} Home {% endblock title %}
+{% block title %} {{profile.user.first_name}} {{profile.user.last_name}} {% endblock title %}
 
 
 {% block style %}
-<link rel="shortcut icon" href=" {% static 'profiles/img/favicon.png' %} " type="image/x-icon">
+<link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon">
 <link rel="stylesheet" href=" {% static 'components/css/style.css' %}" />
 <link rel="stylesheet" href=" {% static 'profiles/css/style.css' %} " />
 {% endblock style %}
@@ -20,59 +20,84 @@
     <section class="profile-info">
       <div class="container-info">
         <div class="info-img-bg">
-          <img class="img_bg" src="{% if user.profile.img_bg %}
-          {{ user.profile.img_bg.url }}
+          <img class="img_bg" src="{% if profile.img_bg %}
+          {{ profile.img_bg.url }}
           {% else %}
           {% static 'profiles/img/bg.png' %}
           {% endif %}" alt="Couverture">
         </div>
-        <img class="img_profile" src="{% if user.profile.img_profile %}
-          {{ user.profile.img_profile.url }}
+        <img class="img_profile" src="{% if profile.img_profile %}
+          {{ profile.img_profile.url }}
           {% else %}
           {% static 'components/img/user.svg' %}
           {% endif %}" alt="Profile">
         <div class="info-content">
-          <img class="icon-edit-profile-infon-personnel" src="{% static 'profiles/img/edit.svg' %}">
-          <h2>{{user.first_name}} {{user.last_name}}</h2>
-          <p>{{user.profile.bio}}</p>
+          <h2>{{profile.user.first_name}} {{profile.user.last_name}} <span id="point-separator-style"></span>
+            <small>@{{profile.pseudo}}</small>
+          </h2>
+          <p>{{profile.bio}}</p>
+
+          {% if profile.country or profile.region or profile.town %}
           <div class="box-location">
             <img src="{% static 'profiles/img/location.svg' %}">
-            <p>{{user.profile.country|title}} <span id=" point-separator-style"></span> {{user.profile.region|title}}
-              <span id=" point-separator-style"></span> {{user.profile.town|title}}
+
+            {% if profile.country %}
+            <p> {{profile.country|title}}
+              <span id="point-separator-style"></span>
+              {% endif %}
+
+              {% if profile.region %}
+              {{profile.region|title}}
+              <span id=" point-separator-style"></span>
+              {% endif %}
+              {{profile.town|title}}
             </p>
           </div>
+          {% endif %}
+
+          {% if profile.user.email %}
+          <div class="box-tel">
+            <img src="{% static 'profiles/img/email.svg' %}">
+            <p> {{profile.user.email}} </p>
+          </div>
+          {% endif %}
+
+          {% if profile.phone %}
           <div class="box-tel">
             <img src="{% static 'profiles/img/phone.svg' %}">
-            <p>{{user.profile.phone}} </p>
+            <p>{{profile.phone}}</p>
           </div>
+          {% endif %}
+
         </div>
       </div>
     </section>
 
     <section class="profile-description">
-      <img class="icon-edit-profile-infon-personnel" src="{% static 'profiles/img/edit.svg' %}">
       <h2>Infos</h2>
-      <!-- <form action="">
-        {{profile_form.as_p}}
-      </form> -->
       <div class="container-description">
-        <p>{% lorem 50 w %}</p>
-        <br>
-        <p>{% lorem 70 w %}</p>
-        <br>
-        <p>{% lorem 30 w %}</p>
+        <p>
+          {{ profile.description|linebreaksbr }}
+        </p>
       </div>
     </section>
   </div>
 
   <div class="container-right">
     <aside class="asd-info-stat">
+
+      {% if profile.user == request.user %}
+      <div class="btn-container-update-profile">
+        <a href="{% url 'update_profile' %}">Modifier le profil</a>
+      </div>
+      {% endif %}
+
       <div class="statistic-profile">
         <div class="num-vue statistic">
           <span class="statistic-text">Vues de votre profil</span>
           <span class="statistic-num">
-            {% if user.profile.number_views %}
-            {{user.profile.number_views}}
+            {% if profile.number_views %}
+            {{profile.number_views}}
             {% else %}
             0
             {% endif %}
@@ -80,22 +105,39 @@
         </div>
         <div class="num-post statistic">
           <span class="statistic-text">Nombre de post</span>
-          <span class="statistic-num">{{user.post.count}}</span>
+          <span class="statistic-num">{{profile.user.post.count}}</span>
         </div>
       </div>
       <div class="others-link">
+
+        {% if profile.link_linkedin %}
         <div class="link-pro">
           <img src="{% static 'components/img/linkedin.svg' %}" class="link-pro-icon">
-          <a href="{{user.profile.link_linkedin}}" class="link-pro-link" target="_blank">linkedin</a>
+          <a href="{{profile.link_linkedin}}" class="link-pro-link" target="_blank">linkedin</a>
         </div>
+        {% endif %}
+
+        {% if profile.link_twitter %}
+        <div class="link-pro">
+          <img src="{% static 'components/img/twitter.svg' %}" class="link-pro-icon">
+          <a href="{{profile.link_twitter}}" class="link-pro-link" target="_blank">mysite</a>
+        </div>
+        {% endif %}
+
+        {% if profile.link_gitthub %}
         <div class="link-pro">
           <img src="{% static 'components/img/github.svg' %}" class="link-pro-icon">
-          <a href="{{user.profile.link_gitthub}}" class="link-pro-link" target="_blank">github</a>
+          <a href="{{profile.link_gitthub}}" class="link-pro-link" target="_blank">github</a>
         </div>
+        {% endif %}
+
+        {% if profile.link_mysite %}
         <div class="link-pro">
           <img src="{% static 'profiles/img/web.svg' %}" class="link-pro-icon">
-          <a href="{{user.profile.link_mysite}}" class="link-pro-link" target="_blank">mysite</a>
+          <a href="{{profile.link_mysite}}" class="link-pro-link" target="_blank">mysite</a>
         </div>
+        {% endif %}
+
       </div>
     </aside>
     <aside class="asd-rs"></aside>

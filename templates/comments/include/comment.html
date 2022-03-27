@@ -24,16 +24,18 @@
     {% for comment in post.post_comment.all %}
     <div class="container-comment-list" id="container-comment-list{{comment.id}}">
       {% include 'comments/include/comment_opts.html' %}
-      <img id="container-comment-list-img-profile" src="        
+      <a href="{% url 'profile' pseudo=comment.author.profile.pseudo  %}">
+        <img id="container-comment-list-img-profile" src="        
       {% if comment.author.profile.img_profile %}
       {{ comment.author.profile.img_profile.url }}
       {% else %}
       {% static 'components/img/user.svg' %}
-      {% endif %}" />
+      {% endif %}" /></a>
       <div class="comment-content-box">
         <div class="comment-info-content">
           <div class="comment-info-content-I" id="comment-info-content-I-{{post.id}}">
-            <strong>{{comment.author.first_name}} {{comment.author.last_name}}
+            <strong><a href="{% url 'profile' pseudo=comment.author.profile.pseudo  %}">{{comment.author.first_name}}
+                {{comment.author.last_name}}</a>
               {% ifequal comment.author comment.post.author %}
               <span id="author_post_and_comment">Auteur</span>
               {% endifequal %}

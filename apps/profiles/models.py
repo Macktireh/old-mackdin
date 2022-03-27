@@ -10,8 +10,9 @@ User = get_user_model()
 def rename_img(instance, filename):
     upload_to = 'image_profile'
     ext = filename.split('.')[-1]
-    filename = f"{instance.user.first_name}_{instance.user.pk}_{instance.date_updated}.{ext}"
-    return os.path.join(upload_to, filename)
+    filename = f"{instance.user.first_name}_{instance.user.pk}_{instance.date_updated.strftime('%d-%m-%Y %H%M%S')}.{ext}"
+    folder = f"{instance.user.first_name}_{instance.user.pk}"
+    return os.path.join(folder, upload_to, filename)
 
 def pseudo_rename(instance, filename):
     upload_to = 'image_profile'
@@ -21,7 +22,7 @@ def pseudo_rename(instance, filename):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
-    pseudo = models.CharField(_("non d'utilisateur"), max_length=48, blank=True)
+    pseudo = models.CharField(_("non d'utilisateur"), max_length=48, blank=True, unique=True)
     bio = models.CharField(_("titre du profil"), max_length=250, blank=True)
     img_profile = models.ImageField(_("photo de profile"), upload_to=rename_img, blank=True, null=True)
     img_bg = models.ImageField(_("photo de couverture"), upload_to=rename_img, blank=True, null=True)

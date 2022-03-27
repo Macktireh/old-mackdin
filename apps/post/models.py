@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import FileExtensionValidator
+from datetime import datetime
 
 User = get_user_model()
 
@@ -11,10 +12,11 @@ def rename_img_video(instance, filename):
     name = ''
     for i in range((len(filename.split('.'))-1)):
         name += filename.split('.')[i]
-    filename = f"{name}_{instance.date_updated}.{ext}"
+    filename = f"{name}_{datetime.now().strftime('%d-%m-%Y %H%M%S')}.{ext}"
+    folder = f"{instance.author.first_name}_{instance.author.pk}"
     if ext.lower() in ['png', 'jpg', 'jpeg', 'gif']:
-        return os.path.join(f'{instance.author.first_name}/image_post', filename)
-    return os.path.join(f'{instance.author.first_name}/video_post', filename)
+        return os.path.join(folder, 'image_post', filename)
+    return os.path.join(folder, 'video_post', filename)
 
 
 class Post(models.Model):

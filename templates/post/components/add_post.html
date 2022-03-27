@@ -2,15 +2,16 @@
 
 <div class="new-add-post">
   <div class="new-add-post1">
-
-    <div class="new-add-post-left-container">
-      <img src="        
+    <a href="{% url 'profile' pseudo=user.profile.pseudo  %}">
+      <div class="new-add-post-left-container">
+        <img src="        
       {% if user.profile.img_profile %}
       {{ user.profile.img_profile.url }}
       {% else %}
       {% static 'components/img/user.svg' %}
       {% endif %}" alt="">
-    </div>
+      </div>
+    </a>
     <div class="new-add-post-right-container">
       <form class="form-new-add-post" action="" method="POST" enctype="multipart/form-data" id="form-add-new-post">
         {% csrf_token %}

@@ -4,65 +4,71 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
-from django.core.serializers.json import DjangoJSONEncoder
-from django.core import serializers
-from django.views.decorators.csrf import csrf_exempt
 
-from apps.post.models import Post
 from apps.comments.models import Comment, ReponseComment, LikeComment
 from apps.comments.forms import CommentForm, ReponseCommentForm
 
 User = get_user_model()
 
-@csrf_exempt
+
+@login_required(login_url='sign_in')
 def add_comment(request):
     user = request.user
     
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         print('\n\najax request with fetch')
-    
-    # if "submit_c_form" in request.POST:
-    #     # post_id = request.POST.get('post_id')
-    #     message = request.POST.get('message')
         
-    #     print(post_id)
-    #     print(message)
+        don = json.load(request)
         
-    #     comment_post = Comment(author=user, post_id=post_id, message=message)
-    #     comment_post.save()
+        message = don['message'] 
+        id_post = don['id_post'] 
+        id_comment = don['id_comment'] 
         
-    #     qs_comment = Comment.objects.select_related("author").select_related("post").get(id=comment_post.id)
-    #     qs_user = User.objects.prefetch_related("profile")
+        # print()
+        # print(don)
+        # print()
         
+        if id_comment:
+            if Comment.objects.filter(id=id_comment).exists():
+                comment_post = Comment.objects.get(id=id_comment)
+                comment_post.message = message
+                comment_post.save()
+        else:
+            comment_post = Comment.objects.create(author=user, post_id=id_post, message=message)
         
-    #     # for obj in qs_comment:
-    #     item = {
-    #         'id': qs_comment.id,
-    #         'comment_author': qs_comment.author.email,
-    #         # 'comment_author_id': qs_comment.author.id,
-    #         'comment_author_first_name': qs_comment.author.first_name,
-    #         'comment_author_last_name': qs_comment.author.last_name,
-    #         'comment_message': qs_comment.message,
-    #         'comment_date_added': qs_comment.date_added.strftime("%d-%m-%Y %H:%M:%S"),
+        data = {
+            'id': comment_post.id,
+            'comment_author': comment_post.author.email,
+            'comment_author_first_name': comment_post.author.first_name,
+            'comment_author_last_name': comment_post.author.last_name,
+            'comment_message': comment_post.message,
+            'comment_date_added': comment_post.date_added.strftime("%d-%m-%Y %H:%M:%S"),
             
-    #         # 'post_id': qs_comment.post.id,
-    #         'post_author': qs_comment.post.author.email,
-    #         # 'post_message': qs_comment.post.message,
-    #         # 'post_img': qs_comment.post.img.url,
-    #         'user_profile_bio': qs_user.get(id=qs_comment.author.id).profile.bio,
-    #         'user_profile_img': qs_user.get(id=qs_comment.author.id).profile.img_profile.url,
-    #         'current_user': request.user.email,
-    #     }
-    #         # data.append(item)
-    #     data = [item]
-    #     return JsonResponse({'data': data})
-    return redirect('post_list')
+            'post_author': comment_post.post.author.email,
+            'post_id': comment_post.post.id,
+            
+            'user_profile_bio': comment_post.author.profile.bio,
+            'user_profile_img': comment_post.author.profile.img_profile.url if comment_post.author.profile.img_profile else "",
+            
+            'current_user': request.user.email
+        }
         
+        return JsonResponse(data, status=200)
+
+
+def comment_view(request):
+    qs_comment = Comment.objects.all()
+    form_comment = CommentForm(request.POST)
+    form_reponse = ReponseCommentForm(request.POST)
     
-    # return JsonResponse({'data': data})
+    context = {
+        'qs_comment': qs_comment,
+        'form_comment': form_comment,
+        'form_reponse': form_reponse
+    }
+    return context
 
-
-
+@login_required(login_url='sign_in')
 def comment_all_data(request):  
     qs_comment = Comment.objects.select_related("author").select_related("post").all()
     qs_user = User.objects.prefetch_related("profile")

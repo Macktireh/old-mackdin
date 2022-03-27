@@ -73,7 +73,7 @@ form_comments.forEach((form) => {
     }
     const csrftoken = getCookie("csrftoken");
 
-    fetch("/post/", {
+    fetch("http://127.0.0.1:8000/comment/add-comment/", {
       method: "POST",
       credentials: "same-origin",
       headers: {

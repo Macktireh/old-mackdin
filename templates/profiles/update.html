@@ -18,12 +18,25 @@
 <main class="main-profile-update">
 
   <div class="update-porfile-container">
-    <h1>Modifier votre profil</h1>
+    <h2>Modifier le profile</h2>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" class="form-profile-update">
       {% csrf_token %}
-      {{user_profile_form.as_p}}
-      {{profile_form.as_p}}
+
+      {% for field in user_profile_form %}
+      <div class="container-form-control-profile">
+        <label for="id_{{field.name}}">{{field.label}}</label>
+        {{field}}
+      </div>
+      {% endfor %}
+
+      {% for field in profile_form %}
+      <div class="container-form-control-profile">
+        <label for="id_{{field.name}}">{{field.label}}</label>
+        {{field}}
+      </div>
+      {% endfor %}
+
       <input type="submit" value="Enregistrer">
     </form>
   </div>

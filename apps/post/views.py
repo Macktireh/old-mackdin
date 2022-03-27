@@ -91,6 +91,7 @@ def post_create_list_view(request, *args, **kwargs):
     return render(request, template, context)
 
 
+@login_required(login_url='sign_in')
 def update_post(request, post_id):
     post_edit = get_object_or_404(Post, id=post_id)
     posts = Post.objects.all()
@@ -130,7 +131,8 @@ def update_post(request, post_id):
 #         else:
 #             return JsonResponse({'status': 'error'})
    
-        
+
+@login_required(login_url='sign_in')
 def delete_post(request, post_id):
     user = request.user
     # if request.method == 'POST':
@@ -145,22 +147,9 @@ def delete_post(request, post_id):
     if user == instance.author:
         instance.delete()
     return redirect('post_list')
-    
-    
-def list_posts(request):
-    qs = Post.objects.all()
-    data = []
-    for obj in qs:
-        item = {
-            'id': obj.id,
-            'author': obj.author,
-            'message': obj.message,
-            'image': obj.img,
-            'date_created': obj.created
-        }
         
         
-
+@login_required(login_url='sign_in')
 def like_post(request):
     user = request.user
     if request.method == 'POST':

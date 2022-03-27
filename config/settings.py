@@ -45,7 +45,6 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'django_extensions',
-    'phonenumber_field',
 ]
 
 LOCAL_APPS = [

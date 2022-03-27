@@ -88,13 +88,13 @@
 
       {% if profile.user == request.user %}
       <div class="btn-container-update-profile">
-        <a href="{% url 'update_profile' %}">Modifier le profil</a>
+        <a href="{% url 'update_profile' %}">Modifier le profile</a>
       </div>
       {% endif %}
 
       <div class="statistic-profile">
         <div class="num-vue statistic">
-          <span class="statistic-text">Vues de votre profil</span>
+          <span class="statistic-text">Vues de votre profile</span>
           <span class="statistic-num">
             {% if profile.number_views %}
             {{profile.number_views}}
@@ -120,7 +120,7 @@
         {% if profile.link_twitter %}
         <div class="link-pro">
           <img src="{% static 'components/img/twitter.svg' %}" class="link-pro-icon">
-          <a href="{{profile.link_twitter}}" class="link-pro-link" target="_blank">mysite</a>
+          <a href="{{profile.link_twitter}}" class="link-pro-link" target="_blank">twitter</a>
         </div>
         {% endif %}
 

@@ -25,7 +25,24 @@
     <div class="container-all-post">
       {% include 'post/components/options.html' %}
 
-      {% include 'post/components/post-header.html' %}
+      <div class="post-header">
+        <a href="{% url 'profile' pseudo=post.author.profile.pseudo  %}">
+          <div class="post-header-img">
+            <img src="        
+              {% if post.author.profile.img_profile %}
+              {{ post.author.profile.img_profile.url }}
+              {% else %}
+              {% static 'components/img/user.svg' %}
+              {% endif %}" alt="" />
+          </div>
+        </a>
+        <div class="post-header-info">
+          <strong><a href="{% url 'profile' pseudo=post.author.profile.pseudo  %}">{{post.author.first_name}}
+              {{post.author.last_name}}</a></strong>
+          <p>{{post.author.profile.bio}}</p>
+          <p>{{post.date_created|timesince}}</p>
+        </div>
+      </div>
 
       <div class="post-text-content">
         <p>{{post.message|linebreaksbr}}</p>
@@ -73,11 +90,12 @@
 
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
 <script type="text/javascript" src=" {% static 'post/js/post_list.js' %} "></script>
+<script type="text/javascript" src=" {% static 'post/js/ajax_like_post.js' %} "></script>
 <script type="text/javascript" src=" {% static 'comments/js/comment_list.js' %} "></script>
 
-{% include 'post/components/ajax_like_post.html' %}
 
 {% comment %}
+{% include 'post/components/ajax_like_post.html' %}
 {% include 'comments/include/ajax_comment.html' %}
 {% endcomment %}
 

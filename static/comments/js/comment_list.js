@@ -216,72 +216,78 @@ const comment_options_item_deletes = document.querySelectorAll(
 
 comment_options_item_deletes.forEach((element) => {
   element.addEventListener("click", (e) => {
-    console.log(element);
-    console.log(e.target.id);
-    console.log(e);
-    const com = document.getElementById("container-comment-list" + e.target.id);
-    const count_num_comment = parseInt(
-      document.getElementById("comments-num" + e.target.title).textContent
-    );
+    // console.log(element);
+    // console.log(e.target.id);
+    // console.log(e);
+    if (confirm("Voullez vous vraiment supprimer !")) {
+      const com = document.getElementById(
+        "container-comment-list" + e.target.id
+      );
+      const count_num_comment = parseInt(
+        document.getElementById("comments-num" + e.target.title).textContent
+      );
 
-    console.log(
-      document.getElementById("text-plural-comments" + e.target.title)
-    );
+      console.log(
+        document.getElementById("text-plural-comments" + e.target.title)
+      );
 
-    function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== "") {
-        const cookies = document.cookie.split(";");
-        for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if (cookie.substring(0, name.length + 1) === name + "=") {
-            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-            break;
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+          const cookies = document.cookie.split(";");
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+              cookieValue = decodeURIComponent(
+                cookie.substring(name.length + 1)
+              );
+              break;
+            }
           }
         }
+        return cookieValue;
       }
-      return cookieValue;
-    }
-    const csrftoken = getCookie("csrftoken");
+      const csrftoken = getCookie("csrftoken");
 
-    const formData = new FormData();
-    formData.append("id_comment", e.target.id);
+      const formData = new FormData();
+      formData.append("id_comment", e.target.id);
 
-    const request = new Request("delete-comment/", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "X-Requested-With": "XMLHttpRequest",
-        "X-CSRFToken": csrftoken,
-      },
-      body: formData,
-    });
-
-    fetch(request)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
+      const request = new Request("delete-comment/", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRFToken": csrftoken,
+        },
+        body: formData,
       });
 
-    com.classList.add("display-none");
-    num_comment = count_num_comment - 1;
-    document.getElementById("comments-num" + e.target.title).textContent =
-      num_comment;
+      fetch(request)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+        });
 
-    if (num_comment > 1) {
-      document.getElementById(
-        "text-plural-comments" + e.target.title
-      ).textContent = "Commentaires";
-    } else {
-      document.getElementById(
-        "text-plural-comments" + e.target.title
-      ).textContent = "Commentaire";
+      com.classList.add("display-none");
+      num_comment = count_num_comment - 1;
+      document.getElementById("comments-num" + e.target.title).textContent =
+        num_comment;
+
+      if (num_comment > 1) {
+        document.getElementById(
+          "text-plural-comments" + e.target.title
+        ).textContent = "Commentaires";
+      } else {
+        document.getElementById(
+          "text-plural-comments" + e.target.title
+        ).textContent = "Commentaire";
+      }
+
+      // document.getElementById("input_message_comment-" + msg.id).value =
+      //   msg.textContent;
+      // document.getElementById("input_hidden_post_comment2-" + msg.id).value =
+      //   e.target.id;
     }
-
-    // document.getElementById("input_message_comment-" + msg.id).value =
-    //   msg.textContent;
-    // document.getElementById("input_hidden_post_comment2-" + msg.id).value =
-    //   e.target.id;
   });
 });
 

@@ -15,6 +15,7 @@ class ProfileAdmin(admin.ModelAdmin):
         
         (_('Description'), {'fields': ('description',)}),
         (_('Social network'), {'fields': ('link_linkedin', 'link_gitthub', 'link_twitter', 'link_mysite',)}),
+        (_('Friends'), {'fields': ('friends',)}),
     )
 
     # add_fieldsets = (

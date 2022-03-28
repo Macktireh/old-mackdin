@@ -3,9 +3,9 @@
 <div class="count-likes-comments">
     <div id="likes-count{{post.id}}">
 
-        <span id="likes-num{{post.id}}">{{post.liked.count}}</span>
+        <span id="likes-num{{post.id}}">{{post.number_of_like}}</span>
         <span id="text-plural{{post.id}}">
-            {% if post.liked.count > 1 %}
+            {% if post.number_of_like > 1 %}
             Likes
             {% else %}
             Like

@@ -32,7 +32,7 @@ class Post(models.Model):
         return f"{self.author.first_name}"
     
     @property
-    def num_likes(self):
+    def number_of_like(self):
         return self.liked.all().count()
     
     class Meta:

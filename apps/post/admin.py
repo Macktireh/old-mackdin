@@ -3,15 +3,18 @@ from apps.post.models import Post, LikePost
 from django.utils.translation import gettext_lazy as _
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'message', 'count_like', 'date_created',)
+    list_display = ('full_name', 'message', 'number_of_like', 'number_of_comment', 'date_created',)
 
     ordering = ('-date_created',)
     
     def full_name(self, obj):
         return f"{obj.author.first_name} {obj.author.last_name}"
     
-    def count_like(self, obj):
+    def number_of_like(self, obj):
         return f"{obj.liked.all().count()}"
+    
+    def number_of_comment(self, obj):
+        return f"{obj.post_comment.all().count()}"
     
 admin.site.register(Post, PostAdmin)
 

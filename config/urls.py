@@ -9,7 +9,11 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('apps.home.urls')),
     path('accounts/', include('apps.users.urls')),
-    path('in/', include('apps.profiles.urls')),
+    path('profile/', include('apps.profiles.urls')),
     path('post/', include('apps.post.urls')),
     path('comment/', include('apps.comments.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('friends/', include('apps.friends.urls')),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

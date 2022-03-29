@@ -15,8 +15,8 @@ def rename_img_video(instance, filename):
     filename = f"{name}_{datetime.now().strftime('%d-%m-%Y %H%M%S')}.{ext}"
     folder = f"{instance.author.first_name}_{instance.author.pk}"
     if ext.lower() in ['png', 'jpg', 'jpeg', 'gif']:
-        return os.path.join(folder, 'image_post', filename)
-    return os.path.join(folder, 'video_post', filename)
+        return os.path.join('media', folder, 'image_post', filename)
+    return os.path.join('media', folder, 'video_post', filename)
 
 
 class Post(models.Model):

@@ -10,7 +10,7 @@ def rename_img(instance, filename):
     ext = filename.split('.')[-1]
     filename = f"{instance.user.first_name}_{instance.user.pk}_{instance.date_updated.strftime('%d-%m-%Y %H%M%S')}.{ext}"
     folder = f"{instance.user.first_name}_{instance.user.pk}"
-    return os.path.join(folder, upload_to, filename)
+    return os.path.join('media', folder, upload_to, filename)
 
 def pseudo_rename(instance, filename):
     upload_to = 'image_profile'

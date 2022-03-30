@@ -12,7 +12,7 @@ urlpatterns = [
     path('profile/', include('apps.profiles.urls')),
     path('post/', include('apps.post.urls')),
     path('comment/', include('apps.comments.urls')),
-    path('friends/', include('apps.friends.urls')),
+    path('mynetwork/', include('apps.friends.urls')),
 ]
 
 if settings.DEBUG:

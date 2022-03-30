@@ -20,7 +20,7 @@
 
 {% block content %}
 <div style="margin-top: 100px">
-  <h1>Hello from invites.html</h1>
+  <h1>Hello from list Profiles.html</h1>
   <ul>
 
     {% for item in qs %}
@@ -29,6 +29,8 @@
 
   </ul>
   <br>
+  <br>
+  <a href="{% url 'invites' %}">invites</a>
   <br>
   <a href="{% url 'invites_list_profiles' %}">invites_list_profiles</a>
 </div>

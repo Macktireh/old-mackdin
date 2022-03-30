@@ -4,6 +4,8 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 User = get_user_model()
+from apps.profiles.managers import ProfileManager
+
 
 def rename_img(instance, filename):
     upload_to = 'image_profile'
@@ -45,6 +47,8 @@ class Profile(models.Model):
     number_views = models.IntegerField(_('Nombre de vue profil'), default=0, blank=True, null=True)
     friends = models.ManyToManyField(User, blank=True, related_name='friends')    
     date_updated = models.DateTimeField(_("date de modification"), auto_now=True)
+    
+    objects = ProfileManager()
     
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"

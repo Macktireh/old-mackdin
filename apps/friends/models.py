@@ -4,11 +4,10 @@ from django.utils.translation import gettext_lazy as _
 
 User = get_user_model()
 from apps.profiles.models import Profile
+from apps.friends.managers import RelationshipManager
 
-class RelationshipManager(models.Manager):
-    def invatation_received(self, receiver):
-        qs = Relationship.objects.filter(receiver=receiver, status='send')
-        return qs
+
+
 
 class Relationship(models.Model):
     sender = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='sender')

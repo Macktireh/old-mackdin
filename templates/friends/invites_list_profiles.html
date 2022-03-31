@@ -1,47 +1,36 @@
-{% extends 'base.html' %}
 {% load static %}
 
 
-{% block title %} Invites {% endblock title %}
 
+<div class="to-invites-container">
+  {% for obj in qs %}
 
-{% block style %}
-<link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon">
-<link rel="stylesheet" href=" {% static 'components/css/style.css' %}" />
-{% endblock style %}
+  {% if obj.user not in list_relation_receiver and obj.user not in list_relation_sender %}
+  <!-- les utilisateurs pas de relation et pas reçu d'invitation et pas envoyer une invitation -->
+  <div class="container-list-to-invites-profiles">
+    <!-- img bg -->
+    <div class="to-invites-box-img-bg">
+      <img src="{{obj.img_bg.url}}">
+    </div>
 
-<!-- Navbar -->
+    <!-- img profile -->
+    <a href="{% url 'profile' pseudo=obj.pseudo %}">
+      <img src="{{obj.img_profile.url}}" class="to-invites-img-profile">
+    </a>
 
-{% comment %}
+    <div class="to-invites-box-title">
+      <a href="{% url 'profile' pseudo=obj.pseudo %}">
+        <strong>{{obj.user.first_name}} {{obj.user.last_name}}</strong>
+        <p>{{obj.bio}}</p>
+      </a>
+    </div>
 
-{% endcomment %}
-{% block navbar %} {% include 'components/navbar2.html' %} {% endblock navbar %}
-
-
-{% block content %}
-<div style="margin-top: 100px">
-  <h1>Hello from invites.html</h1>
-  <ul>
-
-    {% for item in qs %}
-    <li>{{item}}</li>
-    {% endfor %}
-
-  </ul>
-  <br>
-  <br>
-  <a href="{% url 'invites' %}">invites</a>
+    <form action="" method="post" class="to-invites-add-friends">
+      {% csrf_token %}
+      <input type="hidden" name="add_friends" value="{{obj.id}}">
+      <button class="btn-add-friends" type="submit">Se connecter</button>
+    </form>
+  </div>
+  {% endif %}
+  {% endfor %}
 </div>
-{% endblock content %}
-
-<!-- Footer -->
-
-{% comment %}
-
-{% block footer %} {% include 'components/footer.html' %} {% endblock footer %}
-{% endcomment %}
-
-
-{% block js %}
-<script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
-{% endblock js %}

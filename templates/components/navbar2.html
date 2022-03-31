@@ -32,10 +32,10 @@
         </div>
       </a>
       {% else %}
-      <a href="{% url 'list_all_profiles' %}" class="nav-item">
+      <a href="{% url 'my_network' %}" class="nav-item">
         <div class="nav-text">
           <img class="nav-img" src="{% static 'components/img/blog.svg' %}" alt="">
-          <span class="animation {% if start_animation == 'blog' %}start-animation{% endif %}"></span>
+          <span class="animation {% if start_animation == 'my_network' %}start-animation{% endif %}"></span>
           <span class="nav-text-span">Réseau</span>
         </div>
       </a>

@@ -8,40 +8,36 @@
 {% block style %}
 <link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon">
 <link rel="stylesheet" href=" {% static 'components/css/style.css' %}" />
+<link rel="stylesheet" href=" {% static 'friends/css/style.css' %}" />
 {% endblock style %}
 
 <!-- Navbar -->
-
-{% comment %}
-
-{% endcomment %}
 {% block navbar %} {% include 'components/navbar2.html' %} {% endblock navbar %}
 
 
 {% block content %}
-<div style="margin-top: 100px">
-  <h1>Hello from list Profiles.html</h1>
-  <ul>
 
-    {% for item in qs %}
-    <li>{{item}}</li>
-    {% endfor %}
+<main class="my-network">
+  <div class="container-left"></div>
 
-  </ul>
-  <br>
-  <br>
-  <a href="{% url 'invites' %}">invites</a>
-  <br>
-  <a href="{% url 'invites_list_profiles' %}">invites_list_profiles</a>
-</div>
+  <div class="container-right">
+    {% if is_empty %}
+    <h2>Pas de profils avec lesquels interagir</h2>
+    {% endif %}
+
+    {% if page == "list_not_friends" %}
+    {% include 'friends/invites_list_profiles.html' %}
+    {% endif %}
+
+    {% if page == "my_friends" %}
+    {% include 'friends/list_myfriends.html' %}
+    {% endif %}
+
+
+  </div>
+</main>
 {% endblock content %}
 
-<!-- Footer -->
-
-{% comment %}
-
-{% block footer %} {% include 'components/footer.html' %} {% endblock footer %}
-{% endcomment %}
 
 
 {% block js %}

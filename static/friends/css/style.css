@@ -20,7 +20,7 @@ a:visited {
   color: #f1f1f1;
 }
 
-.flex-center, main.my-network .container-right .my-friends-container .container-list-my-friends-profiles form.my-friends-add-friends, main.my-network .container-right .my-friends-container .container-list-my-friends-profiles .my-friends-info .my-friends-box-title, main.my-network .container-right .my-friends-container .container-list-my-friends-profiles .my-friends-info, main.my-network .container-right .to-invites-container .container-list-to-invites-profiles .to-invites-box-title {
+.flex-center, main.my-network .container-right .my-friends-container .container-list-my-friends-profiles form.my-friends-add-friends, main.my-network .container-right .my-friends-container .container-list-my-friends-profiles .my-friends-info, main.my-network .container-right .to-invites-container .container-list-to-invites-profiles .to-invites-box-title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +93,7 @@ main.my-network .container-right .to-invites-container .container-list-to-invite
   object-position: center;
   object-fit: cover;
   position: absolute;
-  top: 10%;
+  top: 6%;
   left: 50%;
   transform: translateX(-50%);
   transform: translateY();
@@ -111,7 +111,7 @@ main.my-network .container-right .to-invites-container .container-list-to-invite
   object-fit: cover;
 }
 main.my-network .container-right .to-invites-container .container-list-to-invites-profiles .to-invites-box-title {
-  margin-top: 50px;
+  margin-top: 40px;
   padding: 0 0.5rem;
   text-align: center;
 }
@@ -185,7 +185,11 @@ main.my-network .container-right .my-friends-container .container-list-my-friend
   object-fit: cover;
 }
 main.my-network .container-right .my-friends-container .container-list-my-friends-profiles .my-friends-info .my-friends-box-title {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
   text-align: left;
+  max-width: 340px;
 }
 main.my-network .container-right .my-friends-container .container-list-my-friends-profiles .my-friends-info .my-friends-box-title p {
   font-size: 15px;
@@ -197,13 +201,17 @@ main.my-network .container-right .my-friends-container .container-list-my-friend
   text-overflow: ellipsis;
 }
 main.my-network .container-right .my-friends-container .container-list-my-friends-profiles .my-friends-info .my-friends-box-title strong {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: 0.3s ease-out;
 }
 main.my-network .container-right .my-friends-container .container-list-my-friends-profiles .my-friends-info .my-friends-box-title strong:hover {
   text-decoration: underline;
 }
 main.my-network .container-right .my-friends-container .container-list-my-friends-profiles form.my-friends-add-friends {
-  margin-right: 0.5rem;
   gap: 1rem;
 }
 main.my-network .container-right .my-friends-container .container-list-my-friends-profiles form.my-friends-add-friends button.btn-add-friends, main.my-network .container-right .my-friends-container .container-list-my-friends-profiles form.my-friends-add-friends a {

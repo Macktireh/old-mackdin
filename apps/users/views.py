@@ -1,3 +1,5 @@
+from datetime import datetime
+from django.utils import timezone
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth import get_user_model, authenticate, login, logout
@@ -79,6 +81,9 @@ def sign_in(request):
 
 
 def user_logout(request):
+    profile = request.user.profile
+    profile.last_logout = timezone.now()
+    profile.save()
     logout(request)
     return redirect('home')
 

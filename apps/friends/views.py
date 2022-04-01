@@ -1,7 +1,7 @@
-import email
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 User = get_user_model()
 from apps.friends.models import Relationship
@@ -93,4 +93,31 @@ def my_friends_invites_profiles_view1(request):
     )
     
     return render(request, template, context)
+
+
+def send_invitation(request):
+    if request.method == 'POST':
+        pk = request.POST.get("profile_id")
+        user = request.user
+        sender = Profile.objects.get(user=user)
+        receiver = Profile.objects.get(pk=pk)
+        
+        relation = Relationship.objects.create(sender=sender, receiver=receiver, status="send")
+        return redirect("my_network")
+    return redirect('my_network')
+
+
+def remove_from_friends(request):
+    if request.method == 'POST':
+        pk = request.POST.get("profile_id")
+        user = request.user
+        sender = Profile.objects.get(user=user)
+        receiver = Profile.objects.get(pk=pk)
+        
+        relation = Relationship.objects.get(
+            (Q(sender=sender) & Q(receiver=receiver)) | (Q(sender=receiver) & Q(receiver=sender))
+        )
+        relation.delete()
+        return redirect("my_friends")
+    return redirect('my_friends')
 

@@ -7,6 +7,7 @@ class RelationshipAdmin(admin.ModelAdmin):
 
     list_display = ('date_created', 'sender', 'receiver', 'status', 'date_updated',)
     list_filter = ('status', 'date_created',)
+    list_editable = ('status',)
     ordering = ('-date_created',)
 
 

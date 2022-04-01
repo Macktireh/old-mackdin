@@ -35,8 +35,10 @@ main.my-network
             object-fit: cover
 
           .my-friends-box-title
-            @extend .flex-center
+            @include flex-el(start, null)
+            flex-direction: column
             text-align: left
+            max-width: 340px
 
             p
               font-size: 15px
@@ -48,12 +50,17 @@ main.my-network
               text-overflow: ellipsis
 
             strong
+              display: -webkit-box
+              -webkit-line-clamp: 1
+              -webkit-box-orient: vertical
+              overflow: hidden
+              text-overflow: ellipsis
               transition: 0.3s ease-out
               &:hover
                 text-decoration: underline
 
         form.my-friends-add-friends
-          margin-right: 0.5rem
+          // margin-right: 0.2rem
           @extend .flex-center
           gap: 1rem
           button.btn-add-friends, a

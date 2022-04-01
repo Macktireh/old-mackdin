@@ -35,9 +35,9 @@ class ProfileManager(models.Manager):
             if q.status == 'accepted':
                 accepted.add(q.receiver)
                 accepted.add(q.sender)
-        print(accepted)
+        # print(accepted)
         
         available = [profile for profile in profiles if profile not in accepted]
-        print(available)
+        # print(available)
         
         return available

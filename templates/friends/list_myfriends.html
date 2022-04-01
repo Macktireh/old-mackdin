@@ -12,8 +12,8 @@
       <img src="{{obj.img_bg.url}}">
     </div> -->
 
-    <!-- img profile -->
     <div class="my-friends-info">
+      <!-- img profile -->
       <a href="{% url 'profile' pseudo=obj.pseudo %}">
         <img src="{{obj.img_profile.url}}" class="my-friends-img-profile">
       </a>
@@ -23,12 +23,16 @@
           <strong>{{obj.user.first_name}} {{obj.user.last_name}}</strong>
           <p>{{obj.bio}}</p>
         </a>
+        {% if obj.last_logout %}
+        <P> Connecté il y a {{obj.last_logout|timesince}}</P>
+        {% endif %}
+
       </div>
     </div>
 
-    <form action="" method="post" class="my-friends-add-friends">
+    <form action="{% url 'remove_invitation' %}" method="POST" class="my-friends-add-friends">
       {% csrf_token %}
-      <input type="hidden" name="add_friends" value="{{obj.id}}">
+      <input type="hidden" name="profile_id" value="{{obj.id}}">
       <a href="{% url 'profile' pseudo=obj.pseudo %}">Voir le profile</a>
       <button class="btn-add-friends" type="submit">Supprimer</button>
     </form>

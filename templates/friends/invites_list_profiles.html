@@ -25,9 +25,9 @@
       </a>
     </div>
 
-    <form action="" method="post" class="to-invites-add-friends">
+    <form action="{% url 'send_invitation' %}" method="POST" class="to-invites-add-friends">
       {% csrf_token %}
-      <input type="hidden" name="add_friends" value="{{obj.id}}">
+      <input type="hidden" name="profile_id" value="{{obj.id}}">
       <button class="btn-add-friends" type="submit">Se connecter</button>
     </form>
   </div>

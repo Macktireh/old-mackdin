@@ -47,6 +47,11 @@ class Profile(models.Model):
     number_views = models.IntegerField(_('Nombre de vue profil'), default=0, blank=True, null=True)
     friends = models.ManyToManyField(User, blank=True, related_name='friends')    
     date_updated = models.DateTimeField(_("date de modification"), auto_now=True)
+    last_logout = models.DateTimeField(
+        _('last date logout'), 
+        blank=True, null=True,
+        help_text=_("last date logout user")
+    ) 
     
     objects = ProfileManager()
     

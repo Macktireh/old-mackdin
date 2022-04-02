@@ -13,13 +13,11 @@ main.my-network
         width: 100%
         padding: 0.8rem
         box-shadow: 0 0px 4px 2px $color1
+        background-color: $color6
         border-radius: 10px
         @include flex-el(space-between, null)
         gap: 1rem
         transition: .3s ease-out
-
-        &:hover
-          background-color: $color6
 
         .my-friends-info
           @extend .flex-center
@@ -111,8 +109,8 @@ main.my-network
 
             button.btn-rejected-invitation
               padding: 0.6rem 1.4rem
-              background-color: $color4
+              background-color: $color1
               color: $color2
               border-radius: 8px
-              // &:hover
-              //   background-color: $color1
+              &:hover
+                background-color: $color4

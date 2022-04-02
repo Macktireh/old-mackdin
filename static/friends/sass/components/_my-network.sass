@@ -1,28 +1,37 @@
 main.my-network
   width: 100%
   margin-top: 5.5rem
-  @include flex-el(space-between, null)
+  @include flex-el(espace-between, null)
+  // @include flex-el(end, null)
   gap: 2rem
+  position: relative
 
   .container-left
-    width: 28%
-    height: 65vh
+    width: 25%
+    min-width: 260px
+    max-width: 300px
+    height: 50vh
     box-shadow: 0 2px 3px 0 $color6
     border-radius: 8px
     display: flex
     flex-direction: column
     gap: 1rem
     background-color: $color4
+    position: sticky
+    left: 0
+    top: 87px
 
   .container-right
-    width: 70%
-    height: 65vh
+    width: 72%
+    // height: 335vh
     box-shadow: 0 2px 3px 0 $color6
     border-radius: 8px
-    @include flex-el(start, center)
+    @include flex-el(center, null)
+    // @extend .flex-center
     flex-direction: column
     gap: 1rem
     background-color: $color4
 
-    h2
+    h3
+      padding: 0.5rem
       text-align: center

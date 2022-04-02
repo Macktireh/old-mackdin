@@ -18,23 +18,31 @@
 {% block content %}
 
 <main class="my-network">
-  <div class="container-left"></div>
+  <div class="container-left">
+    {% include 'friends/components/nav-statistic.html' %}
+  </div>
 
   <div class="container-right">
     {% if is_empty %}
-    <h2>Pas de profils avec lesquels interagir</h2>
+    <h3>{{h3_empty}}</h3>
+    {% else %}
+    <h3>{{h3}}</h3>
     {% endif %}
 
     {% if page == "list_not_friends" %}
-    {% include 'friends/invites_list_profiles.html' %}
+    {% include 'friends/components/invites_list_profiles.html' %}
     {% endif %}
 
     {% if page == "my_friends" %}
-    {% include 'friends/list_myfriends.html' %}
+    {% include 'friends/components/list_myfriends.html' %}
     {% endif %}
 
     {% if page == "invitation_received" %}
-    {% include 'friends/invitation-received.html' %}
+    {% include 'friends/components/invitation-received.html' %}
+    {% endif %}
+
+    {% if page == "invitation_send" %}
+    {% include 'friends/components/invitation-send.html' %}
     {% endif %}
 
 

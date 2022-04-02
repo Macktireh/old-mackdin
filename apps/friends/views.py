@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.utils import timezone
 
 User = get_user_model()
 from apps.friends.models import Relationship
@@ -45,12 +46,37 @@ def invites_received_view(request):
     profile = Profile.objects.get(user=user)
     qs = Relationship.objects.invatation_received(profile)
     
-    template = 'friends/invites.html'
+    template = 'friends/mynetwork.html'
     context = {
         'qs': qs,
+        'page': 'invitation_received',
+        'start_animation': 'my_network'
     }
     
     return render(request, template, context)
+
+
+def accept_invitation(request):
+    if request.method == 'POST':
+        pk = request.POST.get("profile_id")
+        sender = Profile.objects.get(pk=pk)
+        receiver = Profile.objects.get(user=request.user)
+        relation = get_object_or_404(Relationship, sender=sender, receiver=receiver)
+        if relation.status == 'send':
+            relation.status = 'accepted'
+            relation.save()
+            return redirect('invitation_received')
+    return redirect('invitation_received')
+
+
+def reject_invitation(request):
+    if request.method == 'POST':
+        pk = request.POST.get("profile_id")
+        sender = Profile.objects.get(pk=pk)
+        receiver = Profile.objects.get(user=request.user)
+        relation = get_object_or_404(Relationship, sender=sender, receiver=receiver)
+        relation.delete()
+    return redirect('invitation_received')
 
 
 @login_required(login_url='sign_in')
@@ -81,20 +107,6 @@ def invites_list_profiles_view(request):
     return render(request, template, context)
 
 
-@login_required(login_url='sign_in')
-def my_friends_invites_profiles_view1(request):
-           
-    template, context = list_relation_receiver_and_sender(request)
-    context.update(
-        {
-            'page': 'my_friends',
-            'start_animation': 'my_network'
-        }
-    )
-    
-    return render(request, template, context)
-
-
 def send_invitation(request):
     if request.method == 'POST':
         pk = request.POST.get("profile_id")
@@ -102,7 +114,7 @@ def send_invitation(request):
         sender = Profile.objects.get(user=user)
         receiver = Profile.objects.get(pk=pk)
         
-        relation = Relationship.objects.create(sender=sender, receiver=receiver, status="send")
+        relation = Relationship.objects.create(sender=sender, receiver=receiver, status="send", date_sender=timezone.now())
         return redirect("my_network")
     return redirect('my_network')
 

@@ -33,6 +33,10 @@
     {% include 'friends/list_myfriends.html' %}
     {% endif %}
 
+    {% if page == "invitation_received" %}
+    {% include 'friends/invitation-received.html' %}
+    {% endif %}
+
 
   </div>
 </main>

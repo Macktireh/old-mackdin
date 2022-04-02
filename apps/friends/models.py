@@ -18,6 +18,8 @@ class Relationship(models.Model):
         accepted = 'accepted', _('accepted')
         
     status = models.CharField(max_length=8, choices=StatusChoices.choices)
+    date_sender = models.DateTimeField(blank=True, null=True)
+    date_received = models.DateTimeField(blank=True, null=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     

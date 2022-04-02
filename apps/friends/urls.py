@@ -6,8 +6,11 @@ urlpatterns = [
     # path('', views.list_profiles_view, name='list_all_profiles'),
     path('', views.invites_list_profiles_view, name='my_network'),
     path('connections/', views.my_friends_invites_profiles_view, name='my_friends'),
-    path('invite-connect/invites/', views.invites_received_view, name='invites'),
+    path('invitation-received/', views.invites_received_view, name='invitation_received'),
     
-    path('send-invitation', views.send_invitation, name='send_invitation'),
-    path('remove-invitation', views.remove_from_friends, name='remove_invitation'),
+    path('invitation/accept/', views.accept_invitation, name='accept_invitation'),
+    path('invitation/reject/', views.reject_invitation, name='reject_invitation'),
+    
+    path('send-invitation/', views.send_invitation, name='send_invitation'),
+    path('remove-invitation/', views.remove_from_friends, name='remove_invitation'),
 ]

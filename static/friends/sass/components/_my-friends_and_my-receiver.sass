@@ -86,3 +86,33 @@ main.my-network
             border: 1px solid $color3
             &:hover
               background-color: $color3
+
+        .container-form-accepted-rejected-invites
+          @extend .flex-center
+          gap: 0.5rem
+
+          form.my-friends-add-friends
+            button.btn-add-friends
+              padding: 0.5rem 1rem
+              border: none
+              outline: none
+              font-size: 16px
+              font-family: $font1
+              border-radius: 8px
+              transition: .3s ease-out
+              cursor: pointer
+
+            button.btn-accepted-invitation
+              background-color: $color10
+              color: $color2
+              border: 1px solid $color3
+              &:hover
+                background-color: $color3
+
+            button.btn-rejected-invitation
+              padding: 0.6rem 1.4rem
+              background-color: $color4
+              color: $color2
+              border-radius: 8px
+              // &:hover
+              //   background-color: $color1

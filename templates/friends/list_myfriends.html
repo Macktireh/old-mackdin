@@ -24,7 +24,13 @@
           <p>{{obj.bio}}</p>
         </a>
         {% if obj.last_logout %}
-        <P> Connecté il y a {{obj.last_logout|timesince}}</P>
+        <P>
+          {% if obj.last_logout > obj.user.last_login %}
+          Connecté il y a {{obj.last_logout|timesince}}
+          {% else %}
+          Connecté maintenant
+          {% endif %}
+        </P>
         {% endif %}
 
       </div>

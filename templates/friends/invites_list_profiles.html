@@ -10,12 +10,22 @@
   <div class="container-list-to-invites-profiles">
     <!-- img bg -->
     <div class="to-invites-box-img-bg">
-      <img src="{{obj.img_bg.url}}">
+      <img src="
+          {% if obj.img_bg %}
+            {{obj.img_bg.url}}
+          {% else %}
+            {% static 'profiles/img/bg.png' %}
+          {% endif %}">
     </div>
 
     <!-- img profile -->
     <a href="{% url 'profile' pseudo=obj.pseudo %}">
-      <img src="{{obj.img_profile.url}}" class="to-invites-img-profile">
+      <img src="
+          {% if obj.img_profile %}
+            {{obj.img_profile.url}}
+          {% else %}
+            {% static 'components/img/user.svg' %}
+          {% endif %}" class="to-invites-img-profile">
     </a>
 
     <div class="to-invites-box-title">

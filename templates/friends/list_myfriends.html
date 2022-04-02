@@ -7,15 +7,14 @@
   {% if request.user in obj.friends.all %}
   <!-- les utilisateurs pas de relation et pas reçu d'invitation et pas envoyer une invitation -->
   <div class="container-list-my-friends-profiles">
-    <!-- img bg -->
-    <!-- <div class="my-friends-box-img-bg">
-      <img src="{{obj.img_bg.url}}">
-    </div> -->
-
     <div class="my-friends-info">
       <!-- img profile -->
       <a href="{% url 'profile' pseudo=obj.pseudo %}">
-        <img src="{{obj.img_profile.url}}" class="my-friends-img-profile">
+        <img src="{% if obj.img_profile %}
+            {{obj.img_profile.url}}
+          {% else %}
+            {% static 'components/img/user.svg' %}
+          {% endif %}" class="my-friends-img-profile">
       </a>
 
       <div class="my-friends-box-title">

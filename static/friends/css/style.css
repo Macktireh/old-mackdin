@@ -82,7 +82,7 @@ main.my-network .container-right .to-invites-container .container-list-to-invite
   transition: 0.3s ease-out;
 }
 main.my-network .container-right .to-invites-container .container-list-to-invites-profiles:hover {
-  box-shadow: 0 0px 30px 4px #2c3e50;
+  box-shadow: 0 0px 6px 4px #2c3e50;
 }
 main.my-network .container-right .to-invites-container .container-list-to-invites-profiles img.to-invites-img-profile {
   width: 6rem;

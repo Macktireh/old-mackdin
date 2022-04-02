@@ -9,7 +9,12 @@
     <div class="my-friends-info">
       <!-- img profile -->
       <a href="{% url 'profile' pseudo=obj.sender.pseudo %}">
-        <img src="{{obj.sender.img_profile.url}}" class="my-friends-img-profile">
+        <img src="
+          {% if obj.sender.img_profile %}
+            {{obj.sender.img_profile.url}} 
+          {% else %}
+            {% static 'components/img/user.svg' %}
+          {% endif %}" class="my-friends-img-profile">
       </a>
 
       <div class="my-friends-box-title">

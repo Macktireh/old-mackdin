@@ -1,6 +1,7 @@
 from django.urls import path
 from apps.friends import views
 
+app_name = 'friends'
 
 urlpatterns = [
     path('', views.invites_list_profiles_view, name='my_network'),

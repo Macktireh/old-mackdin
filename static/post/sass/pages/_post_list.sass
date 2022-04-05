@@ -1,18 +1,22 @@
-.main-list_post
+main.main-list_post
   width: 100%
   margin-top: 5.5rem
   @include flex-el(space-between, null)
   gap: 2rem
+  position: relative
 
 .container-left
   width: 20%
-  height: 100vh
+  height: 45vh
   box-shadow: 0 2px 3px 0 $color6
   border-radius: 8px
   display: flex
   flex-direction: column
   gap: 1rem
   background-color: $color4
+  position: sticky
+  left: 0
+  top: 87px
 
 // ----------------------------------------------
 
@@ -50,10 +54,11 @@
 
 .container-right
   width: 25%
-  height: 100vh
-  box-shadow: 0 2px 3px 0 $color6
+  // height: 100vh
   border-radius: 8px
   display: flex
   flex-direction: column
   gap: 1rem
-  background-color: $color4
+  position: sticky
+  right: 0
+  top: 87px

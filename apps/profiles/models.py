@@ -24,8 +24,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     pseudo = models.CharField(_("non d'utilisateur"), max_length=48, blank=True, unique=True)
     bio = models.CharField(_("titre du profil"), max_length=250, blank=True)
-    img_profile = models.ImageField(_("photo de profile"), upload_to=rename_img, blank=True, null=True)
-    img_bg = models.ImageField(_("photo de couverture"), upload_to=rename_img, default='default/default-img.jpg', blank=True, null=True)
+    img_profile = models.ImageField(_("photo de profile"), upload_to=rename_img, default='default/default-img-profile.jpg', blank=True, null=True)
+    img_bg = models.ImageField(_("photo de couverture"), upload_to=rename_img, default='default/default-img-bg.jpg', blank=True, null=True)
     birth_date = models.DateField(_("date de naissence"), null=True, blank=True)
     
     class GenderChoices(models.TextChoices):

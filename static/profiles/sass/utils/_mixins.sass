@@ -7,11 +7,14 @@
     border: none
     outline: none
 
-@mixin position-abs($left, $top, $x, $y)
+@mixin position-abs($top, $right, $bottom, $left, $x, $y)
     position: absolute
-    left: $left
     top: $top
-    transform: translate($x, $y)
+    right: $right
+    bottom: $bottom
+    left: $left
+    transform: translateX($x)
+    transform: translateY($y)
 
 @mixin p-el($align, $espace, $size)
     text-align: $align

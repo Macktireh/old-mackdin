@@ -14,11 +14,11 @@
     </a>
 
     {% ifequal request.user post.author %}
-    <a href="{% url 'update_post' post.id  %}" class="options-item">
+    <a href="{% url 'post:update_post' post.id  %}" class="options-item">
       <img src="{% static 'post/img/edit.svg' %}">
       <span class="btn-edit-post" id="{{post.id}}">Modifier</span>
     </a>
-    <a href="{% url 'delete_post' post.id  %}" class="options-item">
+    <a href="{% url 'post:delete_post' post.id  %}" class="options-item">
       <img src="{% static 'post/img/delete.svg' %}">
       <span class="btn-del-post" id="{{post.id}}">Supprimer</span>
     </a>

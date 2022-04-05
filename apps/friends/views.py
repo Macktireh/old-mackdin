@@ -41,8 +41,8 @@ def list_relation_receiver_and_sender(request):
     template = 'friends/mynetwork.html'        
     context = {
         'qs': qs,
-        'list_relation_receiver': list_relation_receiver,
-        'list_relation_sender': list_relation_sender,
+        'list_receiver': list_relation_receiver,
+        'list_sender': list_relation_sender,
         'is_empty': is_empty,
     }
         
@@ -84,10 +84,11 @@ def invites_list_profiles_view(request):
     return render(request, template, context)
 
 
-# Vue pour envoyer une invitation des utilisateurs
+# fonction pour envoyer une invitation aux utilisateurs
 def send_invitation(request):
     if request.method == 'POST':
         pk = request.POST.get("profile_id")
+        red_to = request.POST.get("redirect")
         user = request.user
         sender = Profile.objects.get(user=user)
         receiver = Profile.objects.get(pk=pk)
@@ -98,9 +99,12 @@ def send_invitation(request):
             status="send",
             date_sender=timezone.now(),
             date_receiver=timezone.now(),
-        )
-        return redirect("my_network")
-    return redirect('my_network')
+        ) 
+    if red_to == "profile":
+        return redirect("profiles:profile", pseudo=receiver.pseudo)
+    else:
+        return redirect("friends:my_network")
+    
 
 
 # Vue des profiles amis
@@ -128,6 +132,7 @@ def my_friends_invites_profiles_view(request):
 def remove_from_friends(request):
     if request.method == 'POST':
         pk = request.POST.get("profile_id")
+        red_to = request.POST.get("redirect")
         user = request.user
         sender = Profile.objects.get(user=user)
         receiver = Profile.objects.get(pk=pk)
@@ -136,15 +141,16 @@ def remove_from_friends(request):
             (Q(sender=sender) & Q(receiver=receiver)) | (Q(sender=receiver) & Q(receiver=sender))
         )
         relation.delete()
-        return redirect("my_friends")
-    return redirect('my_friends')
+    if red_to == "profile":
+        return redirect("profiles:profile", pseudo=receiver.pseudo)
+    else:
+        return redirect("friends:my_friends")
 
 
 # Vue des invitation reçu
 @login_required(login_url='sign_in')
 def invites_received_view(request):
-    user = request.user
-    profile = Profile.objects.get(user=user)
+    profile = Profile.objects.get(user=request.user)
     qs = Relationship.objects.invatation_received(profile)
     is_empty = len(qs) == 0
     
@@ -173,8 +179,8 @@ def accept_invitation(request):
         if relation.status == 'send':
             relation.status = 'accepted'
             relation.save()
-            return redirect('invitation_received')
-    return redirect('invitation_received')
+            return redirect('friends:invitation_received')
+    return redirect('friends:invitation_received')
 
 
 # Vue pour refuser les invitation reçu
@@ -185,14 +191,13 @@ def reject_invitation(request):
         receiver = Profile.objects.get(user=request.user)
         relation = get_object_or_404(Relationship, sender=sender, receiver=receiver)
         relation.delete()
-    return redirect('invitation_received')
+    return redirect('friends:invitation_received')
 
 
 # Vue pour les invitation envoyer
 @login_required(login_url='sign_in')
 def invites_sended_view(request):
-    user = request.user
-    profile = Profile.objects.get(user=user)
+    profile = Profile.objects.get(user=request.user)
     qs = Relationship.objects.invatation_sended(profile)
     is_empty = len(qs) == 0
     
@@ -203,7 +208,7 @@ def invites_sended_view(request):
         'start_animation': 'my_network',
         'is_empty': is_empty,
         'h3': "Les invitations envoyer qui sont en cours d'acceptation",
-        'h3_empty': "Aucune invitation que vous avez envoyer en cours d'acceptation"
+        'h3_empty': "Aucune invitation envoyer qui est en cours d'acceptation"
     }
     
     context.update(statistic_relationship_receiver(request))
@@ -219,7 +224,7 @@ def cancel_invitation(request):
         receiver = Profile.objects.get(pk=pk)
         relation = get_object_or_404(Relationship, sender=sender, receiver=receiver)
         relation.delete()
-    return redirect('invitation_send')
+    return redirect('friends:invitation_send')
 
 
 

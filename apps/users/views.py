@@ -71,7 +71,7 @@ def sign_in(request):
                 return redirect('sign_in')
             else:
                 login(request, user)
-                return redirect('home')
+                return redirect('home:home')
         elif User.objects.filter(email=email).exists():
             messages.error(request, "ERREUR : Votre mot de passe est incorrect.")
         else:
@@ -85,7 +85,7 @@ def user_logout(request):
     profile.last_logout = timezone.now()
     profile.save()
     logout(request)
-    return redirect('home')
+    return redirect('home:home')
 
 
 def activate_user(request, uidb64, token):

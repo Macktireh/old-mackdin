@@ -1,17 +1,20 @@
-@mixin hr-el($m-t, $m-b, $width, $color)
+@mixin hr-el($m-t, $m-b, $width, $height, $color)
     margin: $m-t auto $m-b
     width: $width
-    max-width: 3.5rem
-    height: 0.2rem
+    // max-width: 3.5rem
+    height: $height
     background-color: $color
     border: none
     outline: none
 
-@mixin position-abs($left, $top, $x, $y)
+@mixin position-abs($top, $right, $bottom, $left, $x, $y)
     position: absolute
-    left: $left
     top: $top
-    transform: translate($x, $y)
+    right: $right
+    bottom: $bottom
+    left: $left
+    transform: translateX($x)
+    transform: translateY($y)
 
 @mixin p-el($align, $espace, $size)
     text-align: $align

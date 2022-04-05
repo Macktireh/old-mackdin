@@ -28,7 +28,7 @@ def post_create_list_view(request, *args, **kwargs):
             instance.save()
             AddPostForm = PostForm()
             
-            return redirect('post_list')
+            return redirect('post:post_list')
     
     template = 'post/post_list.html'
     context = {
@@ -55,7 +55,7 @@ def update_post(request, post_id):
             post_edit.img = request.FILES['img']      
         post_edit.message = request.POST.get('message')
         post_edit.save()
-        return redirect('post_list')
+        return redirect('post:post_list')
 
         
     template = 'post/post_list.html'
@@ -96,7 +96,7 @@ def delete_post(request, post_id):
     instance = get_object_or_404(Post, id=post_id)
     if user == instance.author:
         instance.delete()
-    return redirect('post_list')
+    return redirect('post:post_list')
         
         
 @login_required(login_url='sign_in')
@@ -126,7 +126,7 @@ def like_post(request):
             'likes': post_obj.liked.all().count()
         }
         return JsonResponse(data, safe=False)
-    return redirect('post_list')
+    return redirect('post:post_list')
 
 
 @login_required(login_url='sign_in')

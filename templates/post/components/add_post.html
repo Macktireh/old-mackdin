@@ -2,13 +2,13 @@
 
 <div class="new-add-post">
   <div class="new-add-post1">
-    <a href="{% url 'profile' pseudo=user.profile.pseudo  %}">
+    <a href="{% url 'profiles:profile' pseudo=user.profile.pseudo  %}">
       <div class="new-add-post-left-container">
         <img src="        
       {% if user.profile.img_profile %}
       {{ user.profile.img_profile.url }}
       {% else %}
-      {% static 'components/img/user.svg' %}
+      {% static 'profiles/img/default-img-profile.jpg' %}
       {% endif %}" alt="">
       </div>
     </a>
@@ -54,7 +54,7 @@
             {% if user.profile.img_profile %}
             {{ user.profile.img_profile.url }}
             {% else %}
-            {% static 'components/img/user.svg' %}
+            {% static 'profiles/img/default-img-profile.jpg' %}
             {% endif %}" alt="">
           </div>
           <div class="previous-post-header-info">
@@ -83,7 +83,13 @@
       </div>
     </div>
     <div class="cancel-add-post-container">
+      {% if post_form %}
+      <a href="{% url 'post:post_list' %}">
+        <span id="btn-cancel-add-post">Annuler</span>
+      </a>
+      {% else %}
       <span id="btn-cancel-add-post">Annuler</span>
+      {% endif %}
     </div>
   </div>
 </div>

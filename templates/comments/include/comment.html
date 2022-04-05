@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 
 <form title="{{post.id}}" class="form-comment-list-input-container-global D-none_V-hidden_O-0"
   id="form-comment-list-input-container-global{{post.id}}" method="post">
@@ -9,7 +10,7 @@
         {% if user.profile.img_profile %}
         {{ user.profile.img_profile.url }}
         {% else %}
-        {% static 'components/img/user.svg' %}
+        {% static 'profiles/img/default-img-profile.jpg' %}
         {% endif %}" />
       <!-- {{form_comment.message}} -->
       <input type="text" name="message" id="input_message_comment-{{post.id}}" class="input_message_comment_id"
@@ -24,23 +25,24 @@
     {% for comment in post.post_comment.all %}
     <div class="container-comment-list" id="container-comment-list{{comment.id}}">
       {% include 'comments/include/comment_opts.html' %}
-      <a href="{% url 'profile' pseudo=comment.author.profile.pseudo  %}">
+      <a href="{% url 'profiles:profile' pseudo=comment.author.profile.pseudo  %}">
         <img id="container-comment-list-img-profile" src="        
       {% if comment.author.profile.img_profile %}
       {{ comment.author.profile.img_profile.url }}
       {% else %}
-      {% static 'components/img/user.svg' %}
+      {% static 'profiles/img/default-img-profile.jpg' %}
       {% endif %}" /></a>
       <div class="comment-content-box">
         <div class="comment-info-content">
           <div class="comment-info-content-I" id="comment-info-content-I-{{post.id}}">
-            <strong><a href="{% url 'profile' pseudo=comment.author.profile.pseudo  %}">{{comment.author.first_name}}
+            <strong><a
+                href="{% url 'profiles:profile' pseudo=comment.author.profile.pseudo  %}">{{comment.author.first_name}}
                 {{comment.author.last_name}}</a>
               {% ifequal comment.author comment.post.author %}
               <span id="author_post_and_comment">Auteur</span>
               {% endifequal %}
             </strong>
-            <small>{{ comment.date_added|timesince }}</small>
+            <small>{{ comment.date_added|naturaltime }}</small>
           </div>
           <p id="comment-author-profile-title">{{ comment.author.profile.bio }}</p>
         </div>

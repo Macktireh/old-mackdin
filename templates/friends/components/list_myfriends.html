@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load humanize %}
 
 <div class="my-friends-container">
   {% for obj in qs %}
@@ -9,23 +9,23 @@
   <div class="container-list-my-friends-profiles">
     <div class="my-friends-info">
       <!-- img profile -->
-      <a href="{% url 'profile' pseudo=obj.pseudo %}">
+      <a href="{% url 'profiles:profile' pseudo=obj.pseudo %}">
         <img src="{% if obj.img_profile %}
             {{obj.img_profile.url}}
           {% else %}
-            {% static 'components/img/user.svg' %}
+            {% static 'profiles/img/default-img-profile.jpg' %}
           {% endif %}" class="my-friends-img-profile">
       </a>
 
       <div class="my-friends-box-title">
-        <a href="{% url 'profile' pseudo=obj.pseudo %}">
+        <a href="{% url 'profiles:profile' pseudo=obj.pseudo %}">
           <strong>{{obj.user.first_name}} {{obj.user.last_name}}</strong>
           <p>{{obj.bio}}</p>
         </a>
         {% if obj.last_logout %}
         <P>
           {% if obj.last_logout > obj.user.last_login %}
-          Connecté il y a {{obj.last_logout|timesince}}
+          Connecté {{obj.last_logout|naturaltime}}
           {% else %}
           Connecté maintenant
           {% endif %}
@@ -35,10 +35,10 @@
       </div>
     </div>
 
-    <form action="{% url 'remove_invitation' %}" method="POST" class="my-friends-add-friends">
+    <form action="{% url 'friends:remove_invitation' %}" method="POST" class="my-friends-add-friends">
       {% csrf_token %}
       <input type="hidden" name="profile_id" value="{{obj.id}}">
-      <a href="{% url 'profile' pseudo=obj.pseudo %}">Voir le profile</a>
+      <a href="{% url 'profiles:profile' pseudo=obj.pseudo %}">Voir le profile</a>
       <button class="btn-add-friends" type="submit">Supprimer</button>
     </form>
   </div>

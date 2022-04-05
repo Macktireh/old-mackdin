@@ -1,15 +1,15 @@
 .new-add-post1
   width: 100%
   display: grid
-  grid-template-columns: 75px 1fr
+  grid-template-columns: 63px 1fr
 
 .new-add-post-left-container
-  height: 70px
-  width: 70px
+  height: 55px
+  width: 55px
   @include flex-el(center, null)
   img
-    width: 70px
-    height: 70px
+    width: 55px
+    height: 55px
     object-position: center
     object-fit: cover
     // min-height: 60px
@@ -32,6 +32,7 @@ form
   @extend .flex-center
   flex-direction: column
   gap: 0.4rem
+  width: 100%
   .input-text
     width: 100%
     textarea

@@ -5,17 +5,22 @@ from django.contrib.auth.decorators import login_required
 User = get_user_model()
 from apps.profiles.models import Profile
 from apps.profiles.forms import ProfileForm, UserProfileForm
+from apps.friends.views import list_relation_receiver_and_sender
 
 @login_required(login_url='sign_in')
 def profile(request, pseudo):
     profile = get_object_or_404(Profile, pseudo=pseudo)
-    profile.number_views = profile.number_views + 1
-    profile.save()
+    if request.user != profile.user:
+        profile.number_views = profile.number_views + 1
+        profile.save()
     
     template = "profiles/profiles.html"
-    context = {
-        'profile': profile,
-    }
+    t, context = list_relation_receiver_and_sender(request)
+    context.update(
+        {
+            'profile': profile,
+        }
+    )
     return render(request, template, context=context)
 
 
@@ -31,7 +36,7 @@ def update_profile(request):
         if profile_form.is_valid() and user_profile_form.is_valid():
             user_profile_form.save()
             profile_form.save()
-            return redirect('profile', pseudo=user.profile.pseudo)
+            return redirect('profiles:profile', pseudo=user.profile.pseudo)
     
     template = "profiles/update.html"
     context = {

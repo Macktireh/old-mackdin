@@ -6,15 +6,15 @@
 
 <div class="container-nav-statistics">
     <!-- Plus de suggestions pour vous -->
-    <a class="nav-link-statistc" href="{% url 'my_friends' %}">
+    <a class="nav-link-statistc" href="{% url 'friends:my_friends' %}">
         <span class="text">Relations</span>
         <span class="num">{{num_friends}}</span>
     </a>
-    <a class="nav-link-statistc" href="{% url 'invitation_received' %}">
+    <a class="nav-link-statistc" href="{% url 'friends:invitation_received' %}">
         <span class="text">Invitation reçu</span>
         <span class="num">{{num_invitation_received}}</span>
     </a>
-    <a class="nav-link-statistc" href="{% url 'invitation_send' %}">
+    <a class="nav-link-statistc" href="{% url 'friends:invitation_send' %}">
         <span class="text">Invitation envoyer</span>
         <span class="num">{{num_invitation_send}}</span>
     </a>

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block title %} Fil d'actualité {% endblock title %}
 
@@ -15,7 +16,9 @@
 
 {% block content %}
 <main class="main-list_post">
-  <div class="container-left"></div>
+  <div class="container-left">
+    {% include 'post/components/left.html' %}
+  </div>
 
 
   <div class="container-main">
@@ -26,21 +29,21 @@
       {% include 'post/components/options.html' %}
 
       <div class="post-header">
-        <a href="{% url 'profile' pseudo=post.author.profile.pseudo  %}">
+        <a href="{% url 'profiles:profile' pseudo=post.author.profile.pseudo  %}">
           <div class="post-header-img">
             <img src="        
               {% if post.author.profile.img_profile %}
               {{ post.author.profile.img_profile.url }}
               {% else %}
-              {% static 'components/img/user.svg' %}
-              {% endif %}" alt="" />
+              {% static 'profiles/img/default-img-profile.jpg' %}
+              {% endif %}" />
           </div>
         </a>
         <div class="post-header-info">
-          <strong><a href="{% url 'profile' pseudo=post.author.profile.pseudo  %}">{{post.author.first_name}}
+          <strong><a href="{% url 'profiles:profile' pseudo=post.author.profile.pseudo  %}">{{post.author.first_name}}
               {{post.author.last_name}}</a></strong>
           <p>{{post.author.profile.bio}}</p>
-          <p>{{post.date_created|timesince}}</p>
+          <p>{{post.date_created|naturaltime}}</p>
         </div>
       </div>
 
@@ -76,13 +79,17 @@
   </div>
 
 
-  <div class="container-right"></div>
+  <div class="container-right">
+    <aside class="container-aside-1"></aside>
+    <aside class="container-aside-2"></aside>
+  </div>
 </main>
 {% endblock content %}
 
 
+{% comment %}
 {% block footer %} {% include 'components/footer.html' %} {% endblock footer %}
-
+{% endcomment %}
 
 {% block js %}
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

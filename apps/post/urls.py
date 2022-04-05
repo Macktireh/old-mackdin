@@ -1,6 +1,7 @@
 from apps.post import views
 from django.urls import path
 
+app_name = 'post'
 
 urlpatterns = [
     path('', views.post_create_list_view, name='post_list'),

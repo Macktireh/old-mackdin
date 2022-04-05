@@ -75,6 +75,39 @@
     img
       width: 20px
 
+  .box-friends
+    margin-top: 3px
+    @include flex-el(start, center)
+    gap: 0.8rem
+    img
+      width: 20px
+    a
+      // font-size: 17px
+      &:hover
+        text-decoration: underline
+        color: $color3
+
+  button.btn-add-friends,
+  button.btn-remove-friends
+    padding: 0.6rem 1.5rem
+    border: none
+    outline: none
+    background-color: $color10
+    color: $color2
+    border-radius: 20px
+    border: 1px solid $color3
+    transition: .3s ease-out
+    cursor: pointer
+    @include position-abs(10%, 20px, null, null, null, null)
+    &:hover
+      background-color: $color3
+
+  button.btn-remove-friends
+    background-color: $color11
+    border: 1px solid $color8
+    &:hover
+      background-color: $color8
+
 .profile-description
   width: 100%
   background-color: $color4

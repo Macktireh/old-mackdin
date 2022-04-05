@@ -237,4 +237,19 @@
 
 {% block js %}
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
+
+<script>
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'free-news.p.rapidapi.com',
+      'X-RapidAPI-Key': '7dd7c1ff69msh8d88e46f019579fp1a47cdjsn9fc979eccfb3'
+    }
+  };
+
+  fetch('https://free-news.p.rapidapi.com/v1/search?q=Elon%20Musk&lang=fr', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+</script>
 {% endblock js %}

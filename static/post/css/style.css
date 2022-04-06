@@ -56,8 +56,6 @@ main.main-list_post {
 
 .container-main {
   width: 50%;
-  box-shadow: 0 2px 3px 0 #0000001a;
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -521,20 +519,44 @@ form button:active {
   font-weight: bold;
 }
 
-.container-right aside {
+.container-right {
+  position: sticky;
+  right: 0;
+  top: 87px;
+}
+.container-right ul {
+  padding: 0.5rem 0.2rem 0.5rem 0.8rem;
   border-radius: 8px;
   background-color: #34495e;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  gap: 0.8rem;
 }
-.container-right aside.container-aside-1 {
-  height: 35vh;
-}
-.container-right aside.container-aside-2 {
-  height: 83vh;
+.container-right ul.container-aside-1 {
   position: sticky;
   right: 0;
   top: 87px;
+}
+.container-right ul.container-aside-1 .box-actu {
+  margin-left: 1rem;
+}
+.container-right ul.container-aside-1 .box-actu p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.container-right ul.container-aside-2 {
+  height: 14rem;
+  width: 285px;
+  position: fixed;
+  right: 185px;
+  top: 475px;
 }
 
 .display-block {

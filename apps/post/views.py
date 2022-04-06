@@ -127,11 +127,3 @@ def like_post(request):
         }
         return JsonResponse(data, safe=False)
     return redirect('post:post_list')
-
-
-@login_required(login_url='sign_in')
-def delete_comment(request):
-    id_comment = request.POST.get("id_comment")
-    obj = Comment.objects.get(id=id_comment)
-    obj.delete()
-    return JsonResponse({'action': "commentaire supprimer"})

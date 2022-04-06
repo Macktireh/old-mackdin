@@ -18,6 +18,11 @@ class CustomUser(AbstractUser):
         default=False,
         help_text=_("Specifies whether the user should verify their email address.")
     )
+    last_logout = models.DateTimeField(
+        _('last date logout'), 
+        blank=True, null=True,
+        help_text=_("last date logout user")
+    )
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 

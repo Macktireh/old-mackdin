@@ -60,20 +60,37 @@
           font-weight: bold
 
 .container-right
-  aside
+  position: sticky
+  right: 0
+  top: 87px
+  ul
+    padding: 0.5rem 0.2rem 0.5rem 0.8rem
     border-radius: 8px
     background-color: $color4
     display: flex
     flex-direction: column
+    width: 100%
+    @include flex-el(start, null)
+    flex-direction: column
+    gap: 0.8rem
 
-  aside.container-aside-1
-    height: 35vh
-    // position: sticky
-    // right: 0
-    // top: 87px
-
-  aside.container-aside-2
-    height: 83vh
+  ul.container-aside-1
     position: sticky
     right: 0
     top: 87px
+
+    .box-actu
+      margin-left: 1rem
+      p
+        display: -webkit-box
+        -webkit-line-clamp: 1
+        -webkit-box-orient: vertical
+        overflow: hidden
+        text-overflow: ellipsis
+
+  ul.container-aside-2
+    height: 14rem
+    width: 285px
+    position: fixed
+    right: 185px
+    top: 475px

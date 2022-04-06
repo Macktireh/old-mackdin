@@ -5,5 +5,6 @@ app_name = 'comments'
 
 urlpatterns = [
     # path('api-data/', views.comment_all_data, name='api-comment'),
-    path('add-comment/', views.add_comment, name='add-comment'),
+    path('add-update-comment/', views.add_update_comment_view, name='add-comment'),
+    path('delete-comment/', views.delete_comment, name='delete-comment'),
 ]

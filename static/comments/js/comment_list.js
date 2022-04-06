@@ -73,7 +73,7 @@ form_comments.forEach((form) => {
     }
     const csrftoken = getCookie("csrftoken");
 
-    fetch("http://127.0.0.1:8000/comment/add-comment/", {
+    fetch("http://127.0.0.1:8000/comment/add-update-comment/", {
       method: "POST",
       credentials: "same-origin",
       headers: {
@@ -195,6 +195,7 @@ form_comments.forEach((form) => {
 
     document.getElementById("input_message_comment-" + e.target.title).value =
       "";
+    document.getElementById("input_hidden_post_comment2-" + e.target.title).value = ""
   });
 });
 
@@ -231,6 +232,10 @@ comment_options_item_deletes.forEach((element) => {
         document.getElementById("text-plural-comments" + e.target.title)
       );
 
+      // const input_hidden_post_comment_edit2 = document.getElementById(
+      //   "input_hidden_post_comment2-" + e.target.title
+      // ).value;
+
       function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== "") {
@@ -252,7 +257,7 @@ comment_options_item_deletes.forEach((element) => {
       const formData = new FormData();
       formData.append("id_comment", e.target.id);
 
-      const request = new Request("delete-comment/", {
+      const request = new Request("http://127.0.0.1:8000/comment/delete-comment/", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -281,8 +286,7 @@ comment_options_item_deletes.forEach((element) => {
         document.getElementById(
           "text-plural-comments" + e.target.title
         ).textContent = "Commentaire";
-      }
-
+      }      
       // document.getElementById("input_message_comment-" + msg.id).value =
       //   msg.textContent;
       // document.getElementById("input_hidden_post_comment2-" + msg.id).value =

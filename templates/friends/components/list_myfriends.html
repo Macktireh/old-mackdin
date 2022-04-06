@@ -22,10 +22,10 @@
           <strong>{{obj.user.first_name}} {{obj.user.last_name}}</strong>
           <p>{{obj.bio}}</p>
         </a>
-        {% if obj.last_logout %}
+        {% if obj.user.last_logout %}
         <P>
-          {% if obj.last_logout > obj.user.last_login %}
-          Connecté {{obj.last_logout|naturaltime}}
+          {% if obj.user.last_logout > obj.user.last_login %}
+          Connecté {{obj.user.last_logout|naturaltime}}
           {% else %}
           Connecté maintenant
           {% endif %}

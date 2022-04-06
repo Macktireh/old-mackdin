@@ -81,9 +81,9 @@ def sign_in(request):
 
 
 def user_logout(request):
-    profile = request.user.profile
-    profile.last_logout = timezone.now()
-    profile.save()
+    user = request.user
+    user.last_logout = timezone.now()
+    user.save()
     logout(request)
     return redirect('home:home')
 

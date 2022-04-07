@@ -20,7 +20,7 @@ a:visited {
   color: #f1f1f1;
 }
 
-.flex-center, .main-home {
+.flex-center, main.main-home .container2 .box, main.main-home .container1 .content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,14 +31,45 @@ a:visited {
   flex-direction: column;
 }
 
-.main-home {
+main.main-home {
   box-shadow: 0 2px 3px 0 #0000001a;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   margin-top: 5.5rem;
   width: 100%;
   gap: 1rem;
   background-color: #34495e;
   height: 100vh;
+  padding: 0.5rem;
+}
+main.main-home .container1 {
+  display: flex;
+  justify-content: space-between;
+}
+main.main-home .container1 img {
+  width: 600px;
+}
+main.main-home .container1 .content {
+  padding: 0.5rem;
+  flex-direction: column;
+  text-align: center;
+}
+main.main-home .container1 .content h1 {
+  margin-bottom: 2.5rem;
+}
+main.main-home .container2 {
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+main.main-home .container2 img {
+  width: 200px;
+}
+main.main-home .container2 .box {
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

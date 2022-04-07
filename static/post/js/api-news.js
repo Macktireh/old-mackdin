@@ -8,7 +8,7 @@ const options = {
   }
 };
 
-fetch('https://free-news.p.rapidapi.com/v1/search?q=Elon%20Musk&lang=fr&page_size=6', options)
+fetch('https://free-news.p.rapidapi.com/v1/search?q=Elon%20Musk&lang=fr&page_size=10', options)
   .then(response => response.json())
   .then(response => response.articles)
   .then(data => {

@@ -11,18 +11,30 @@
 <link rel="stylesheet" href=" {% static 'home/css/style.css' %} " />
 {% endblock style %}
 
-{% block navbar %} {% include 'components/navbar2.html' %} {% endblock navbar %}
+{% block navbar %} {% include 'components/navbar-home.html' %} {% endblock navbar %}
 
 {% block content %}
 <main class="main-home">
-  <div>
-    {% if user.is_authenticated %}
-    <h2>Salut {{ user.first_name }} 👋 </h2>
-    <br>
-    <h2>On est content de te revoir aujourd'hui !</h2>
-    {% else %}
-    <h2>Vous n'êtes pas connecter</h2>
-    {% endif %}
+  <div class="container1">
+    <div class="content">
+      <h1>Bienvenue dans votre réseau social professionnelle</h1>
+      <h3>Veuillez vous connecter si vous avez déjà un compte ou vous s'inscrire si vous n'avez pas de compte.</h3>
+    </div>
+    <img src="{% static 'home/img/img-home.svg' %}">
+  </div>
+  <div class="container2">
+    <div class="box box1">
+      <img src="{% static 'home/img/img-home2.svg' %}">
+      <h4>
+        Connectez-vous avec des bonnes personnes
+      </h4>
+    </div>
+    <div class="box box2">
+      <img src="{% static 'home/img/img-home3.svg' %}">
+      <h4>
+        Booster et enrichir votre profile
+      </h4>
+    </div>
   </div>
 </main>
 {% endblock content %}

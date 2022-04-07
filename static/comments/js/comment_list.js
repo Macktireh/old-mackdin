@@ -1,3 +1,30 @@
+const comment_options_btn = document.querySelectorAll(".comment-options-btn");
+
+comment_options_btn.forEach((element) => {
+  element.addEventListener("click", (e) => {
+    comment_ops_container = document.getElementById(
+      "comment-options-container" + element.id
+    );
+    // console.log(comment_ops_container);
+    comment_ops_container.classList.toggle("display-none");
+  });
+});
+
+funct_toggle_options = function(){
+  const comment_options_btn = document.querySelectorAll(".comment-options-btn");
+
+  comment_options_btn.forEach((element) => {
+    element.addEventListener("click", (e) => {
+      comment_ops_container = document.getElementById(
+        "comment-options-container" + element.id
+      );
+      // console.log(comment_ops_container);
+      comment_ops_container.classList.toggle("display-none");
+    });
+  });
+}
+
+
 // ##############################################""
 // bouton d'option de modification et suppression
 
@@ -34,7 +61,7 @@ const fonc_text_plural2 = (n, balise) => {
 const form_comments = document.querySelectorAll(
   ".form-comment-list-input-container-global"
 );
-const comment_options_btn = document.querySelectorAll(".comment-options-btn");
+
 
 form_comments.forEach((form) => {
   form.addEventListener("submit", (e) => {
@@ -112,7 +139,7 @@ form_comments.forEach((form) => {
         //
 
         if (!input_hidden_post_comment2) {
-          container_list_comment.innerHTML += `
+          container_list_comment.innerHTML = `
             <div class="container-comment-list"  id="container-comment-list${
               data.id
             }">
@@ -199,14 +226,7 @@ form_comments.forEach((form) => {
   });
 });
 
-comment_options_btn.forEach((element) => {
-  element.addEventListener("click", (e) => {
-    comment_ops_container = document.getElementById(
-      "comment-options-container" + element.id
-    );
-    comment_ops_container.classList.toggle("display-none");
-  });
-});
+
 
 // ##############################################""
 // suppression des commentaires

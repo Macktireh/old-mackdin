@@ -525,7 +525,7 @@ form button:active {
   top: 87px;
 }
 .container-right ul {
-  padding: 0.5rem 0.2rem 0.5rem 0.8rem;
+  padding: 0.5rem 0;
   border-radius: 8px;
   background-color: #34495e;
   display: flex;
@@ -541,15 +541,27 @@ form button:active {
   right: 0;
   top: 87px;
 }
-.container-right ul.container-aside-1 .box-actu {
+.container-right ul.container-aside-1 h4 {
+  padding-left: 1rem;
+}
+.container-right ul.container-aside-1 a {
+  padding: 0 0.2rem 0 0.8rem;
+}
+.container-right ul.container-aside-1 a:hover {
+  background-color: #0000001a;
+}
+.container-right ul.container-aside-1 a li.box-actu {
   margin-left: 1rem;
 }
-.container-right ul.container-aside-1 .box-actu p {
+.container-right ul.container-aside-1 a li.box-actu p {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.container-right ul.container-aside-1 a li.box-actu small {
+  color: #CCCCCc;
 }
 .container-right ul.container-aside-2 {
   height: 14rem;

@@ -71,7 +71,7 @@ def sign_in(request):
                 return redirect('sign_in')
             else:
                 login(request, user)
-                return redirect('home:home')
+                return redirect('post:post_list')
         elif User.objects.filter(email=email).exists():
             messages.error(request, "ERREUR : Votre mot de passe est incorrect.")
         else:

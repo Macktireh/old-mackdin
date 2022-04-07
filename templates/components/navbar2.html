@@ -41,9 +41,16 @@
       </a>
       <a href="{% url 'friends:my_network' %}" class="nav-item">
         <div class="nav-text">
-          <img class="nav-img" src="{% static 'components/img/blog.svg' %}" alt="">
+          <img class="nav-img" src="{% static 'components/img/friends.svg' %}" alt="">
           <span class="animation {% if start_animation == 'my_network' %}start-animation{% endif %}"></span>
           <span class="nav-text-span">Réseau</span>
+        </div>
+      </a>
+      <a href="" class="nav-item">
+        <div class="nav-text">
+          <img class="nav-img" src="{% static 'components/img/chat.svg' %}" alt="">
+          <span class="animation {% if start_animation == 'chat' %}start-animation{% endif %}"></span>
+          <span class="nav-text-span">Messagerie</span>
         </div>
       </a>
       <!-- <a href="{% url 'admin:index' %}" class="nav-item" target="_blank">

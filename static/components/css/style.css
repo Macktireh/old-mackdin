@@ -69,8 +69,11 @@ a.logo {
   height: 50px;
   transition: 0.4s;
   vertical-align: middle;
+  font-size: 30px;
+  font-weight: 650;
 }
 a.logo img {
+  margin-left: 3px;
   width: 35px;
 }
 
@@ -86,7 +89,7 @@ nav ul {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
   height: 100%;
   width: 100%;
 }

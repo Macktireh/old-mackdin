@@ -1,1 +1,31 @@
 2022-04-07 00:16:57,146 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-07 14:35:50,309 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-07 15:11:38,037 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\users\views.py changed, reloading.
+2022-04-07 15:11:41,576 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-07 15:11:46,304 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\home\views.py changed, reloading.
+2022-04-07 15:11:48,588 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-07 15:17:05,802 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\home\views.py changed, reloading.
+2022-04-07 15:17:08,352 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-07 15:17:18,174 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\apps\home\views.py", line 7, in home
+    if user.is_authenticated():
+TypeError: 'bool' object is not callable
+2022-04-07 15:17:18,740 django.request WARNING  Not Found: /favicon.ico
+2022-04-07 15:18:27,450 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\home\views.py changed, reloading.
+2022-04-07 15:18:29,677 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-07 15:18:40,062 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\apps\home\views.py", line 11, in home
+    if user.is_authenticated():
+TypeError: 'bool' object is not callable
+2022-04-07 15:19:23,328 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\home\views.py changed, reloading.
+2022-04-07 15:19:25,661 django.utils.autoreload INFO     Watching for file changes with StatReloader

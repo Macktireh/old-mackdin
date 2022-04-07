@@ -1,9 +1,40 @@
-.main-home
+main.main-home
   box-shadow: 0 2px 3px 0 $color6
   border-radius: 8px
-  @extend .flex-center
+  @include flex-el(space-between, null)
+  flex-direction: column
   margin-top: 5.5rem
   width: 100%
   gap: 1rem
   background-color: $color4
   height: 100vh
+  padding: 0.5rem
+  .container1
+    // padding-top: 1.5rem
+    @include flex-el(space-between, null)
+
+    img
+      width: 600px
+      // border: 1px solid #fff
+
+    .content
+      // border: 1px solid #fff
+      padding: 0.5rem
+      @extend .flex-center
+      flex-direction: column
+      text-align: center
+      h1
+
+        margin-bottom: 2.5rem
+
+  .container2
+    padding-bottom: 1.5rem
+    @include flex-el(space-around, null)
+
+    img
+      width: 200px
+
+    .box
+      @extend .flex-center
+      flex-direction: column
+      gap: 0.5rem

@@ -55,6 +55,8 @@ input_img.addEventListener("change", function () {
   }
 });
 
+
+// annuler le post
 cancel_add_post.addEventListener("click", () => {
   input_text.value = "";
   input_img.value = "";

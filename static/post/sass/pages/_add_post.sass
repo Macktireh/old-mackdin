@@ -158,8 +158,13 @@ form
 .previous-post-img
   display: none
   width: 100%
-  img
+  position: relative
+  img#previous-post-image
     width: 100%
+  img#close-img-previous
+    width: 25px
+    cursor: pointer
+    @include position-abs(10px, 10px, null, null, null, null)
 
 .cancel-add-post-container
   margin-top: 0.3rem

@@ -139,7 +139,7 @@ form_comments.forEach((form) => {
         //
 
         if (!input_hidden_post_comment2) {
-          container_list_comment.innerHTML = `
+          container_list_comment.innerHTML += `
             <div class="container-comment-list"  id="container-comment-list${
               data.id
             }">

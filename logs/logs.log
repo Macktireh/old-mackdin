@@ -29,3 +29,283 @@ Traceback (most recent call last):
 TypeError: 'bool' object is not callable
 2022-04-07 15:19:23,328 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\home\views.py changed, reloading.
 2022-04-07 15:19:25,661 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-08 12:01:25,161 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-08 12:05:36,196 django.request WARNING  Not Found: /mediafiles/default/default-img.jpg
+2022-04-08 12:06:24,025 django.request WARNING  Not Found: /mediafiles/default/default-img.jpg
+2022-04-08 15:14:33,591 django.request WARNING  Not Found: /favicon.ico
+2022-04-08 16:27:18,189 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /accounts/sign_in/
+2022-04-08 18:36:21,461 django.request ERROR    Internal Server Error: /accounts/logout/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\apps\users\views.py", line 86, in user_logout
+    user.save()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\models.py", line 423, in save
+    raise NotImplementedError("Django doesn't provide a DB representation for AnonymousUser.")
+NotImplementedError: Django doesn't provide a DB representation for AnonymousUser.
+2022-04-09 00:14:20,051 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 00:14:31,973 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:14:40,147 django.request WARNING  Not Found: /static/post/js/api-news.js
+2022-04-09 00:14:40,153 django.request WARNING  Not Found: /static/post/css/style.css
+2022-04-09 00:14:40,164 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 00:14:40,159 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 00:14:40,170 django.request WARNING  Not Found: /static/comments/js/comment_list.js
+2022-04-09 00:14:40,173 django.request WARNING  Not Found: /static/post/js/post_list.js
+2022-04-09 00:14:40,211 django.request WARNING  Not Found: /static/post/img/clos.svg
+2022-04-09 00:14:40,229 django.request WARNING  Not Found: /static/post/img/comment.svg
+2022-04-09 00:15:49,832 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 00:15:51,821 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:23:48,489 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:23:52,186 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:24:43,031 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:24:49,210 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:26:03,796 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:26:45,209 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:26:52,010 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:27:20,331 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:27:23,087 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:27:55,879 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:27:57,590 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:28:33,193 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:28:34,546 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:29:14,610 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 00:29:16,056 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:30:06,210 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:30:07,541 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:31:26,589 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:31:28,329 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:31:57,549 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:31:59,342 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:32:14,163 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:32:15,728 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:32:39,646 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:32:41,310 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:32:57,233 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:33:21,181 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:33:27,512 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 00:33:29,379 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:45:43,367 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 00:45:46,073 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 00:46:00,313 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 00:46:02,613 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:03:50,062 django.request WARNING  Not Found: /static/post/css/style.css
+2022-04-09 01:03:50,123 django.request WARNING  Not Found: /static/post/js/post_list.js
+2022-04-09 01:03:50,130 django.request WARNING  Not Found: /static/post/js/api-news.js
+2022-04-09 01:03:50,148 django.request WARNING  Not Found: /static/post/img/clos.svg
+2022-04-09 01:04:08,147 django.request WARNING  Not Found: /static/friends/css/style.css
+2022-04-09 01:04:08,195 django.request WARNING  Not Found: /static/profiles/img/default-img-profile.jpg
+2022-04-09 01:04:08,276 django.request WARNING  Not Found: /static/profiles/img/default-img-profile.jpg
+2022-04-09 01:04:13,539 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:04:13,547 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:04:13,557 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:04:13,565 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:04:13,572 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:04:13,578 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:04:13,589 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:04:13,593 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:04:13,601 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:04:13,608 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:04:13,617 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:04:13,624 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:07:21,759 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:07:21,866 django.request WARNING  Not Found: /static/components/css/style.css.map
+2022-04-09 01:09:05,636 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 01:09:10,542 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:09:17,559 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:09:17,566 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:09:17,647 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:09:17,653 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:09:17,672 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:09:17,685 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:09:17,698 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:09:17,717 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:09:17,733 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:09:17,740 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:09:17,755 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:09:17,772 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:09:17,786 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:09:17,794 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:09:17,805 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:09:17,818 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:09:17,844 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:09:17,854 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:09:17,864 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:09:17,873 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:09:18,156 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:09:32,896 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 01:09:35,458 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:09:38,972 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:09:38,974 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:09:39,037 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:09:39,045 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:09:39,058 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:09:39,071 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:09:39,092 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:09:39,093 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:09:39,111 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:09:39,128 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:09:39,146 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:09:39,160 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:09:39,168 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:09:39,175 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:09:39,187 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:09:39,198 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:09:39,225 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:09:39,237 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:09:39,259 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:09:39,262 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:09:43,408 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:09:43,411 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:09:43,484 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:09:43,492 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:09:43,497 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:09:43,504 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:09:43,509 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:09:43,514 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:09:43,537 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:09:43,543 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:09:43,557 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:09:43,567 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:09:43,578 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:09:43,587 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:09:43,595 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:09:43,609 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:09:43,631 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:09:43,637 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:09:43,645 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:09:43,655 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:09:46,249 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:09:46,255 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:09:46,301 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:09:46,307 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:09:46,321 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:09:46,329 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:09:46,338 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:09:46,351 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:09:46,356 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:09:46,362 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:09:46,372 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:09:46,379 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:09:46,389 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:09:46,398 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:09:46,406 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:09:46,412 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:09:46,427 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:09:46,436 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:09:46,444 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:09:46,453 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:09:51,248 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:09:51,252 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:09:51,318 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:09:51,330 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:09:51,338 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:09:51,344 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:09:51,345 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:09:51,350 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:09:51,378 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:09:51,387 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:09:51,402 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:09:51,407 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:09:51,421 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:09:51,443 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:09:51,458 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:09:51,469 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:09:51,486 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:09:51,499 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:09:51,510 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:09:51,520 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:09:51,745 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:10:21,757 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:11:39,582 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 01:11:46,904 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:12:05,256 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:12:09,834 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:12:09,840 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:12:09,914 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:12:09,925 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:12:09,951 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:12:09,957 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:12:09,966 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:12:09,972 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:12:09,980 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:12:09,989 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:12:10,024 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:12:10,034 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:12:10,047 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:12:10,059 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:12:10,072 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:12:10,088 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:12:10,105 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:12:10,114 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:12:10,121 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:12:10,129 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:12:51,790 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 01:12:54,623 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:12:58,273 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:12:58,277 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:12:58,338 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:12:58,344 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:12:58,365 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:12:58,371 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:12:58,375 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:12:58,388 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:12:58,400 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:12:58,412 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:12:58,431 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:12:58,439 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:12:58,451 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:12:58,466 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:12:58,479 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:12:58,496 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:12:58,504 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:12:58,512 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:12:58,527 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:12:58,537 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:19:02,433 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 01:19:05,301 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:21:24,045 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:21:24,050 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:21:24,133 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:21:24,145 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:21:24,159 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:21:24,172 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:21:24,181 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:21:24,192 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:21:24,216 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:21:24,235 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:21:24,250 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:21:24,260 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:21:24,269 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:21:24,283 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:21:24,309 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:21:24,319 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:21:24,329 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:21:24,354 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:21:24,373 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:21:24,397 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:21:30,780 django.request WARNING  Not Found: /static/components/css/style.css
+2022-04-09 01:21:30,785 django.request WARNING  Not Found: /static/profiles/css/style.css
+2022-04-09 01:21:30,834 django.request WARNING  Not Found: /static/components/js/index.js
+2022-04-09 01:21:30,846 django.request WARNING  Not Found: /static/components/img/friends.svg
+2022-04-09 01:21:30,854 django.request WARNING  Not Found: /static/components/img/chat.svg
+2022-04-09 01:21:30,859 django.request WARNING  Not Found: /static/components/img/linkedin-cust.svg
+2022-04-09 01:21:30,863 django.request WARNING  Not Found: /static/components/img/logout.svg
+2022-04-09 01:21:30,841 django.request WARNING  Not Found: /static/components/img/home.svg
+2022-04-09 01:21:30,878 django.request WARNING  Not Found: /static/profiles/img/location.svg
+2022-04-09 01:21:30,883 django.request WARNING  Not Found: /static/profiles/img/email.svg
+2022-04-09 01:21:30,892 django.request WARNING  Not Found: /static/profiles/img/default-img-bg.jpg
+2022-04-09 01:21:30,899 django.request WARNING  Not Found: /static/profiles/img/phone.svg
+2022-04-09 01:21:30,931 django.request WARNING  Not Found: /static/profiles/img/friends.svg
+2022-04-09 01:21:30,944 django.request WARNING  Not Found: /static/components/img/linkedin.svg
+2022-04-09 01:21:30,952 django.request WARNING  Not Found: /static/components/img/twitter.svg
+2022-04-09 01:21:30,962 django.request WARNING  Not Found: /static/components/img/github.svg
+2022-04-09 01:21:30,978 django.request WARNING  Not Found: /static/components/img/logo3.jpg
+2022-04-09 01:21:30,989 django.request WARNING  Not Found: /static/home/img/linkedin.svg
+2022-04-09 01:21:30,995 django.request WARNING  Not Found: /static/home/img/github.svg
+2022-04-09 01:21:31,008 django.request WARNING  Not Found: /static/home/img/twitter.svg
+2022-04-09 01:21:52,752 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:30:25,222 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-09 01:30:28,352 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 01:35:40,261 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.

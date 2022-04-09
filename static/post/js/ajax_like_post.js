@@ -96,6 +96,8 @@ form_like_post.forEach((form) => {
     // stoper le rechargement de la page lorsque on clique btn like
     e.preventDefault();
 
+    console.log(e.target.action);
+
     // selectionner l'id du formulaire
     const post_id = e.target.id;
     // console.log(post_id);
@@ -105,7 +107,7 @@ form_like_post.forEach((form) => {
     // console.log(likeText);
 
     // selectionner l'url de l'action du formulaire
-    const url = "http://127.0.0.1:8000/post/like/";
+    const url = e.target.action;
 
     // declarer une variable res pour compter le nombre de like
     let res;

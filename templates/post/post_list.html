@@ -76,6 +76,7 @@
       {% include 'comments/include/comment.html' %}
     </div>
     {% endfor %}
+    <input type="hidden" id="input_hidden_url_delete_comment" value="{% url 'comments:delete-comment' %}">
   </div>
 
 

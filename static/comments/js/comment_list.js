@@ -100,7 +100,7 @@ form_comments.forEach((form) => {
     }
     const csrftoken = getCookie("csrftoken");
 
-    fetch("http://127.0.0.1:8000/comment/add-update-comment/", {
+    fetch(e.target.action, {
       method: "POST",
       credentials: "same-origin",
       headers: {
@@ -118,14 +118,15 @@ form_comments.forEach((form) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-        console.log(data.comment_message);
+        // console.log(data);
+        // console.log(data.comment_message);
 
         const verif_img = (v) => {
           if (v) {
-            return `<img id="container-comment-list-img-profile" src="http://127.0.0.1:8000${v}" />`;
+            return `<img id="container-comment-list-img-profile" src="${v}" />`;
+            // return `<img id="container-comment-list-img-profile" src="http://127.0.0.1:8000${v}" />`;
           } else {
-            return `<img id="container-comment-list-img-profile" src="http://127.0.0.1:8000/static/components/img/user.svg" />`;
+            return `<img id="container-comment-list-img-profile" src="static/components/img/user.svg" />`;
           }
         };
 
@@ -237,6 +238,7 @@ const comment_options_item_deletes = document.querySelectorAll(
 
 comment_options_item_deletes.forEach((element) => {
   element.addEventListener("click", (e) => {
+    const url_delete_comment = document.getElementById('input_hidden_url_delete_comment').value;
     // console.log(element);
     // console.log(e.target.id);
     // console.log(e);
@@ -248,9 +250,9 @@ comment_options_item_deletes.forEach((element) => {
         document.getElementById("comments-num" + e.target.title).textContent
       );
 
-      console.log(
-        document.getElementById("text-plural-comments" + e.target.title)
-      );
+      // console.log(
+      //   document.getElementById("text-plural-comments" + e.target.title)
+      // );
 
       // const input_hidden_post_comment_edit2 = document.getElementById(
       //   "input_hidden_post_comment2-" + e.target.title
@@ -277,7 +279,7 @@ comment_options_item_deletes.forEach((element) => {
       const formData = new FormData();
       formData.append("id_comment", e.target.id);
 
-      const request = new Request("http://127.0.0.1:8000/comment/delete-comment/", {
+      const request = new Request(url_delete_comment, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -290,7 +292,7 @@ comment_options_item_deletes.forEach((element) => {
       fetch(request)
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
+          // console.log(result);
         });
 
       com.classList.add("display-none");

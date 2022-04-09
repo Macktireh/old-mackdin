@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
 
 from pathlib import Path
 from dotenv import load_dotenv
@@ -57,13 +59,13 @@ LOCAL_APPS = [
     'apps.friends',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -105,27 +107,27 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # config database production settings
-# if DEBUG:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': os.environ.get('ENGINE'),
-#             'NAME': os.environ.get('POSTGRES_DB'),
-#             'USER': os.environ.get('POSTGRES_USER'),
-#             'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-#             'HOST': os.environ.get('POSTGRES_HOST'),
-#             'PORT': os.environ.get('POSTGRES_PORT'),
-#         }
-#     }
-# else:
-# #     DATABASES = {
-# #     'default': dj_database_url.config()
-# # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3'
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': os.environ.get('ENGINE'),
+            'NAME': os.environ.get('POSTGRES_DB'),
+            'USER': os.environ.get('POSTGRES_USER'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT'),
+        }
     }
+else:
+    DATABASES = {
+    'default': dj_database_url.config()
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3'
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -177,9 +179,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 AUTH_USER_MODEL = 'users.CustomUser'
-
 
 # Config Send Email
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
@@ -189,46 +189,46 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT= os.getenv('EMAIL_PORT')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
 
+django_heroku.settings(locals())
 
 # Config logs
+import logging
+import logging.config
 
-# import logging
-# import logging.config
+from django.utils.log import DEFAULT_LOGGING
 
-# from django.utils.log import DEFAULT_LOGGING
+logger = logging.getLogger(__name__)
 
-# logger = logging.getLogger(__name__)
+LOG_LEVEL = "INFO"
 
-# LOG_LEVEL = "INFO"
-
-# logging.config.dictConfig(
-#     {
-#         "version": 1,
-#         "disable_existing_loggers": False,
-#         "formatters": {
-#             "console": {
-#                 "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
-#             },
-#             "file": {"format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s"},
-#             "django.server": DEFAULT_LOGGING["formatters"]["django.server"],
-#         },
-#         "handlers": {
-#             "console": {
-#                 "class": "logging.StreamHandler",
-#                 "formatter": "console",
-#             },
-#             "file": {
-#                 "level": "INFO",
-#                 "class": "logging.FileHandler",
-#                 "formatter": "file",
-#                 "filename": "logs/logs.log",
-#             },
-#             "django.server": DEFAULT_LOGGING["handlers"]["django.server"],
-#         },
-#         "loggers": {
-#             "": {"level": "INFO", "handlers": ["console", "file"], "propagate": False},
-#             "apps": {"level": "INFO", "handlers": ["console"], "propagate": False},
-#             "django.server": DEFAULT_LOGGING["loggers"]["django.server"],
-#         },
-#     }
-# )
+logging.config.dictConfig(
+    {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "console": {
+                "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
+            },
+            "file": {"format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s"},
+            "django.server": DEFAULT_LOGGING["formatters"]["django.server"],
+        },
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "formatter": "console",
+            },
+            "file": {
+                "level": "INFO",
+                "class": "logging.FileHandler",
+                "formatter": "file",
+                "filename": "logs/logs.log",
+            },
+            "django.server": DEFAULT_LOGGING["handlers"]["django.server"],
+        },
+        "loggers": {
+            "": {"level": "INFO", "handlers": ["console", "file"], "propagate": False},
+            "apps": {"level": "INFO", "handlers": ["console"], "propagate": False},
+            "django.server": DEFAULT_LOGGING["loggers"]["django.server"],
+        },
+    }
+)

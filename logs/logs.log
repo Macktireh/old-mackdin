@@ -335,3 +335,5 @@ NotImplementedError: Django doesn't provide a DB representation for AnonymousUse
 2022-04-09 14:01:05,339 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-09 14:01:07,145 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
 2022-04-09 14:01:08,338 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 14:09:24,391 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 14:09:27,250 django.utils.autoreload INFO     Watching for file changes with StatReloader

@@ -122,6 +122,16 @@ else:
     DATABASES = {
     'default': dj_database_url.config()
 }
+    
+    
+print('#####################################################')
+print()
+print()
+print(DATABASES)
+print()
+print()
+print('######################################################')
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

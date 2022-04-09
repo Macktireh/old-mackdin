@@ -42,12 +42,14 @@ DJANGO_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 ]
 
 THIRD_PARTY_APPS = [
     'django_extensions',
+    'cloudinary',
 ]
 
 LOCAL_APPS = [
@@ -122,22 +124,7 @@ else:
     DATABASES = {
     'default': dj_database_url.config()
 }
-    
-    
-print('#####################################################')
-print()
-print()
-print(DATABASES)
-print()
-print()
-print('######################################################')
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3'
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -200,6 +187,16 @@ EMAIL_PORT= os.getenv('EMAIL_PORT')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
 
 django_heroku.settings(locals())
+
+
+# Config CLOUDINARY for mediafiles
+if DEBUG is False:
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+        'API_KEY': os.environ.get('API_KEY'),
+        'API_SECRET': os.environ.get('API_SECRET'),
+    }
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Config logs
 import logging

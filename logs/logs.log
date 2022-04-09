@@ -399,3 +399,12 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'add-update-comment' not found. 'add-update-comment' is not a valid view function or pattern name.
 2022-04-09 14:46:10,745 django.request WARNING  Not Found: /post/[object HTMLInputElement]
+2022-04-09 14:50:51,510 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 14:50:54,702 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 16:53:02,983 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 16:53:08,077 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 18:41:31,614 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-09 18:41:38,004 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 18:45:14,560 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 18:46:39,445 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-09 18:48:14,491 django.utils.autoreload INFO     Watching for file changes with StatReloader

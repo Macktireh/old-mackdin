@@ -6,4 +6,5 @@ from apps.post.models import Post
 
 @receiver(pre_delete, sender=Post)
 def image_delete(sender, instance, **kwargs):
-    cloudinary.uploader.destroy(instance.img.public_id)
+    if instance.img:
+        cloudinary.uploader.destroy(instance.img.public_id)

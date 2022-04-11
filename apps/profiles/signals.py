@@ -29,5 +29,7 @@ def save_user_profile(sender, instance, **kwargs):
     
 @receiver(pre_delete, sender=Profile)
 def image_delete(sender, instance, **kwargs):
-    cloudinary.uploader.destroy(instance.img_profile.public_id)
-    cloudinary.uploader.destroy(instance.img_bg.public_id)
+    if instance.img_profile:
+        cloudinary.uploader.destroy(instance.img_profile.public_id)
+    if instance.img_bg:
+        cloudinary.uploader.destroy(instance.img_bg.public_id)

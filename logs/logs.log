@@ -1575,3 +1575,482 @@ OSError: [WinError 123] La syntaxe du nom de fichier, de répertoire ou de volume
 2022-04-11 19:52:25,031 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-11 19:55:11,715 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\views.py changed, reloading.
 2022-04-11 19:55:14,162 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 20:09:36,539 django.request ERROR    Internal Server Error: /admin/users/customuser/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1739, in changelist_view
+    response = self.response_action(request, queryset=cl.get_queryset(request))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1408, in response_action
+    response = func(self, request, queryset)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\actions.py", line 45, in delete_selected
+    modeladmin.delete_queryset(request, queryset)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1109, in delete_queryset
+    queryset.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 746, in delete
+    deleted, _rows_count = collector.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\deletion.py", line 405, in delete
+    sender=model, instance=obj, using=self.using
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\profiles\signals.py", line 32, in image_delete
+    cloudinary.uploader.destroy(instance.img_profile.public_id)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 132, in destroy
+    return call_api("destroy", params, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 552, in call_api
+    raise Error(result["error"]["message"])
+cloudinary.exceptions.Error: Missing required parameter - public_id
+2022-04-11 20:11:01,742 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\signals.py changed, reloading.
+2022-04-11 20:11:05,913 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 20:11:28,357 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\signals.py changed, reloading.
+2022-04-11 20:11:30,776 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 20:13:40,060 django.request ERROR    Internal Server Error: /admin/post/post/124/change/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in _save_table
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in <listcomp>
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\models.py", line 112, in pre_save
+    instance_value = uploader.upload_resource(value, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 69, in upload_resource
+    result = upload_func(file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 50, in upload
+    return call_cacheable_api("upload", params, file=file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 466, in call_cacheable_api
+    result = call_api(action, params, http_headers, return_error, unsigned, file, timeout, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 552, in call_api
+    raise Error(result["error"]["message"])
+cloudinary.exceptions.Error: File size too large. Got 13558755. Maximum is 10485760.
+2022-04-11 21:09:35,163 urllib3.connectionpool WARNING  Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C79A5548>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:09:35,184 urllib3.connectionpool WARNING  Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C7FD4608>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:09:35,186 urllib3.connectionpool WARNING  Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C7E5F688>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:09:36,485 django.request ERROR    Internal Server Error: /admin/post/post/111/change/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\ABDISOUBANEH\AppData\Local\Programs\Python\Python37\lib\socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\api_client\tcp_keep_alive_manager.py", line 74, in _validate_conn
+    super(TCPKeepAliveHTTPSConnectionPool, self)._validate_conn(conn)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x00000273C7FE14C8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 534, in call_api
+    response = _http.request("POST", api_url, param_list, headers, **kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\request.py", line 79, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: TCPKeepAliveHTTPSConnectionPool(host='api.cloudinary.com', port=443): Max retries exceeded with url: /v1_1/dgd32tdj8/image/upload (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C7FE14C8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in _save_table
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in <listcomp>
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\models.py", line 112, in pre_save
+    instance_value = uploader.upload_resource(value, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 69, in upload_resource
+    result = upload_func(file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 50, in upload
+    return call_cacheable_api("upload", params, file=file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 466, in call_cacheable_api
+    result = call_api(action, params, http_headers, return_error, unsigned, file, timeout, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 536, in call_api
+    raise Error("Unexpected error - {0!r}".format(e))
+cloudinary.exceptions.Error: Unexpected error - MaxRetryError("TCPKeepAliveHTTPSConnectionPool(host='api.cloudinary.com', port=443): Max retries exceeded with url: /v1_1/dgd32tdj8/image/upload (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C7FE14C8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))")
+2022-04-11 21:09:48,807 urllib3.connectionpool WARNING  Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C8030F48>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:09:48,809 urllib3.connectionpool WARNING  Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C8030848>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:09:48,811 urllib3.connectionpool WARNING  Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C7EB37C8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:09:49,948 django.request ERROR    Internal Server Error: /admin/post/post/111/change/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\ABDISOUBANEH\AppData\Local\Programs\Python\Python37\lib\socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\api_client\tcp_keep_alive_manager.py", line 74, in _validate_conn
+    super(TCPKeepAliveHTTPSConnectionPool, self)._validate_conn(conn)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x00000273C7E50A48>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 534, in call_api
+    response = _http.request("POST", api_url, param_list, headers, **kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\request.py", line 79, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: TCPKeepAliveHTTPSConnectionPool(host='api.cloudinary.com', port=443): Max retries exceeded with url: /v1_1/dgd32tdj8/image/upload (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C7E50A48>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in _save_table
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in <listcomp>
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\models.py", line 112, in pre_save
+    instance_value = uploader.upload_resource(value, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 69, in upload_resource
+    result = upload_func(file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 50, in upload
+    return call_cacheable_api("upload", params, file=file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 466, in call_cacheable_api
+    result = call_api(action, params, http_headers, return_error, unsigned, file, timeout, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 536, in call_api
+    raise Error("Unexpected error - {0!r}".format(e))
+cloudinary.exceptions.Error: Unexpected error - MaxRetryError("TCPKeepAliveHTTPSConnectionPool(host='api.cloudinary.com', port=443): Max retries exceeded with url: /v1_1/dgd32tdj8/image/upload (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C7E50A48>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))")
+2022-04-11 21:10:23,917 urllib3.connectionpool WARNING  Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C80307C8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:10:23,919 urllib3.connectionpool WARNING  Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C7FB1048>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:10:23,920 urllib3.connectionpool WARNING  Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C796DB88>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')': /v1_1/dgd32tdj8/image/upload
+2022-04-11 21:10:25,091 django.request ERROR    Internal Server Error: /admin/post/post/111/change/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\ABDISOUBANEH\AppData\Local\Programs\Python\Python37\lib\socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\api_client\tcp_keep_alive_manager.py", line 74, in _validate_conn
+    super(TCPKeepAliveHTTPSConnectionPool, self)._validate_conn(conn)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x00000273C796D0C8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 534, in call_api
+    response = _http.request("POST", api_url, param_list, headers, **kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\request.py", line 79, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 826, in urlopen
+    **response_kw
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: TCPKeepAliveHTTPSConnectionPool(host='api.cloudinary.com', port=443): Max retries exceeded with url: /v1_1/dgd32tdj8/image/upload (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C796D0C8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in _save_table
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in <listcomp>
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\models.py", line 112, in pre_save
+    instance_value = uploader.upload_resource(value, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 69, in upload_resource
+    result = upload_func(file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 50, in upload
+    return call_cacheable_api("upload", params, file=file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 466, in call_cacheable_api
+    result = call_api(action, params, http_headers, return_error, unsigned, file, timeout, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 536, in call_api
+    raise Error("Unexpected error - {0!r}".format(e))
+cloudinary.exceptions.Error: Unexpected error - MaxRetryError("TCPKeepAliveHTTPSConnectionPool(host='api.cloudinary.com', port=443): Max retries exceeded with url: /v1_1/dgd32tdj8/image/upload (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000273C796D0C8>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))")
+2022-04-11 21:20:08,127 django.request ERROR    Internal Server Error: /post/132/delete-post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 99, in delete_post
+    instance.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 967, in delete
+    return collector.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\deletion.py", line 405, in delete
+    sender=model, instance=obj, using=self.using
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\post\signals.py", line 9, in image_delete
+    cloudinary.uploader.destroy(instance.img.public_id)
+AttributeError: 'NoneType' object has no attribute 'public_id'
+2022-04-11 21:21:29,480 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\signals.py changed, reloading.
+2022-04-11 21:21:36,083 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 21:21:58,160 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\signals.py changed, reloading.
+2022-04-11 21:21:59,952 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 21:22:02,118 django.request ERROR    Internal Server Error: /post/132/delete-post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 99, in delete_post
+    instance.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 967, in delete
+    return collector.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\deletion.py", line 405, in delete
+    sender=model, instance=obj, using=self.using
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\post\signals.py", line 9, in image_delete
+    if instance.img.public_id:
+AttributeError: 'NoneType' object has no attribute 'public_id'
+2022-04-11 21:22:04,130 django.request ERROR    Internal Server Error: /post/132/delete-post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 99, in delete_post
+    instance.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 967, in delete
+    return collector.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\deletion.py", line 405, in delete
+    sender=model, instance=obj, using=self.using
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\post\signals.py", line 9, in image_delete
+    if instance.img.public_id:
+AttributeError: 'NoneType' object has no attribute 'public_id'
+2022-04-11 21:22:08,579 django.request ERROR    Internal Server Error: /post/132/delete-post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 99, in delete_post
+    instance.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 967, in delete
+    return collector.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\deletion.py", line 405, in delete
+    sender=model, instance=obj, using=self.using
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\post\signals.py", line 9, in image_delete
+    if instance.img.public_id:
+AttributeError: 'NoneType' object has no attribute 'public_id'
+2022-04-11 21:22:25,194 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\signals.py changed, reloading.
+2022-04-11 21:22:26,908 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 21:22:47,961 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\signals.py changed, reloading.
+2022-04-11 21:22:49,599 django.utils.autoreload INFO     Watching for file changes with StatReloader

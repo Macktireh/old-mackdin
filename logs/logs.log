@@ -409,3 +409,1169 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'add-update-comment' not foun
 2022-04-09 18:46:39,445 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-09 18:48:14,491 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-10 19:49:56,248 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-10 19:50:00,719 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:15:50,915 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\forms.py changed, reloading.
+2022-04-11 14:15:56,184 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:16:02,293 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-11 14:16:03,782 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:16:13,765 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-11 14:16:15,332 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:20:16,778 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:20:27,296 django.request ERROR    Internal Server Error: /accounts/logout/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 402, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\apps\users\views.py", line 86, in user_logout
+    user.save()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 789, in save_base
+    update_fields=update_fields, raw=raw, using=using,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\profiles\signals.py", line 21, in save_user_profile
+    if instance.profile.pseudo == '':
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 410, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 68, in __iter__
+    for row in compiler.results_iter(results):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1122, in apply_converters
+    value = converter(value, expression, connection)
+TypeError: from_db_value() missing 1 required positional argument: 'context'
+2022-04-11 14:21:01,900 django.request ERROR    Internal Server Error: /post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 247, in inner
+    return func(self._wrapped, *args)
+TypeError: 'CustomUser' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 402, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 41, in post_create_list_view
+    return render(request, template, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 436, in render
+    kwargs = {k: v.resolve(context) for k, v in self.kwargs.items()}
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 436, in <dictcomp>
+    kwargs = {k: v.resolve(context) for k, v in self.kwargs.items()}
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 247, in inner
+    return func(self._wrapped, *args)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 410, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 68, in __iter__
+    for row in compiler.results_iter(results):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1122, in apply_converters
+    value = converter(value, expression, connection)
+TypeError: from_db_value() missing 1 required positional argument: 'context'
+2022-04-11 14:21:20,462 django.request ERROR    Internal Server Error: /post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 247, in inner
+    return func(self._wrapped, *args)
+TypeError: 'CustomUser' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 402, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 41, in post_create_list_view
+    return render(request, template, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 436, in render
+    kwargs = {k: v.resolve(context) for k, v in self.kwargs.items()}
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 436, in <dictcomp>
+    kwargs = {k: v.resolve(context) for k, v in self.kwargs.items()}
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 247, in inner
+    return func(self._wrapped, *args)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 410, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 68, in __iter__
+    for row in compiler.results_iter(results):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1122, in apply_converters
+    value = converter(value, expression, connection)
+TypeError: from_db_value() missing 1 required positional argument: 'context'
+2022-04-11 14:21:37,817 django.request ERROR    Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 402, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 414, in login
+    return LoginView.as_view(**defaults)(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\views.py", line 63, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\edit.py", line 142, in post
+    return self.form_valid(form)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\views.py", line 92, in form_valid
+    auth_login(self.request, form.get_user())
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\__init__.py", line 135, in login
+    user_logged_in.send(sender=user.__class__, request=request, user=user)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\models.py", line 22, in update_last_login
+    user.save(update_fields=['last_login'])
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 789, in save_base
+    update_fields=update_fields, raw=raw, using=using,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\profiles\signals.py", line 21, in save_user_profile
+    if instance.profile.pseudo == '':
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 410, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 68, in __iter__
+    for row in compiler.results_iter(results):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1122, in apply_converters
+    value = converter(value, expression, connection)
+TypeError: from_db_value() missing 1 required positional argument: 'context'
+2022-04-11 14:32:30,422 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:32:54,161 django.request ERROR    Internal Server Error: /accounts/sign_in/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 402, in __get__
+    rel_obj = self.related.get_cached_value(instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+KeyError: 'profile'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\apps\users\views.py", line 73, in sign_in
+    login(request, user)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\__init__.py", line 135, in login
+    user_logged_in.send(sender=user.__class__, request=request, user=user)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\models.py", line 22, in update_last_login
+    user.save(update_fields=['last_login'])
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 789, in save_base
+    update_fields=update_fields, raw=raw, using=using,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\profiles\signals.py", line 21, in save_user_profile
+    if instance.profile.pseudo == '':
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 410, in __get__
+    rel_obj = self.get_queryset(instance=instance).get(**filter_args)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 68, in __iter__
+    for row in compiler.results_iter(results):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1122, in apply_converters
+    value = converter(value, expression, connection)
+TypeError: from_db_value() missing 1 required positional argument: 'context'
+2022-04-11 14:36:04,437 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:36:56,351 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:37:58,353 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:40:34,568 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:40:51,884 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /accounts/sign_in/
+2022-04-11 14:40:58,552 django.request ERROR    Internal Server Error: /post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'CloudinaryResource' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 41, in post_create_list_view
+    return render(request, template, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 305, in url
+    return self.build_url(**self.url_options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 315, in build_url
+    return self.__build_url(**options)[0]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 312, in __build_url
+    return utils.cloudinary_url(public_id, **combined_options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\utils.py", line 736, in cloudinary_url
+    raise ValueError("Must supply cloud_name in tag or in configuration")
+ValueError: Must supply cloud_name in tag or in configuration
+2022-04-11 14:41:42,764 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /admin/login/
+2022-04-11 14:41:51,714 django.request ERROR    Internal Server Error: /admin/profiles/profile/1/change/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 994, in render
+    return render_value_in_context(output, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 973, in render_value_in_context
+    value = str(value)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\html.py", line 376, in <lambda>
+    klass.__str__ = lambda self: mark_safe(klass_str(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\forms\boundfield.py", line 34, in __str__
+    return self.as_widget()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\forms\boundfield.py", line 97, in as_widget
+    renderer=self.form.renderer,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\forms\widgets.py", line 246, in render
+    context = self.get_context(name, value, attrs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\forms\widgets.py", line 435, in get_context
+    context = super().get_context(name, value, attrs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\forms\widgets.py", line 298, in get_context
+    context = super().get_context(name, value, attrs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\forms\widgets.py", line 238, in get_context
+    'value': self.format_value(value),
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\forms\widgets.py", line 431, in format_value
+    if self.is_initial(value):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\forms\widgets.py", line 425, in is_initial
+    return bool(value and getattr(value, 'url', False))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 305, in url
+    return self.build_url(**self.url_options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 315, in build_url
+    return self.__build_url(**options)[0]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 312, in __build_url
+    return utils.cloudinary_url(public_id, **combined_options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\utils.py", line 736, in cloudinary_url
+    raise ValueError("Must supply cloud_name in tag or in configuration")
+ValueError: Must supply cloud_name in tag or in configuration
+2022-04-11 14:44:59,188 django.request ERROR    Internal Server Error: /post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1037, in find_library
+    return parser.libraries[name]
+KeyError: 'future'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 41, in post_create_list_view
+    return render(request, template, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1088, in load
+    lib = find_library(parser, name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1041, in find_library
+    name, "\n".join(sorted(parser.libraries)),
+django.template.exceptions.TemplateSyntaxError: 'future' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+cloudinary
+debugger_tags
+highlighting
+humanize
+i18n
+indent_text
+l10n
+log
+static
+syntax_color
+tz
+widont
+2022-04-11 14:45:42,564 django.request ERROR    Internal Server Error: /post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1037, in find_library
+    return parser.libraries[name]
+KeyError: 'future'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 41, in post_create_list_view
+    return render(request, template, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 183, in render
+    template = context.template.engine.select_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 174, in select_template
+    return self.get_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1088, in load
+    lib = find_library(parser, name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1041, in find_library
+    name, "\n".join(sorted(parser.libraries)),
+django.template.exceptions.TemplateSyntaxError: 'future' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+cloudinary
+debugger_tags
+highlighting
+humanize
+i18n
+indent_text
+l10n
+log
+static
+syntax_color
+tz
+widont
+2022-04-11 14:46:01,221 django.request ERROR    Internal Server Error: /post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'CloudinaryResource' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 41, in post_create_list_view
+    return render(request, template, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 305, in url
+    return self.build_url(**self.url_options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 315, in build_url
+    return self.__build_url(**options)[0]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\__init__.py", line 312, in __build_url
+    return utils.cloudinary_url(public_id, **combined_options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\utils.py", line 736, in cloudinary_url
+    raise ValueError("Must supply cloud_name in tag or in configuration")
+ValueError: Must supply cloud_name in tag or in configuration
+2022-04-11 14:48:14,714 django.request ERROR    Internal Server Error: /admin/profiles/profile/23/change/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in _save_table
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in <listcomp>
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\models.py", line 112, in pre_save
+    instance_value = uploader.upload_resource(value, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 69, in upload_resource
+    result = upload_func(file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 50, in upload
+    return call_cacheable_api("upload", params, file=file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 466, in call_cacheable_api
+    result = call_api(action, params, http_headers, return_error, unsigned, file, timeout, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 487, in call_api
+    params = utils.sign_request(params, options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\utils.py", line 573, in sign_request
+    raise ValueError("Must supply api_key")
+ValueError: Must supply api_key
+2022-04-11 14:49:12,998 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-11 14:49:16,302 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:50:37,551 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-11 14:50:39,042 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:50:44,350 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:50:54,717 django.request ERROR    Internal Server Error: /admin/profiles/profile/23/change/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1660, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1586, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1099, in save_model
+    obj.save()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in _save_table
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 856, in <listcomp>
+    for f in non_pks]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\models.py", line 112, in pre_save
+    instance_value = uploader.upload_resource(value, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 69, in upload_resource
+    result = upload_func(file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 50, in upload
+    return call_cacheable_api("upload", params, file=file, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 466, in call_cacheable_api
+    result = call_api(action, params, http_headers, return_error, unsigned, file, timeout, **options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\uploader.py", line 487, in call_api
+    params = utils.sign_request(params, options)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\cloudinary\utils.py", line 573, in sign_request
+    raise ValueError("Must supply api_key")
+ValueError: Must supply api_key
+2022-04-11 14:52:12,603 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-11 14:52:14,344 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:52:40,335 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-11 14:52:41,654 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 14:55:21,188 django.request ERROR    Internal Server Error: /post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1037, in find_library
+    return parser.libraries[name]
+KeyError: 'future'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 41, in post_create_list_view
+    return render(request, template, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 214, in render
+    nodelist.append(node.render_annotated(context))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 183, in render
+    template = context.template.engine.select_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 174, in select_template
+    return self.get_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1088, in load
+    lib = find_library(parser, name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1041, in find_library
+    name, "\n".join(sorted(parser.libraries)),
+django.template.exceptions.TemplateSyntaxError: 'future' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+cloudinary
+debugger_tags
+highlighting
+humanize
+i18n
+indent_text
+l10n
+log
+static
+syntax_color
+tz
+widont
+2022-04-11 14:56:13,799 django.request ERROR    Internal Server Error: /profile/macktireh97/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1037, in find_library
+    return parser.libraries[name]
+KeyError: 'future'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\profiles\views.py", line 24, in profile
+    return render(request, template, context=context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1088, in load
+    lib = find_library(parser, name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 1041, in find_library
+    name, "\n".join(sorted(parser.libraries)),
+django.template.exceptions.TemplateSyntaxError: 'future' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+cloudinary
+debugger_tags
+highlighting
+humanize
+i18n
+indent_text
+l10n
+log
+static
+syntax_color
+tz
+widont
+2022-04-11 15:25:10,338 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-11 15:25:16,175 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:26:11,990 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-11 15:26:13,330 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:27:09,945 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\models.py changed, reloading.
+2022-04-11 15:27:11,459 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:27:28,983 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-11 15:27:30,441 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:28:09,163 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-11 15:28:10,724 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:28:49,723 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:29:45,221 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\models.py changed, reloading.
+2022-04-11 15:29:46,608 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:30:14,757 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-11 15:30:16,074 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:31:02,770 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:35:19,138 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-11 15:35:20,486 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 15:35:26,070 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 16:04:18,112 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\signals.py changed, reloading.
+2022-04-11 16:04:21,770 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 16:07:44,784 django.request ERROR    Internal Server Error: /admin/users/customuser/25/delete/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1851, in delete_view
+    return self._delete_view(request, object_id, extra_context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1881, in _delete_view
+    self.delete_model(request, obj)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\admin\options.py", line 1105, in delete_model
+    obj.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\base.py", line 967, in delete
+    return collector.delete()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\deletion.py", line 405, in delete
+    sender=model, instance=obj, using=self.using
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in send
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 182, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "E:\Python\Django\linkedin\apps\profiles\signals.py", line 32, in image_delete
+    cloudinary.uploader.destroy(instance.image.public_id)
+AttributeError: 'Profile' object has no attribute 'image'
+2022-04-11 16:08:38,372 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\signals.py changed, reloading.
+2022-04-11 16:08:41,185 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 19:37:56,220 django.request ERROR    Internal Server Error: /post/111/update-post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 54, in update_post
+    os.remove(post_edit.img.path)
+AttributeError: 'CloudinaryResource' object has no attribute 'path'
+2022-04-11 19:39:04,373 django.request ERROR    Internal Server Error: /post/125/update-post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 54, in update_post
+    os.remove(post_edit.img.path)
+AttributeError: 'CloudinaryResource' object has no attribute 'path'
+2022-04-11 19:39:27,666 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\views.py changed, reloading.
+2022-04-11 19:39:33,744 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 19:39:42,220 django.request ERROR    Internal Server Error: /post/125/update-post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 54, in update_post
+    os.remove(post_edit.img.url)
+OSError: [WinError 123] La syntaxe du nom de fichier, de répertoire ou de volume est incorrecte: 'http://res.cloudinary.com/dgd32tdj8/image/upload/v1649698722/bczca4bhzdkcwsbkww3q.jpg'
+2022-04-11 19:44:10,660 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\views.py changed, reloading.
+2022-04-11 19:44:14,681 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 19:50:19,801 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\apps.py changed, reloading.
+2022-04-11 19:50:22,567 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 19:51:31,138 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\__init__.py changed, reloading.
+2022-04-11 19:51:33,790 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 19:52:22,336 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\signals.py changed, reloading.
+2022-04-11 19:52:25,031 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 19:55:11,715 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\views.py changed, reloading.
+2022-04-11 19:55:14,162 django.utils.autoreload INFO     Watching for file changes with StatReloader

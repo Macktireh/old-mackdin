@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import FileExtensionValidator
 from datetime import datetime
+from cloudinary.models import CloudinaryField
 
 User = get_user_model()
 
@@ -22,7 +23,8 @@ def rename_img_video(instance, filename):
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post')
     message = models.TextField(_("message"), blank=True)
-    img = models.ImageField(_("image"), upload_to=rename_img_video, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg', 'gif'])], blank=True, null=True)
+    # img = models.ImageField(_("image"), upload_to=rename_img_video, validators=[FileExtensionValidator(['png', 'jpg', 'jpeg', 'gif'])], blank=True, null=True)
+    img = CloudinaryField(_("image"), blank=True, null=True)
     video = models.FileField(_("video"), upload_to=rename_img_video, blank=True, null=True)
     date_created = models.DateTimeField(_("date created"), auto_now_add=True)
     date_updated = models.DateTimeField(_("date updated"), auto_now=True)

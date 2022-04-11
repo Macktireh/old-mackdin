@@ -2,6 +2,7 @@ import os
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from cloudinary.models import CloudinaryField
 
 User = get_user_model()
 from apps.profiles.managers import ProfileManager
@@ -24,8 +25,10 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     pseudo = models.CharField(_("non d'utilisateur"), max_length=48, blank=True, unique=True)
     bio = models.CharField(_("titre du profil"), max_length=250, blank=True)
-    img_profile = models.ImageField(_("photo de profile"), upload_to=rename_img, default='default/default-img-profile.jpg', blank=True, null=True)
-    img_bg = models.ImageField(_("photo de couverture"), upload_to=rename_img, default='default/default-img-bg.jpg', blank=True, null=True)
+    # img_profile = models.ImageField(_("photo de profile"), upload_to=rename_img, default='default/default-img-profile.jpg', blank=True, null=True)
+    # img_bg = models.ImageField(_("photo de couverture"), upload_to=rename_img, default='default/default-img-bg.jpg', blank=True, null=True)
+    img_profile = CloudinaryField('photo de profile', blank=True, null=True, default='https://github.com/Macktireh/linkedin/blob/main/mediafiles/default/default-img-profile.jpg?raw=true')
+    img_bg = CloudinaryField('photo de couverture', blank=True, null=True, default='https://github.com/Macktireh/linkedin/blob/main/mediafiles/default/default-img-bg.jpg?raw=true')
     birth_date = models.DateField(_("date de naissence"), null=True, blank=True)
     
     class GenderChoices(models.TextChoices):

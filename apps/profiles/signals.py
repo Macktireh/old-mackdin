@@ -1,4 +1,5 @@
-from django.db.models.signals import post_save
+import cloudinary
+from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
@@ -23,3 +24,10 @@ def save_user_profile(sender, instance, **kwargs):
             instance.profile.pseudo = f'{instance.first_name}{instance.pk}'.lower()
             instance.profile.save()
     instance.profile.save()
+    
+    
+    
+@receiver(pre_delete, sender=Profile)
+def image_delete(sender, instance, **kwargs):
+    cloudinary.uploader.destroy(instance.img_profile.public_id)
+    cloudinary.uploader.destroy(instance.img_bg.public_id)

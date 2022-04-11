@@ -1,4 +1,4 @@
-import json
+import cloudinary
 import os
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
@@ -51,7 +51,8 @@ def update_post(request, post_id):
         if len(request.FILES) != 0:
             if post_edit.img:
                 if len(post_edit.img) > 0:
-                    os.remove(post_edit.img.path)
+                    cloudinary.uploader.destroy(post_edit.img.public_id)
+                    # os.remove(post_edit.img.path)
             post_edit.img = request.FILES['img']      
         post_edit.message = request.POST.get('message')
         post_edit.save()

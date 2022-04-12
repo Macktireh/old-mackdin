@@ -2217,3 +2217,4 @@ django.core.exceptions.ImproperlyConfigured: settings.DATABASES is improperly co
 2022-04-12 17:55:27,034 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-12 17:55:40,062 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
 2022-04-12 17:55:41,816 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 18:01:51,048 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.

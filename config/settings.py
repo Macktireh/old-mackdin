@@ -110,22 +110,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # config database production settings
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': os.environ.get('ENGINE'),
-            'NAME': os.environ.get('POSTGRES_DB'),
-            'USER': os.environ.get('POSTGRES_USER'),
-            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-            'HOST': os.environ.get('POSTGRES_HOST'),
-            'PORT': os.environ.get('POSTGRES_PORT'),
-        }
-    }
-else:
-    DATABASES = {
+# if DEBUG:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': os.environ.get('ENGINE'),
+#             'NAME': os.environ.get('POSTGRES_DB'),
+#             'USER': os.environ.get('POSTGRES_USER'),
+#             'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+#             'HOST': os.environ.get('POSTGRES_HOST'),
+#             'PORT': os.environ.get('POSTGRES_PORT'),
+#         }
+#     }
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.config()
+#     }
+
+DATABASES = {
     'default': dj_database_url.config()
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

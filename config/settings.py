@@ -36,7 +36,6 @@ DEBUG = False if os.environ.get('ENV', 'development') == 'production' else True
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
 
-
 # Application definition
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -110,25 +109,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # config database production settings
-# if DEBUG:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': os.environ.get('ENGINE'),
-#             'NAME': os.environ.get('POSTGRES_DB'),
-#             'USER': os.environ.get('POSTGRES_USER'),
-#             'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-#             'HOST': os.environ.get('POSTGRES_HOST'),
-#             'PORT': os.environ.get('POSTGRES_PORT'),
-#         }
-#     }
-# else:
-#     DATABASES = {
-#         'default': dj_database_url.config()
-#     }
-
-DATABASES = {
-    'default': dj_database_url.config()
-}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': os.environ.get('ENGINE'),
+            'NAME': os.environ.get('POSTGRES_DB'),
+            'USER': os.environ.get('POSTGRES_USER'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

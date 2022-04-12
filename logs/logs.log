@@ -2069,3 +2069,151 @@ AttributeError: 'NoneType' object has no attribute 'public_id'
 2022-04-12 08:02:38,889 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
 2022-04-12 08:02:41,270 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-12 08:03:34,133 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:40:56,209 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:41:04,949 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 233, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\apps\home\views.py", line 11, in home
+    if user.is_authenticated:
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 246, in inner
+    self._setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 382, in _setup
+    self._wrapped = self._setupfunc()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\__init__.py", line 177, in get_user
+    user_id = _get_user_session_key(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in __getitem__
+    return self._session[key]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 238, in _get_session
+    self._session_cache = self.load()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 513, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 55, in pre_sql_setup
+    self.setup_query()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 46, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 262, in get_select
+    sql, params = self.compile(col)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\expressions.py", line 835, in as_sql
+    sql = '.'.join(map(compiler.quote_name_unless_alias, identifiers))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 436, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\backends\dummy\base.py", line 20, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+django.core.exceptions.ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2022-04-12 17:46:13,092 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-12 17:46:17,190 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:48:23,634 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-12 17:48:25,381 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:48:39,836 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:49:23,157 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-12 17:49:24,964 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:49:29,157 django.request ERROR    Internal Server Error: /post/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 233, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 20, in _wrapped_view
+    if test_func(request.user):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 44, in <lambda>
+    lambda u: u.is_authenticated,
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 246, in inner
+    self._setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 382, in _setup
+    self._wrapped = self._setupfunc()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\__init__.py", line 177, in get_user
+    user_id = _get_user_session_key(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in __getitem__
+    return self._session[key]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 238, in _get_session
+    self._session_cache = self.load()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 513, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 55, in pre_sql_setup
+    self.setup_query()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 46, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 262, in get_select
+    sql, params = self.compile(col)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\expressions.py", line 835, in as_sql
+    sql = '.'.join(map(compiler.quote_name_unless_alias, identifiers))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 436, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\backends\dummy\base.py", line 20, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+django.core.exceptions.ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2022-04-12 17:50:33,984 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-12 17:50:35,888 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:50:59,836 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-12 17:51:01,730 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:51:35,813 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-12 17:51:37,754 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:55:25,297 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-12 17:55:27,034 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 17:55:40,062 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-12 17:55:41,816 django.utils.autoreload INFO     Watching for file changes with StatReloader

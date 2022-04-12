@@ -178,13 +178,13 @@ form_like_post.forEach((form) => {
 
         if (response.value === "Unlike") {
           document.querySelector(`.like-text${post_id}`).classList.remove("text-like_unlike-span");
-          document.getElementById(`like-img${post_id}`).src = "http://127.0.0.1:8000/static/post/img/unlike.svg"
+          document.getElementById(`like-img${post_id}`).src = "/static/post/img/unlike.svg"
            
           res = likes_num - 1;
           fonc_text_plural(res);
         } else {
           document.querySelector(`.like-text${post_id}`).classList.add("text-like_unlike-span");
-          document.getElementById(`like-img${post_id}`).src = "http://127.0.0.1:8000/static/post/img/like.svg"
+          document.getElementById(`like-img${post_id}`).src = "/static/post/img/like.svg"
          
           res = likes_num + 1;
           fonc_text_plural(res);

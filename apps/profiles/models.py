@@ -27,8 +27,8 @@ class Profile(models.Model):
     bio = models.CharField(_("titre du profil"), max_length=250, blank=True)
     # img_profile = models.ImageField(_("photo de profile"), upload_to=rename_img, default='default/default-img-profile.jpg', blank=True, null=True)
     # img_bg = models.ImageField(_("photo de couverture"), upload_to=rename_img, default='default/default-img-bg.jpg', blank=True, null=True)
-    img_profile = CloudinaryField('photo de profile', blank=True, null=True, default='https://github.com/Macktireh/linkedin/blob/main/mediafiles/default/default-img-profile.jpg?raw=true')
-    img_bg = CloudinaryField('photo de couverture', blank=True, null=True, default='https://github.com/Macktireh/linkedin/blob/main/mediafiles/default/default-img-bg.jpg?raw=true')
+    img_profile = CloudinaryField('photo de profile', blank=True, null=True, default="https://res.cloudinary.com/dm68aag3e/image/upload/v1649743168/default-img-profile_hrhx6z.jpg")
+    img_bg = CloudinaryField('photo de couverture', blank=True, null=True, default="https://res.cloudinary.com/dm68aag3e/image/upload/v1649743327/default-img-bg_zbeoo4.jpg")
     birth_date = models.DateField(_("date de naissence"), null=True, blank=True)
     
     class GenderChoices(models.TextChoices):

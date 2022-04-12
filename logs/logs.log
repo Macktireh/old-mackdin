@@ -2054,3 +2054,18 @@ AttributeError: 'NoneType' object has no attribute 'public_id'
 2022-04-11 21:22:26,908 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-11 21:22:47,961 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\signals.py changed, reloading.
 2022-04-11 21:22:49,599 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-11 23:04:29,922 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 07:43:39,807 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 07:46:32,749 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-12 07:46:35,688 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 07:49:26,801 django.request WARNING  Not Found: /favicon.ico
+2022-04-12 07:52:43,365 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 07:54:39,278 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-12 07:54:42,140 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 07:55:04,333 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 08:00:07,358 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-12 08:00:43,093 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 08:01:02,516 urllib3.connectionpool WARNING  Connection pool is full, discarding connection: api.cloudinary.com. Connection pool size: 1
+2022-04-12 08:02:38,889 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\models.py changed, reloading.
+2022-04-12 08:02:41,270 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 08:03:34,133 django.utils.autoreload INFO     Watching for file changes with StatReloader

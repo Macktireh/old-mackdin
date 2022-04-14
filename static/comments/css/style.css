@@ -109,6 +109,7 @@ a:visited {
   margin-top: 1rem;
   width: 100%;
   position: relative;
+  display: flex;
 }
 .form-comment-list-input-container-global .container-global-comment-list .container-comment-list img#container-comment-list-img-profile {
   position: absolute;
@@ -135,6 +136,7 @@ a:visited {
   margin-top: 0.3rem;
 }
 .form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content {
+  width: 100%;
   display: flex;
   justify-content: start;
   align-items: top;
@@ -144,7 +146,11 @@ a:visited {
 .form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  flex-direction: column;
+}
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I strong {
+  width: 100%;
 }
 .form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I strong #author_post_and_comment {
   padding: 0.1rem 0.5rem;
@@ -152,11 +158,17 @@ a:visited {
   background-color: #5a6775;
   border-radius: 8px;
 }
-.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I small {
-  padding-right: 40px;
-  font-style: italic;
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I p#comment-author-profile-title {
+  text-align: left;
+  font: size 13px;
+  color: #979eaa;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content #comment-author-profile-title {
+.form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content small {
   text-align: left;
   width: 100%;
   font: size 13px;
@@ -166,6 +178,30 @@ a:visited {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-style: italic;
+}
+@media screen and (max-width: 440px) {
+  .form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I {
+    flex-direction: column;
+    align-items: start;
+  }
+  .form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I strong {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+  }
+  .form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I strong a {
+    width: 80%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-info-content .comment-info-content-I strong #author_post_and_comment {
+    display: none;
+  }
 }
 .form-comment-list-input-container-global .container-global-comment-list .container-comment-list .comment-content-box .comment-text-content {
   display: flex;

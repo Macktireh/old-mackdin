@@ -58,6 +58,10 @@
         .post-left-statistic-num
           color: $color3
           font-weight: bold
+    @media screen and (max-width:730px)
+      .post-left-statistic-profile
+        .statistic
+          @include flex-el(space-around, null)
 
 .container-right
   position: sticky

@@ -96,12 +96,18 @@
             {% endif %}
           </div>
 
+          {% if profile.user == request.user %}
+          <!-- <div class="btn-container-update-profile"> -->
+          <a class="btn-container-update-profile" href="{% url 'profiles:update_profile' %}">Modifier le profile</a>
+          <!-- </div> -->
+          {% endif %}
+
           {% if profile.user not in list_receiver and profile.user not in list_sender and user != profile.user %}
           <form action="{% url 'friends:send_invitation' %}" method="POST" class="to-invites-add-friends">
             {% csrf_token %}
             <input type="hidden" name="profile_id" value="{{profile.id}}">
             <input type="hidden" name="redirect" value="profile">
-            <button class="btn-add-friends" type="submit">Se connecter</button>
+            <button class="btn-add-friends" type="submit">Envoyer une invitation</button>
           </form>
           {% endif %}
 
@@ -134,9 +140,9 @@
   <div class="container-right">
     <aside class="asd-info-stat">
       {% if profile.user == request.user %}
-      <div class="btn-container-update-profile">
+      <!-- <div class="btn-container-update-profile">
         <a href="{% url 'profiles:update_profile' %}">Modifier le profile</a>
-      </div>
+      </div> -->
       {% endif %}
 
       <div class="statistic-profile">

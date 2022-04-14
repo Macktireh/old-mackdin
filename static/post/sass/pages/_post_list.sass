@@ -7,7 +7,7 @@ main.main-list_post
 
 .container-left
   width: 20%
-  height: 45vh
+  height: 325px
   box-shadow: 0 2px 3px 0 $color6
   border-radius: 8px
   display: flex
@@ -62,3 +62,32 @@ main.main-list_post
   position: sticky
   right: 0
   top: 87px
+
+@media screen and (max-width:1030px)
+  .container-left
+    width: 25%
+
+@media screen and (max-width:950px)
+
+@media screen and (max-width:890px)
+  main.main-list_post
+    .container-right
+      display: none
+    .container-main
+      width: 65%
+    .container-left
+      width: 35%
+
+@media screen and (max-width:730px)
+  main.main-list_post
+    flex-direction: column
+    align-items: center
+
+    .container-left
+      width: 100%
+      position: relative
+      left: 0
+      top: 0
+
+    .container-main
+      width: 100%

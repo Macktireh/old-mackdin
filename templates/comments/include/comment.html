@@ -37,16 +37,17 @@
       <div class="comment-content-box">
         <div class="comment-info-content">
           <div class="comment-info-content-I" id="comment-info-content-I-{{post.id}}">
-            <strong><a
-                href="{% url 'profiles:profile' pseudo=comment.author.profile.pseudo  %}">{{comment.author.first_name}}
-                {{comment.author.last_name}}</a>
+            <strong>
+              <a href="{% url 'profiles:profile' pseudo=comment.author.profile.pseudo  %}">{{comment.author.first_name}}
+                {{comment.author.last_name}}
+              </a>
               {% ifequal comment.author comment.post.author %}
               <span id="author_post_and_comment">Auteur</span>
               {% endifequal %}
             </strong>
-            <small>{{ comment.date_added|naturaltime }}</small>
+            <p id="comment-author-profile-title">{{ comment.author.profile.bio }}</p>
           </div>
-          <p id="comment-author-profile-title">{{ comment.author.profile.bio }}</p>
+          <small>{{ comment.date_added|naturaltime }}</small>
         </div>
         <div class="comment-text-content">
           <p class="msg-text-p-{{comment.id}}" id="{{post.id}}">{{ comment.message }}</p>

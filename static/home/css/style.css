@@ -41,7 +41,6 @@ main.main-home {
   width: 100%;
   gap: 1rem;
   background-color: #34495e;
-  height: 100vh;
   padding: 0.5rem;
 }
 main.main-home .container1 {
@@ -70,6 +69,28 @@ main.main-home .container2 img {
 main.main-home .container2 .box {
   flex-direction: column;
   gap: 0.5rem;
+}
+
+@media screen and (max-width: 920px) {
+  img#container1-img {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 780px) {
+  img#container1-img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 740px) {
+  .container1 {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container2 {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

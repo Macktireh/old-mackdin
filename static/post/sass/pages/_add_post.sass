@@ -53,13 +53,13 @@ form
         color: $color7
       &:focus
         border: 1px solid $color2
-  div
+  .add-img-btn-send
     width: 100%
-    @extend .flex-center
+    @include flex-el(center, center)
     gap: 0.4rem
     .input-file
       // flex-grow: 2
-      width: 65%
+      width: 100%
       position: relative
       .form-input-file
         position: absolute
@@ -97,7 +97,11 @@ form
       span
         color: $color2
         font-size: 16px
-
+  @media screen and (max-width:400px)
+    .add-img-btn-send
+      flex-direction: column
+      button
+        width: 100%
 // -------------------------------------------
 // Style de prévisualisation de post
 // -------------------------------------------

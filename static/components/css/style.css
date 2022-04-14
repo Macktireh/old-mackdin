@@ -47,6 +47,11 @@ body {
   max-width: 1150px;
 }
 
+@media screen and (max-width: 1149px) {
+  .body-container {
+    padding: 0 1rem 0;
+  }
+}
 .nav-container {
   height: 70px;
   width: 100%;

@@ -2581,3 +2581,9 @@ Traceback (most recent call last):
     raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
 django.core.exceptions.ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
 2022-04-12 18:17:37,649 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 19:33:26,432 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\models.py changed, reloading.
+2022-04-12 19:33:31,385 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-12 19:34:20,675 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\models.py changed, reloading.
+2022-04-12 19:34:22,284 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-13 13:45:28,147 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-13 14:22:19,124 django.utils.autoreload INFO     Watching for file changes with StatReloader

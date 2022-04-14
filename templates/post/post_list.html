@@ -65,12 +65,12 @@
         <div class="box-action-icon">
           {% include 'post/components/like-form-btn.html' %}
           <button href="#" class="action-icon box-comment btn-container-comment-toggle" id="{{post.id}}">
-            <img src="{% static 'post/img/comment.svg' %}" alt="" id="{{post.id}}" />
-            <span id="{{post.id}}">Commenter</span>
+            <img src="{% static 'post/img/comment.svg' %}" class="icon-like-comment-share" id="{{post.id}}" />
+            <span id="{{post.id}}" class="label-like-comment-share">Commenter</span>
           </button>
           <button href="#" class="action-icon box-share">
-            <img src="{% static 'post/img/share.svg' %}" alt="" />
-            <span>Partager</span>
+            <img src="{% static 'post/img/share.svg' %}" class="icon-like-comment-share" />
+            <span class="label-like-comment-share">Partager</span>
           </button>
         </div>
       </div>
@@ -86,9 +86,6 @@
     <ul class="container-aside-1">
       <h4>Actualités</h4>
     </ul>
-    <!-- <ul class="container-aside-2">
-      
-    </ul> -->
   </div>
 </main>
 {% endblock content %}

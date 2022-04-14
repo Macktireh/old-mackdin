@@ -60,12 +60,21 @@ a:visited {
   top: 12px;
 }
 
+@media screen and (max-width: 840px) {
+  .main-profile {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-profile .container-right, .main-profile .container-left {
+    width: 100%;
+  }
+}
 .profile-info {
   width: 100%;
-  height: 30rem;
   box-shadow: 0 2px 3px 0 #0000001a;
   border-radius: 8px;
   background-color: #34495e;
+  display: flex;
 }
 
 .container-info {
@@ -76,7 +85,7 @@ a:visited {
 
 .info-img-bg {
   width: 100%;
-  height: 45%;
+  height: 200px;
   max-height: 15rem;
   min-height: 10rem;
 }
@@ -92,17 +101,31 @@ a:visited {
 .img_profile {
   width: 10rem;
   height: 10rem;
-  position: absolute;
   border-radius: 50%;
   border: 3px solid #34495e;
+  position: absolute;
+  top: 100px;
   left: 1.5%;
-  top: 23%;
+  transform: translateX();
+  transform: translateY();
   background-color: #34495e;
   object-position: center;
   object-fit: cover;
 }
+@media screen and (max-width: 440px) {
+  .img_profile {
+    width: 9rem;
+    height: 9rem;
+    position: absolute;
+    top: 115px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY();
+  }
+}
 
 .info-content {
+  margin-top: 0.5rem;
   padding: 4rem 2rem 2rem;
   text-align: left;
   line-height: 26px;
@@ -163,25 +186,42 @@ a:visited {
   color: #1abc9c;
 }
 .info-content button.btn-add-friends,
-.info-content button.btn-remove-friends {
-  padding: 0.6rem 1.5rem;
+.info-content button.btn-remove-friends,
+.info-content .btn-container-update-profile {
+  padding: 0.3rem 1rem;
   border: none;
   outline: none;
   background-color: #1abc9c40;
   color: #f1f1f1;
-  border-radius: 20px;
+  border-radius: 8px;
   border: 1px solid #1abc9c;
   transition: 0.3s ease-out;
   cursor: pointer;
+  font-size: 15px;
+  font-family: ui-sans-serif, system-ui;
   position: absolute;
-  top: 10%;
-  right: 20px;
+  top: 8px;
+  right: 15px;
   transform: translateX();
   transform: translateY();
 }
 .info-content button.btn-add-friends:hover,
-.info-content button.btn-remove-friends:hover {
+.info-content button.btn-remove-friends:hover,
+.info-content .btn-container-update-profile:hover {
   background-color: #1abc9c;
+}
+@media screen and (max-width: 440px) {
+  .info-content button.btn-add-friends,
+.info-content button.btn-remove-friends,
+.info-content .btn-container-update-profile {
+    margin-top: 10px;
+    padding: 0.3rem 0.8rem;
+    right: 0;
+    top: 0;
+    display: block;
+    position: relative;
+    text-align: center;
+  }
 }
 .info-content button.btn-remove-friends {
   background-color: #f31d5a49;

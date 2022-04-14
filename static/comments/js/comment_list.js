@@ -10,7 +10,7 @@ comment_options_btn.forEach((element) => {
   });
 });
 
-funct_toggle_options = function(){
+funct_toggle_options = function () {
   const comment_options_btn = document.querySelectorAll(".comment-options-btn");
 
   comment_options_btn.forEach((element) => {
@@ -22,8 +22,7 @@ funct_toggle_options = function(){
       comment_ops_container.classList.toggle("display-none");
     });
   });
-}
-
+};
 
 // ##############################################""
 // bouton d'option de modification et suppression
@@ -61,7 +60,6 @@ const fonc_text_plural2 = (n, balise) => {
 const form_comments = document.querySelectorAll(
   ".form-comment-list-input-container-global"
 );
-
 
 form_comments.forEach((form) => {
   form.addEventListener("submit", (e) => {
@@ -223,11 +221,11 @@ form_comments.forEach((form) => {
 
     document.getElementById("input_message_comment-" + e.target.title).value =
       "";
-    document.getElementById("input_hidden_post_comment2-" + e.target.title).value = ""
+    document.getElementById(
+      "input_hidden_post_comment2-" + e.target.title
+    ).value = "";
   });
 });
-
-
 
 // ##############################################""
 // suppression des commentaires
@@ -238,7 +236,9 @@ const comment_options_item_deletes = document.querySelectorAll(
 
 comment_options_item_deletes.forEach((element) => {
   element.addEventListener("click", (e) => {
-    const url_delete_comment = document.getElementById('input_hidden_url_delete_comment').value;
+    const url_delete_comment = document.getElementById(
+      "input_hidden_url_delete_comment"
+    ).value;
     // console.log(element);
     // console.log(e.target.id);
     // console.log(e);
@@ -295,7 +295,8 @@ comment_options_item_deletes.forEach((element) => {
           // console.log(result);
         });
 
-      com.classList.add("display-none");
+      com.style.display = "none";
+      // com.classList.add("display-none");
       num_comment = count_num_comment - 1;
       document.getElementById("comments-num" + e.target.title).textContent =
         num_comment;
@@ -308,7 +309,7 @@ comment_options_item_deletes.forEach((element) => {
         document.getElementById(
           "text-plural-comments" + e.target.title
         ).textContent = "Commentaire";
-      }      
+      }
       // document.getElementById("input_message_comment-" + msg.id).value =
       //   msg.textContent;
       // document.getElementById("input_hidden_post_comment2-" + msg.id).value =

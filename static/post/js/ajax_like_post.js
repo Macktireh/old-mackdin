@@ -87,16 +87,14 @@
 //   });
 // });
 
-const form_like_post = document.querySelectorAll(".like-form")
-
-
+const form_like_post = document.querySelectorAll(".like-form");
 
 form_like_post.forEach((form) => {
   form.addEventListener("submit", function (e) {
     // stoper le rechargement de la page lorsque on clique btn like
     e.preventDefault();
 
-    console.log(e.target.action);
+    // console.log(e.target.action);
 
     // selectionner l'id du formulaire
     const post_id = e.target.id;
@@ -131,7 +129,6 @@ form_like_post.forEach((form) => {
       }
     };
 
-
     function getCookie(name) {
       let cookieValue = null;
       if (document.cookie && document.cookie !== "") {
@@ -149,22 +146,22 @@ form_like_post.forEach((form) => {
     const csrftoken = getCookie("csrftoken");
 
     const formData = new FormData();
-      formData.append("post_id", post_id);
+    formData.append("post_id", post_id);
 
-      const request = new Request(url, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "X-Requested-With": "XMLHttpRequest",
-          "X-CSRFToken": csrftoken,
-        },
-        body: formData,
-      });
+    const request = new Request(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRFToken": csrftoken,
+      },
+      body: formData,
+    });
 
-      fetch(request)
-        .then((response) => response.json())
-        .then((response) => {
-          `condition
+    fetch(request)
+      .then((response) => response.json())
+      .then((response) => {
+        `condition
        si le text de btn like est 'Je n'aime pas':
         - change le text en 'J'aime'
         - change le icone like.svg en unlike.svg
@@ -177,20 +174,26 @@ form_like_post.forEach((form) => {
         - mettre à jour le nombre de like avec la variable res`;
 
         if (response.value === "Unlike") {
-          document.querySelector(`.like-text${post_id}`).classList.remove("text-like_unlike-span");
-          document.getElementById(`like-img${post_id}`).src = "/static/post/img/unlike.svg"
-           
+          document
+            .querySelector(`.like-text${post_id}`)
+            .classList.remove("text-like_unlike-span");
+          document.getElementById(`like-img${post_id}`).src =
+            "/static/post/img/unlike.svg";
+
           res = likes_num - 1;
           fonc_text_plural(res);
         } else {
-          document.querySelector(`.like-text${post_id}`).classList.add("text-like_unlike-span");
-          document.getElementById(`like-img${post_id}`).src = "/static/post/img/like.svg"
-         
+          document
+            .querySelector(`.like-text${post_id}`)
+            .classList.add("text-like_unlike-span");
+          document.getElementById(`like-img${post_id}`).src =
+            "/static/post/img/like.svg";
+
           res = likes_num + 1;
           fonc_text_plural(res);
         }
 
         likes_count.textContent = res;
-        });
+      });
   });
 });

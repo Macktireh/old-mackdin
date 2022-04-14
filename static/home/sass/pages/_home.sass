@@ -7,7 +7,7 @@ main.main-home
   width: 100%
   gap: 1rem
   background-color: $color4
-  height: 100vh
+  // height: 100vh
   padding: 0.5rem
   .container1
     // padding-top: 1.5rem
@@ -15,7 +15,6 @@ main.main-home
 
     img
       width: 600px
-      // border: 1px solid #fff
 
     .content
       // border: 1px solid #fff
@@ -38,3 +37,23 @@ main.main-home
       @extend .flex-center
       flex-direction: column
       gap: 0.5rem
+
+@media screen and (max-width:920px)
+  img#container1-img
+    width: 500px
+@media screen and (max-width:780px)
+  img#container1-img
+    width: 100%
+@media screen and (max-width:740px)
+  .container1
+    flex-direction: column
+    align-items: center
+    img#container1-img
+      // width: 450px
+
+@media screen and (max-width:480px)
+  .container1
+    img#container1-img
+      // width: 100%
+  .container2
+    flex-direction: column

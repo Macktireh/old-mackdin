@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.environ.get('ENV', 'development') == 'production' else True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ") if os.environ.get('ALLOWED_HOSTS', []) != [] else []
 
 # Application definition
 DJANGO_APPS = [
@@ -50,7 +50,9 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'django_extensions',
     'cloudinary',
+    'rest_framework',
 ]
+# THIRD_PARTY_APPS = THIRD_PARTY_APPS + ['debug_toolbar'] if DEBUG else THIRD_PARTY_APPS
 
 LOCAL_APPS = [
     'apps.home',
@@ -67,7 +69,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,8 +78,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# if DEBUG is False:
-#     MIDDLEWARE += 'whitenoise.middleware.WhiteNoiseMiddleware'
+# if DEBUG:
+#     # MIDDLEWARE Django Debug Toolbar
+#     MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
 
 ROOT_URLCONF = 'config.urls'
 
@@ -201,6 +204,37 @@ cloudinary.config(
     #     'API_SECRET': os.environ.get('API_SECRET'),
     # }
 #     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+# Django Debug Toolbar
+if DEBUG:
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]
+    MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + list(MIDDLEWARE)
+    # print()
+    # print(MIDDLEWARE)
+    # print()
+    INTERNAL_IPS = ['127.0.0.1']
+
+    # this is the main reason for not showing up the toolbar
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".js", True)
+
+    DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
+    def show_toolbar(request):
+        return True
+        
+    DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+    'INSERT_BEFORE': '</head>',
+    'INTERCEPT_REDIRECTS': False,
+    'RENDER_PANELS': True,
+}
+    
+
 
 # Config logs
 import logging

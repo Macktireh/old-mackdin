@@ -2587,3 +2587,732 @@ django.core.exceptions.ImproperlyConfigured: settings.DATABASES is improperly co
 2022-04-12 19:34:22,284 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-13 13:45:28,147 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2022-04-13 14:22:19,124 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-13 17:37:54,978 django.request ERROR    Internal Server Error: /comment/delete-comment/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\comments\views.py", line 99, in delete_comment
+    obj = Comment.objects.get(id=id_comment)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 437, in get
+    self.model._meta.object_name
+apps.comments.models.Comment.DoesNotExist: Comment matching query does not exist.
+2022-04-13 17:52:34,541 django.request ERROR    Internal Server Error: /comment/delete-comment/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\comments\views.py", line 99, in delete_comment
+    obj = Comment.objects.get(id=id_comment)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 437, in get
+    self.model._meta.object_name
+apps.comments.models.Comment.DoesNotExist: Comment matching query does not exist.
+2022-04-13 19:14:54,526 django.request WARNING  Not Found: /favicon.ico
+2022-04-14 14:53:44,684 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 14:55:14,533 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 14:55:26,614 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\apps\home\views.py", line 14, in home
+    return render(request, template, context=context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 449, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\base.py", line 54, in reverse
+    app_list = resolver.app_dict[ns]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 530, in app_dict
+    self._populate()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 494, in _populate
+    {**defaults, **url_pattern.default_kwargs},
+TypeError: 'str' object is not a mapping
+2022-04-14 14:55:27,533 django.request WARNING  Not Found: /favicon.ico
+2022-04-14 14:58:38,764 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-14 14:58:40,794 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 14:59:39,213 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-14 14:59:41,411 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:00:08,729 django.request ERROR    Internal Server Error: /api/profiles
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\middleware\common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\middleware\common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 562, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 562, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 366, in resolve
+    kwargs.update(self.default_args)
+ValueError: dictionary update sequence element #0 has length 1; 2 is required
+2022-04-14 15:00:32,074 django.request ERROR    Internal Server Error: /api/profiles
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\middleware\common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\middleware\common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 562, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 562, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 366, in resolve
+    kwargs.update(self.default_args)
+ValueError: dictionary update sequence element #0 has length 1; 2 is required
+2022-04-14 15:02:11,238 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 15:02:13,668 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:02:17,345 django.request ERROR    Internal Server Error: /api/profiles
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\middleware\common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\middleware\common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 562, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 562, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\urls\resolvers.py", line 366, in resolve
+    kwargs.update(self.default_args)
+ValueError: dictionary update sequence element #0 has length 1; 2 is required
+2022-04-14 15:04:05,668 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\urls.py changed, reloading.
+2022-04-14 15:04:08,443 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:04:30,885 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\urls.py changed, reloading.
+2022-04-14 15:04:33,650 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:04:50,710 django.request WARNING  Not Found: /api/profiles/pp
+2022-04-14 15:20:09,927 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 15:20:14,921 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:20:41,608 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:21:29,085 django.request ERROR    Internal Server Error: /api/profiles
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 457, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\profiles\api\views.py", line 14, in get_list_profiles
+    return Response(serializers.data)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 490, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `id` on serializer `ProfileSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'id'.
+2022-04-14 15:21:59,870 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 15:22:02,677 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:22:04,565 django.request ERROR    Internal Server Error: /api/profiles
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 457, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'QuerySet' object has no attribute 'pseudo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\profiles\api\views.py", line 14, in get_list_profiles
+    return Response(serializers.data)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 490, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `pseudo` on serializer `ProfileSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'pseudo'.
+2022-04-14 15:25:39,859 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 15:25:43,376 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:25:45,886 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 15:25:48,301 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:27:07,410 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 15:27:09,719 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:28:15,371 django.request WARNING  Not Found: /api/profiles/78
+2022-04-14 15:30:05,241 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 15:30:06,594 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:30:09,594 django.request WARNING  Not Found: /api/profiles/
+2022-04-14 15:30:32,706 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\urls.py changed, reloading.
+2022-04-14 15:30:34,634 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:34:27,233 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 15:34:28,643 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 15:35:00,123 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:03:25,605 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:03:29,560 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:04:05,614 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:04:07,293 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:04:42,117 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:04:43,530 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:13:43,246 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:13:44,766 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:13:53,769 django.request WARNING  Not Found: /static/rest_framework/css/bootstrap.min.css
+2022-04-14 16:13:53,771 django.request WARNING  Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+2022-04-14 16:13:53,771 django.request WARNING  Not Found: /static/rest_framework/js/ajax-form.js
+2022-04-14 16:13:53,772 django.request WARNING  Not Found: /static/rest_framework/css/default.css
+2022-04-14 16:13:53,773 django.request WARNING  Not Found: /static/rest_framework/css/prettify.css
+2022-04-14 16:13:53,774 django.request WARNING  Not Found: /static/rest_framework/js/csrf.js
+2022-04-14 16:13:53,782 django.request WARNING  Not Found: /static/rest_framework/js/jquery-3.5.1.min.js
+2022-04-14 16:13:53,786 django.request WARNING  Not Found: /static/rest_framework/js/bootstrap.min.js
+2022-04-14 16:13:53,789 django.request WARNING  Not Found: /static/rest_framework/js/default.js
+2022-04-14 16:13:53,794 django.request WARNING  Not Found: /static/rest_framework/js/prettify-min.js
+2022-04-14 16:14:40,690 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-14 16:14:42,061 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:14:45,300 django.request ERROR    Internal Server Error: /api/profiles/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 233, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 324, in perform_authentication
+    request.user
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\request.py", line 227, in user
+    self._authenticate()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\request.py", line 380, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\authentication.py", line 127, in authenticate
+    if not user or not user.is_active:
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 246, in inner
+    self._setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\utils\functional.py", line 382, in _setup
+    self._wrapped = self._setupfunc()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\middleware.py", line 23, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\__init__.py", line 177, in get_user
+    user_id = _get_user_session_key(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 65, in __getitem__
+    return self._session[key]
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 238, in _get_session
+    self._session_cache = self.load()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 43, in load
+    s = self._get_session_from_db()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    expire_date__gt=timezone.now()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 431, in get
+    num = len(clone)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 262, in __len__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 513, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 55, in pre_sql_setup
+    self.setup_query()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 46, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 262, in get_select
+    sql, params = self.compile(col)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 445, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\expressions.py", line 835, in as_sql
+    sql = '.'.join(map(compiler.quote_name_unless_alias, identifiers))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 436, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\backends\dummy\base.py", line 20, in complain
+    raise ImproperlyConfigured("settings.DATABASES is improperly configured. "
+django.core.exceptions.ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
+2022-04-14 16:15:15,541 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:16:13,726 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:16:15,127 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:16:52,503 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:16:53,978 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:17:06,965 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:17:08,268 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:17:48,248 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:17:49,565 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:18:08,865 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:18:10,194 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:20:49,140 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:20:50,579 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:22:19,395 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:25:07,090 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:25:08,567 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:25:25,460 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:26:04,364 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:26:05,952 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:26:45,567 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:26:46,857 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:27:33,260 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:27:34,759 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:36:12,039 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:36:13,545 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:36:31,984 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:36:33,302 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:37:05,706 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-14 16:37:07,199 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:38:24,422 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-14 16:38:25,907 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:39:59,485 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-14 16:40:00,947 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:42:52,126 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-14 16:42:53,666 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:50:40,515 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:51:26,446 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:52:24,204 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:52:25,770 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:54:37,369 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:54:38,947 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:55:57,388 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:55:58,957 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:56:25,400 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 16:56:26,992 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 16:58:31,008 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 16:58:32,517 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:04:30,159 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:09:30,978 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:10:30,873 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:12:09,598 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:12:30,035 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:12:31,401 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:12:50,588 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:12:51,894 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:13:13,285 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:14:57,360 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:15:15,513 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:15:16,912 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:15:56,501 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:15:58,106 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:23:23,383 django.request WARNING  Not Found: /favicon.ico
+2022-04-14 17:23:46,921 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:23:48,533 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:23:59,924 django.request WARNING  Not Found: /favicon.ico
+2022-04-14 17:24:10,863 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\settings.py changed, reloading.
+2022-04-14 17:24:12,320 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 17:24:19,938 django.request WARNING  Not Found: /favicon.ico
+2022-04-14 19:07:04,800 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:07:08,255 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:09:21,342 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:09:22,724 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:09:29,821 django.request ERROR    Internal Server Error: /api/profiles/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\profiles\api\views.py", line 15, in get_list_profiles
+    return Response(serializers.data)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 280, in __iter__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 513, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 55, in pre_sql_setup
+    self.setup_query()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 46, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 248, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 989, in get_related_selections
+    ', '.join(_get_field_choices()) or '(none)',
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'profile'. Choices are: user
+2022-04-14 19:11:54,473 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:11:55,987 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:14:06,010 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:14:07,374 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:15:03,416 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:15:04,868 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:16:36,989 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:16:38,310 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:28:22,960 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:28:24,293 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:28:28,401 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:28:29,879 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:28:32,484 django.request ERROR    Internal Server Error: /api/profiles/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 457, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'ManyRelatedManager' object has no attribute 'email'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\profiles\api\views.py", line 16, in get_list_profiles
+    return Response(serializers.data)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\fields.py", line 490, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `email` on serializer `UserSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `ManyRelatedManager` instance.
+Original exception text was: 'ManyRelatedManager' object has no attribute 'email'.
+2022-04-14 19:32:11,324 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:32:14,816 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:34:36,682 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:34:38,292 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:35:03,117 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:35:04,718 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:36:46,514 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:36:48,110 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:36:49,267 django.request ERROR    Internal Server Error: /api/profiles/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\profiles\api\views.py", line 17, in get_list_profiles
+    return Response(serializers.data)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 280, in __iter__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 513, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 55, in pre_sql_setup
+    self.setup_query()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 46, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 248, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 989, in get_related_selections
+    ', '.join(_get_field_choices()) or '(none)',
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'liked'. Choices are: author
+2022-04-14 19:37:14,088 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:37:15,248 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:37:36,694 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:37:38,229 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:37:42,316 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:37:43,710 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:37:44,967 django.request ERROR    Internal Server Error: /api/profiles/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\profiles\api\views.py", line 17, in get_list_profiles
+    return Response(serializers.data)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 280, in __iter__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 513, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 55, in pre_sql_setup
+    self.setup_query()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 46, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 248, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 989, in get_related_selections
+    ', '.join(_get_field_choices()) or '(none)',
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'liked'. Choices are: author
+2022-04-14 19:39:06,196 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:39:07,897 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:39:08,722 django.request ERROR    Internal Server Error: /api/profiles/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\profiles\api\views.py", line 17, in get_list_profiles
+    return Response(serializers.data)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 768, in data
+    ret = super().data
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\rest_framework\serializers.py", line 687, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 280, in __iter__
+    self._fetch_all()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1162, in execute_sql
+    sql, params = self.as_sql()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 513, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 55, in pre_sql_setup
+    self.setup_query()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 46, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select()
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 248, in get_select
+    related_klass_infos = self.get_related_selections(select)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 989, in get_related_selections
+    ', '.join(_get_field_choices()) or '(none)',
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'liked'. Choices are: author
+2022-04-14 19:39:42,611 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 19:39:43,930 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:41:20,853 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:41:22,362 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:42:16,925 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\users\models.py changed, reloading.
+2022-04-14 19:42:18,545 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:43:05,071 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\users\models.py changed, reloading.
+2022-04-14 19:43:06,384 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:43:18,039 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:43:19,465 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:44:00,345 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:44:01,712 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:52:42,284 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:52:43,866 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:53:53,692 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:53:55,236 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 19:54:06,880 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 19:54:08,302 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 20:07:46,632 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\views.py changed, reloading.
+2022-04-14 20:07:48,177 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-14 20:08:56,992 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\profiles\api\serializers.py changed, reloading.
+2022-04-14 20:08:58,185 django.utils.autoreload INFO     Watching for file changes with StatReloader

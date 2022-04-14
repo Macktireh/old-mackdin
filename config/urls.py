@@ -14,10 +14,23 @@ urlpatterns = [
     path('post/', include('apps.post.urls')),
     path('comment/', include('apps.comments.urls')),
     path('mynetwork/', include('apps.friends.urls')),
-    # re_path(r'^mediafiles/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    
+    # urls api
+    path('api/', include('apps.profiles.api.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    import debug_toolbar
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]
 else:
     urlpatterns += [re_path(r'^mediafiles/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),]
+
+# print()
+# print()
+# for u in urlpatterns: 
+#     print(u)
+# print()
+# print()

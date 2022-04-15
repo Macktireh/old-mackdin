@@ -3329,3 +3329,14 @@ django.core.exceptions.FieldError: Invalid field name(s) given in select_related
 2022-04-15 12:35:50,049 django.request WARNING  Not Found: /api/profiles/
 2022-04-15 16:27:26,251 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
 2022-04-15 16:27:38,012 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-15 17:00:45,932 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-15 17:00:51,128 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-15 17:00:53,621 django.request WARNING  Not Found: /api/profiles/
+2022-04-15 17:00:53,927 django.request WARNING  Not Found: /favicon.ico
+2022-04-15 17:01:45,160 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-15 17:01:48,514 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-15 17:01:50,884 django.request WARNING  Not Found: /admin/mackind-administration
+2022-04-15 17:01:54,763 django.request WARNING  Not Found: /admin/mackind-administration
+2022-04-15 17:03:02,099 django.request WARNING  Not Found: /api/profiles
+2022-04-15 17:03:05,534 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
+2022-04-15 17:03:08,402 django.utils.autoreload INFO     Watching for file changes with StatReloader

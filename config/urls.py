@@ -7,7 +7,7 @@ from django.views.static import serve
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
+    path('admin-site/mackind-administration', admin.site.urls, name='admin'),
     path('', include('apps.home.urls')),
     path('accounts/', include('apps.users.urls')),
     path('profile/', include('apps.profiles.urls')),
@@ -16,13 +16,14 @@ urlpatterns = [
     path('mynetwork/', include('apps.friends.urls')),
     
     # urls api
-    path('api/', include('apps.profiles.api.urls')),
+    # path('api/', include('apps.profiles.api.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     import debug_toolbar
     urlpatterns += [
+        path('api/', include('apps.profiles.api.urls')),
         path('__debug__/', include(debug_toolbar.urls)),
     ]
 else:

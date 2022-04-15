@@ -6,19 +6,27 @@
   border-radius: 8px
   padding: 1.5rem
   @extend .flex-center
+  @media screen and (max-width: 500px)
+    padding: 1.5rem 0.5rem
 
   .update-porfile-container
-    width: 80%
+    width: 100%
+    max-width: 750px
     @include flex-el(start, center)
     flex-direction: column
     gap: 3rem
+    // border: 1px solid #fff
+    padding: 1rem
+
+    @media screen and (max-width: 500px)
+      padding: 0
 
     h2
       text-decoration: underline
       font-size: 26px
 
     .form-profile-update
-      width: 70%
+      width: 100%
       @include flex-el(start, null)
       flex-direction: column
       gap: 1.5rem

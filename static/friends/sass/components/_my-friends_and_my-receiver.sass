@@ -32,6 +32,10 @@ main.my-network
             object-position: center
             object-fit: cover
 
+            @media screen and (max-width: 420px)
+              width: 3.5rem
+              height: 3.5rem
+
           .my-friends-box-title
             @include flex-el(start, null)
             flex-direction: column
@@ -58,18 +62,19 @@ main.my-network
                 text-decoration: underline
 
         form.my-friends-add-friends
-          // margin-right: 0.2rem
+          text-align: center
           @extend .flex-center
-          gap: 1rem
+          gap: 0.5rem
           button.btn-add-friends, a
-            padding: 0.5rem 1.3rem
+            padding: 0.3rem 0.5rem
             border: none
             outline: none
             font-size: 16px
             font-family: $font1
-            border-radius: 20px
+            border-radius: 8px
             transition: .3s ease-out
             cursor: pointer
+            width: 8rem
 
           button.btn-add-friends
             background-color: $color11
@@ -85,32 +90,76 @@ main.my-network
             &:hover
               background-color: $color3
 
+          // button.btn-add-friends
+          //   padding: 0.3rem 0.5rem
+          //   border: none
+          //   outline: none
+          //   font-size: 16px
+          //   font-family: $font1
+          //   border-radius: 8px
+          //   transition: .3s ease-out
+          //   cursor: pointer
+
+          button.btn-accepted-invitation
+            background-color: $color10
+            color: $color2
+            border: 1px solid $color3
+            &:hover
+              background-color: $color3
+
+          button.btn-rejected-invitation
+            padding: 0.5rem 1rem
+            background-color: $color1
+            color: $color2
+            border-radius: 8px
+            border: none
+            outline: none
+            &:hover
+              background-color: $color4
+
+          @media screen and (max-width: 420px)
+            flex-direction: column
+            margin: 0 auto
+
         .container-form-accepted-rejected-invites
           @extend .flex-center
           gap: 0.5rem
 
-          form.my-friends-add-friends
-            button.btn-add-friends
-              padding: 0.5rem 1rem
-              border: none
-              outline: none
-              font-size: 16px
-              font-family: $font1
-              border-radius: 8px
-              transition: .3s ease-out
-              cursor: pointer
+          @media screen and (max-width: 420px)
+            flex-direction: column
+            margin: 0 auto
 
-            button.btn-accepted-invitation
-              background-color: $color10
-              color: $color2
-              border: 1px solid $color3
-              &:hover
-                background-color: $color3
+          // form.my-friends-add-friends
 
-            button.btn-rejected-invitation
-              padding: 0.6rem 1.4rem
-              background-color: $color1
-              color: $color2
-              border-radius: 8px
-              &:hover
-                background-color: $color4
+            // button.btn-add-friends
+            //   padding: 0.3rem 0.5rem
+            //   border: none
+            //   outline: none
+            //   font-size: 16px
+            //   font-family: $font1
+            //   border-radius: 8px
+            //   transition: .3s ease-out
+            //   cursor: pointer
+
+            // button.btn-accepted-invitation
+            //   background-color: $color10
+            //   color: $color2
+            //   border: 1px solid $color3
+            //   &:hover
+            //     background-color: $color3
+
+            // button.btn-rejected-invitation
+            //   padding: 0.5rem 1rem
+            //   background-color: $color1
+            //   color: $color2
+            //   border-radius: 8px
+            //   &:hover
+            //     background-color: $color4
+
+        @media screen and (max-width: 950px) and (min-width: 750px)
+          flex-direction: column
+          align-items: start
+
+        @media screen and (max-width: 655px)
+          flex-direction: column
+          align-items: start

@@ -384,20 +384,32 @@ a:visited {
   border-radius: 8px;
   padding: 1.5rem;
 }
+@media screen and (max-width: 500px) {
+  .main-profile-update {
+    padding: 1.5rem 0.5rem;
+  }
+}
 .main-profile-update .update-porfile-container {
-  width: 80%;
+  width: 100%;
+  max-width: 750px;
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: column;
   gap: 3rem;
+  padding: 1rem;
+}
+@media screen and (max-width: 500px) {
+  .main-profile-update .update-porfile-container {
+    padding: 0;
+  }
 }
 .main-profile-update .update-porfile-container h2 {
   text-decoration: underline;
   font-size: 26px;
 }
 .main-profile-update .update-porfile-container .form-profile-update {
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: start;
   flex-direction: column;

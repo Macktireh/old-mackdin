@@ -3340,3 +3340,73 @@ django.core.exceptions.FieldError: Invalid field name(s) given in select_related
 2022-04-15 17:03:02,099 django.request WARNING  Not Found: /api/profiles
 2022-04-15 17:03:05,534 django.utils.autoreload INFO     E:\Python\Django\linkedin\config\urls.py changed, reloading.
 2022-04-15 17:03:08,402 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-15 18:11:32,783 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\urls.py changed, reloading.
+2022-04-15 18:11:43,541 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-15 18:12:32,484 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\views.py changed, reloading.
+2022-04-15 18:12:37,620 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-15 18:15:15,384 django.request WARNING  Not Found: /post/123/update-post/
+2022-04-15 18:15:20,189 django.request ERROR    Internal Server Error: /post/12/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+TypeError: post_detail_view() got an unexpected keyword argument 'post_id'
+2022-04-15 18:16:26,538 django.request ERROR    Internal Server Error: /post/111/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+TypeError: post_detail_view() got an unexpected keyword argument 'post_id'
+2022-04-15 18:17:11,813 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\views.py changed, reloading.
+2022-04-15 18:17:16,700 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-15 18:17:29,223 django.request ERROR    Internal Server Error: /post/111/
+Traceback (most recent call last):
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "E:\Python\Django\linkedin\apps\post\views.py", line 58, in post_detail_view
+    return render(request, template, context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\test\utils.py", line 100, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "E:\Python\Django\linkedin\.venv\lib\site-packages\django\template\defaulttags.py", line 170, in render
+    values = list(values)
+TypeError: 'Post' object is not iterable
+2022-04-15 18:22:27,256 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\views.py changed, reloading.
+2022-04-15 18:22:32,491 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-15 18:22:39,447 django.utils.autoreload INFO     E:\Python\Django\linkedin\apps\post\views.py changed, reloading.
+2022-04-15 18:22:42,008 django.utils.autoreload INFO     Watching for file changes with StatReloader

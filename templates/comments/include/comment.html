@@ -2,7 +2,8 @@
 {% load humanize %}
 {% load cloudinary %}
 
-<form title="{{post.id}}" class="form-comment-list-input-container-global D-none_V-hidden_O-0"
+<form title="{{post.id}}"
+  class="form-comment-list-input-container-global {% if not post_detail %} D-none_V-hidden_O-0 {% endif %}"
   id="form-comment-list-input-container-global{{post.id}}" method="post"
   action="{% url 'comments:add-update-comment' %}">
   <div class="form-comment-container-input">

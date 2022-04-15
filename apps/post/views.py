@@ -42,6 +42,23 @@ def post_create_list_view(request, *args, **kwargs):
 
 
 @login_required(login_url='sign_in')
+def post_detail_view(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    post_form = False
+    post_detail = True
+    
+    template = 'post/post_list.html'
+    context = {
+        'start_animation': 'feed',
+        'post': post,
+        'post_form': post_form,
+        'post_detail': post_detail,
+    }
+    context.update(comment_view(request))
+    return render(request, template, context)
+
+
+@login_required(login_url='sign_in')
 def update_post(request, post_id):
     post_edit = get_object_or_404(Post, id=post_id)
     posts = Post.objects.all()

@@ -9,7 +9,11 @@
 {% block style %}
 <link rel="shortcut icon" href=" {% static 'components/img/linkedin-cust.svg' %} " type="image/x-icon" />
 <link rel="stylesheet" href=" {% static 'components/css/style.css' %}" />
+{% if page == 'notif' %}
+<link rel="stylesheet" href=" {% static 'notifications/css/style.css' %} " />
+{% else %}
 <link rel="stylesheet" href=" {% static 'comments/css/style.css' %} " />
+{% endif %}
 <link rel="stylesheet" href=" {% static 'post/css/style.css' %}" />
 {% endblock style %}
 
@@ -24,63 +28,21 @@
 
 
   <div class="container-main">
-    {% if not post_detail %}
-    {% include 'post/components/add_post.html' %}
+    {% if page == 'detail' %}
 
-    {% for post in posts %}
-    <div class="container-all-post">
-      {% include 'post/components/options.html' %}
-
-      <div class="post-header">
-        <a href="{% url 'profiles:profile' pseudo=post.author.profile.pseudo  %}">
-          <div class="post-header-img">
-            <img src="        
-              {% if post.author.profile.img_profile %}
-              {{ post.author.profile.img_profile.url }}
-              {% else %}
-              {% static 'profiles/img/default-img-profile.jpg' %}
-              {% endif %}" />
-          </div>
-        </a>
-        <div class="post-header-info">
-          <strong><a href="{% url 'profiles:profile' pseudo=post.author.profile.pseudo  %}">{{post.author.first_name}}
-              {{post.author.last_name}}</a></strong>
-          <p>{{post.author.profile.bio}}</p>
-          <p>{{post.date_created|naturaltime}}</p>
-        </div>
-      </div>
-
-      <div class="post-text-content">
-        <p>{{post.message|linebreaksbr}}</p>
-      </div>
-
-      {% if post.img %}
-      <div class="post-img">
-        <img src="{{post.img.url}}" alt="" />
-      </div>
-      {% endif %}
-
-      <div class="post-footer">
-        {% include 'post/components/count-likes-comments.html' %}
-        <hr />
-        <div class="box-action-icon">
-          {% include 'post/components/like-form-btn.html' %}
-          <button href="#" class="action-icon box-comment btn-container-comment-toggle" id="{{post.id}}">
-            <img src="{% static 'post/img/comment.svg' %}" class="icon-like-comment-share" id="{{post.id}}" />
-            <span id="{{post.id}}" class="label-like-comment-share">Commenter</span>
-          </button>
-          <button href="#" class="action-icon box-share">
-            <img src="{% static 'post/img/share.svg' %}" class="icon-like-comment-share" />
-            <span class="label-like-comment-share">Partager</span>
-          </button>
-        </div>
-      </div>
-
-      {% include 'comments/include/comment.html' %}
-    </div>
-    {% endfor %}
-    {% else %}
     {% include 'post/components/post-detail.html' %}
+
+    {% elif page == 'notif' %}
+
+    {% include 'notifications/list-notification.html' %}
+
+    {% else %}
+
+    {% include 'post/components/add_post.html' %}
+    {% for post in posts %}
+    {% include 'post/components/post-detail.html' %}
+    {% endfor %}
+
     {% endif %}
     <input type="hidden" id="input_hidden_url_delete_comment" value="{% url 'comments:delete-comment' %}">
   </div>
@@ -91,6 +53,8 @@
       <h4>Actualités</h4>
     </ul>
   </div>
+
+
 </main>
 {% endblock content %}
 
@@ -101,6 +65,7 @@
 
 {% block js %}
 <script type="text/javascript" src=" {% static 'components/js/index.js' %} "></script>
+<script type="text/javascript" src=" {% static 'notifications/js/notifications.js' %} "></script>
 <script type="text/javascript" src=" {% static 'post/js/post_list.js' %} "></script>
 <script type="text/javascript" src=" {% static 'post/js/ajax_like_post.js' %} "></script>
 <script type="text/javascript" src=" {% static 'comments/js/comment_list.js' %} "></script>
@@ -113,7 +78,7 @@
 {% include 'comments/include/ajax_comment.html' %}
 {% endcomment %}
 
-{% if post_form %}
+{% if page == 'update' %}
 <script>
   const previous_container_edit = document.querySelector(
     ".previous-new-add-post"
@@ -127,7 +92,8 @@
   previous_p_img_container_edit.classList.remove("display-none");
   previous_p_img_container_edit.classList.add("display-block");
 </script>
-{% else %}
+{% endif %}
+{% if page == 'list' %}
 <script>
   try {
     // Close image previous

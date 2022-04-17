@@ -42,7 +42,7 @@ fetch(
       `;
     });
   })
-  .catch((err) => console.log(err));
+  .catch();
 
 var timeSince = function (date) {
   if (typeof date !== "object") {

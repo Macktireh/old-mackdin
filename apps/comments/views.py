@@ -57,7 +57,7 @@ def add_update_comment_view(request):
     user = request.user
     
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        print('\n\najax request with fetch')
+        # print('\n\najax request with fetch')
         
         don = json.load(request)
         

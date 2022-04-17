@@ -1,32 +1,37 @@
-import cloudinary
 import os
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
+import cloudinary
+
+from apps.notifications.models import Notification
+from apps.profiles.models import Profile
 from apps.comments.views import comment_view
 from apps.post.models import LikePost, Post
 from apps.post.forms import PostForm
-from apps.comments.models import Comment, ReponseComment, LikeComment
-from apps.comments.forms import CommentForm, ReponseCommentForm
-
 
 
 @login_required(login_url='sign_in')
 def post_create_list_view(request, *args, **kwargs):
-    posts = Post.objects.all()
-    user = request.user
-    post_form = False
+    posts = Post.objects.select_related('author').all()
+    current_user = Profile.objects.select_related('user').get(user=request.user)
     
+    # post_form = False
     AddPostForm = PostForm()
     
     if "submit_p_form" in request.POST:
         AddPostForm = PostForm(request.POST, request.FILES)
         if AddPostForm.is_valid():
             instance = AddPostForm.save(commit=False)
-            instance.author = user
+            instance.author = request.user
             instance.save()
             AddPostForm = PostForm()
+            
+            # notifier pour le nouveau post aux amis
+            if current_user.friends:
+                for to_user in current_user.friends.all():
+                    Notification.objects.create(type_notif='Add_Post', from_user=request.user, to_user=to_user, post=instance)
             
             return redirect('post:post_list')
     
@@ -35,7 +40,8 @@ def post_create_list_view(request, *args, **kwargs):
         'start_animation': 'feed',
         'posts': posts,
         'AddPostForm': AddPostForm,
-        'post_form': post_form,
+        # 'post_form': post_form,
+        'page': 'list',
     }
     context.update(comment_view(request))
     return render(request, template, context)
@@ -44,15 +50,16 @@ def post_create_list_view(request, *args, **kwargs):
 @login_required(login_url='sign_in')
 def post_detail_view(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    post_form = False
-    post_detail = True
+    # post_form = False
+    # post_detail = True
     
     template = 'post/post_list.html'
     context = {
         'start_animation': 'feed',
         'post': post,
-        'post_form': post_form,
-        'post_detail': post_detail,
+        # 'post_form': post_form,
+        # 'post_detail': post_detail,
+        'page': 'detail',
     }
     context.update(comment_view(request))
     return render(request, template, context)
@@ -62,7 +69,7 @@ def post_detail_view(request, post_id):
 def update_post(request, post_id):
     post_edit = get_object_or_404(Post, id=post_id)
     posts = Post.objects.all()
-    post_form = True
+    # post_form = True
     
     if request.method == 'POST':
         if len(request.FILES) != 0:
@@ -81,7 +88,8 @@ def update_post(request, post_id):
         'start_animation': 'feed',
         'posts': posts,
         'post_edit': post_edit,
-        'post_form': post_form
+        # 'post_form': post_form,
+        'page': 'update',
     }
     return render(request, template, context)
 
@@ -141,7 +149,7 @@ def like_post(request):
         
         data = {
             'value': str(like.value),
-            'likes': post_obj.liked.all().count()
+            # 'likes': post_obj.liked.all().count()
         }
         return JsonResponse(data, safe=False)
     return redirect('post:post_list')

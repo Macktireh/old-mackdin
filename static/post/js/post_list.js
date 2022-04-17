@@ -6,7 +6,6 @@ try {
   const p_text = document.getElementById("previous-message");
   const p_img = document.getElementById("previous-post-image");
   const cancel_add_post = document.getElementById("btn-cancel-add-post");
-  const options_btn = document.querySelectorAll(".options-btn");
 
   let val;
   // console.log(previous_container);
@@ -63,15 +62,24 @@ try {
     previous_p_img_container.classList.add("display-none");
     previous_container.classList.add("display-none");
   });
+} catch (error) {}
 
-  // toggle button options post
+// toggle button options post
+try {
+  const options_btn = document.querySelectorAll(".options-btn");
   options_btn.forEach((element) => {
     element.addEventListener("click", (e) => {
       ops_container = document.getElementById("options-container" + element.id);
       ops_container.classList.toggle("display-none");
     });
   });
-} catch (error) {}
+} catch (error) {
+  const options_btn = document.querySelector(".options-btn");
+  options_btn.addEventListener("click", (e) => {
+    ops_container = document.getElementById("options-container" + element.id);
+    ops_container.classList.toggle("display-none");
+  });
+}
 
 // toggle button display section comment
 try {

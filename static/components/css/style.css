@@ -20,7 +20,7 @@ a:visited {
   color: #f1f1f1;
 }
 
-.flex-center, footer .footer-content .footer-content-box .footer-logo, .hamburger-nav-profil, .nav-box-profil, .nav-text, nav ul a, a.logo {
+.flex-center, footer .footer-content .footer-content-box .footer-logo, .hamburger-nav-profil, .nav-profil, .nav-box-profil, .nav-text, nav ul a, a.logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +94,7 @@ nav ul {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 15px;
   height: 100%;
   width: 100%;
 }
@@ -120,7 +120,7 @@ nav ul a {
   position: relative;
   text-align: center;
   height: 100%;
-  gap: 5px;
+  gap: 10px;
 }
 
 .animation {
@@ -137,13 +137,34 @@ nav ul a .start-animation {
   width: 110%;
 }
 
+a.nav-nofit {
+  position: relative;
+}
+a.nav-nofit span#nav-nofit-alert {
+  width: 15px;
+  height: 15px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #f31d58;
+  font-size: 12px;
+  z-index: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 45%;
+  left: 11%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+}
+
 nav ul a:hover {
   background: #3238373f;
   border-radius: 8px;
 }
 
 .nav-profil-mobile {
-  visibility: hidden;
+  display: none;
 }
 
 .nav-box-profil {
@@ -166,7 +187,6 @@ nav ul a:hover {
 
 .hamburger {
   display: none;
-  visibility: hidden;
   cursor: pointer;
   margin-right: 2rem;
 }
@@ -184,14 +204,21 @@ nav ul a:hover {
 @media screen and (max-width: 1070px) {
   .nav-text {
     flex-direction: column;
-    line-height: 40px;
+    line-height: 20px;
     gap: 5px;
   }
+
+  a.nav-nofit span#nav-nofit-alert {
+    position: absolute;
+    top: 30%;
+    left: 52%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+  }
 }
-@media screen and (max-width: 798px) {
+@media screen and (max-width: 840px) {
   .hamburger {
     display: block;
-    visibility: visible;
   }
   .hamburger:active {
     transform: scale(0.97);
@@ -238,6 +265,7 @@ nav ul a:hover {
 
   nav ul a .nav-text {
     flex-direction: rows;
+    padding-bottom: 10px;
   }
 
   nav ul a:hover {
@@ -248,10 +276,18 @@ nav ul a:hover {
   .nav-menu.active {
     left: 0;
   }
+
+  a.nav-nofit span#nav-nofit-alert {
+    position: absolute;
+    top: 17%;
+    left: 52%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+  }
 }
 @media screen and (max-width: 390px) {
   .nav-profil-mobile {
-    visibility: visible;
+    display: block;
   }
 
   .nav-profil-ecran {

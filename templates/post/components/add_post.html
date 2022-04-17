@@ -18,7 +18,7 @@
       <form class="form-new-add-post" action="" method="POST" enctype="multipart/form-data" id="form-add-new-post">
         {% csrf_token %}
         <div class="input-text">
-          {% if post_form %}
+          {% if page == 'update' %}
           <textarea name="message" id="textarea_id" cols="65" rows="2"
             placeholder="Ajouter un post">{{post_edit.message}}</textarea>
           {% else %}
@@ -27,7 +27,7 @@
         </div>
         <div class="add-img-btn-send">
           <div class="input-file">
-            {% if post_form %}
+            {% if page == 'update' %}
             <input type="file" name="img" id="file" class="form-input-file">
             {% else %}
             {{ AddPostForm.img }}
@@ -71,11 +71,11 @@
         </div>
 
         <div class="previous-post-text-content">
-          <p id='previous-message'>{% if post_form %}{{post_edit.message}}{% endif %}</p>
+          <p id='previous-message'>{% if page == 'update' %}{{post_edit.message}}{% endif %}</p>
         </div>
 
         <div class="previous-post-img">
-          {% if post_form %}
+          {% if page == 'update' %}
           <img id='previous-post-image' src="{% if post_edit.img %} {{post_edit.img.url}} {% endif %}">
           {% else %}
           <img id='previous-post-image' src="">
@@ -86,7 +86,7 @@
       </div>
     </div>
     <div class="cancel-add-post-container">
-      {% if post_form %}
+      {% if page == 'update' %}
       <a href="{% url 'post:post_list' %}">
         <span id="btn-cancel-add-post">Annuler</span>
       </a>

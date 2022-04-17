@@ -57,7 +57,7 @@ class Sign_UpForm(forms.ModelForm):
 
     def clean_first_name(self, *args, **kwargs):
         first_name = self.cleaned_data.get('first_name')
-        print('first_name :', first_name)
+        # print('first_name :', first_name)
         if first_name is None:
             raise forms.ValidationError(_("Le champ prénom ne doit pas être vide !"))
         elif len(first_name) < 2:
@@ -66,7 +66,7 @@ class Sign_UpForm(forms.ModelForm):
 
     def clean_last_name(self, *args, **kwargs):
         last_name = self.cleaned_data.get('last_name')
-        print('last_name :', last_name)
+        # print('last_name :', last_name)
         if last_name is None:
             raise forms.ValidationError(_("Le champ nom ne doit pas être vide !"))
         elif len(last_name) < 2:
@@ -75,14 +75,14 @@ class Sign_UpForm(forms.ModelForm):
 
     def clean_email(self, *args, **kwargs):
         email = self.cleaned_data.get('email')
-        print('email :', email)
+        # print('email :', email)
         if not self.signup_email_validation(email):
             raise forms.ValidationError(_("Le champ email n'est pas valide!"))
         return email
 
     def clean_password(self, *args, **kwargs):
         password = self.cleaned_data.get('password')
-        print('password :', password)
+        # print('password :', password)
         if not self.signup_password_validation(password):
             raise forms.ValidationError(_("Le champ mot de passe doit contenir: minimum de 8 caractères, au moins majuscule et minuscule, au moins chiffre et un caractère spécial."))
         return password
@@ -91,8 +91,8 @@ class Sign_UpForm(forms.ModelForm):
         cleaned_data = super().clean()
         password = cleaned_data.get('password')
         confirm_password = cleaned_data.get('confirm_password')
-        print('password :', password)
-        print('confirm_password :', confirm_password)
+        # print('password :', password)
+        # print('confirm_password :', confirm_password)
         if password and confirm_password:
             if password != confirm_password:
                 raise forms.ValidationError(_("Les mots de passe ne correspondent pas"))

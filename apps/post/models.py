@@ -31,7 +31,7 @@ class Post(models.Model):
     liked = models.ManyToManyField(User, related_name='user_like', blank=True, default=None)
 
     def __str__(self):
-        return f"{self.author.first_name}"
+        return f"Post-{self.id}-{self.author.first_name}"
     
     @property
     def number_of_like(self):

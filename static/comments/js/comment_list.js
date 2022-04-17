@@ -34,8 +34,8 @@ const comment_options_item_edits = document.querySelectorAll(
 comment_options_item_edits.forEach((element) => {
   element.addEventListener("click", (e) => {
     const msg = document.querySelector(".msg-text-p-" + e.target.id);
-    console.log(e.target.id);
-    console.log(msg.id);
+    // console.log(e.target.id);
+    // console.log(msg.id);
 
     document.getElementById("input_message_comment-" + msg.id).value =
       msg.textContent;

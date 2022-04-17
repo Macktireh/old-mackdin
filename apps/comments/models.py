@@ -15,7 +15,7 @@ class Comment(models.Model):
     liked = models.ManyToManyField(User, related_name='users_comment_like', blank=True, default=None)
     
     def __str__(self):
-        return f"{self.author.first_name} {self.author.last_name}"
+        return f"Comment-{self.id}-{self.author.first_name}"
 
 class ReponseComment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_reponse_comment')

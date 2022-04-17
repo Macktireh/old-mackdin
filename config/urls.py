@@ -5,15 +5,23 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 
+from rest_framework import routers
+
+from apps.notifications.api.urls import router as router_notifications
+
+router = routers.DefaultRouter()
+router.registry.extend(router_notifications.registry)
+
 
 urlpatterns = [
     path('admin-site/mackind-administration', admin.site.urls, name='admin'),
     path('', include('apps.home.urls')),
     path('accounts/', include('apps.users.urls')),
     path('profile/', include('apps.profiles.urls')),
-    path('post/', include('apps.post.urls')),
+    path('feed/', include('apps.post.urls')),
     path('comment/', include('apps.comments.urls')),
     path('mynetwork/', include('apps.friends.urls')),
+    path('notifications/', include('apps.notifications.urls')),
     
     # urls api
     # path('api/', include('apps.profiles.api.urls')),
@@ -24,6 +32,8 @@ if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
         path('api/', include('apps.profiles.api.urls')),
+        path('api/', include('apps.notifications.api.urls')),
+        # path('api/', include(router.urls)),
         path('__debug__/', include(debug_toolbar.urls)),
     ]
 else:

@@ -61,6 +61,7 @@ LOCAL_APPS = [
     'apps.post',
     'apps.comments',
     'apps.friends',
+    'apps.notifications'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -161,7 +162,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images) and media
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
@@ -188,22 +189,17 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT= os.environ.get('EMAIL_PORT')
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
 
+
+# config django_heroku
 django_heroku.settings(locals())
 
 
+# config cloudinary
 cloudinary.config( 
   cloud_name = os.environ.get('CLOUD_NAME'), 
   api_key = os.environ.get('API_KEY'), 
   api_secret = os.environ.get('API_SECRET'),
 )
-# Config CLOUDINARY for mediafiles
-# if DEBUG is False:
-    # CLOUDINARY_STORAGE = {
-    #     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-    #     'API_KEY': os.environ.get('API_KEY'),
-    #     'API_SECRET': os.environ.get('API_SECRET'),
-    # }
-#     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # Django Debug Toolbar
@@ -212,12 +208,8 @@ if DEBUG:
         'debug_toolbar',
     ]
     MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + list(MIDDLEWARE)
-    # print()
-    # print(MIDDLEWARE)
-    # print()
     INTERNAL_IPS = ['127.0.0.1']
 
-    # this is the main reason for not showing up the toolbar
     import mimetypes
     mimetypes.add_type("application/javascript", ".js", True)
 
@@ -233,7 +225,6 @@ if DEBUG:
     'INTERCEPT_REDIRECTS': False,
     'RENDER_PANELS': True,
 }
-    
 
 
 # Config logs
